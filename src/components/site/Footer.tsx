@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Twitter, Facebook, Instagram, Send, Phone, Mail, MapPin } from "lucide-react";
-import { FaPinterestP } from "react-icons/fa";
+import { Twitter, Facebook, Instagram, Linkedin, Send, Phone, Mail, MapPin } from "lucide-react";
 
 export function Footer() {
   return (
