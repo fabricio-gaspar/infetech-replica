@@ -21,12 +21,12 @@ const heroCards = [
 ];
 
 const services = [
-  { t: "Automated Software", d: "Streamline operations with intelligent automation engines.", icon: Cpu },
-  { t: "Data Structuring", d: "Organize complex datasets into actionable models.", icon: Database },
-  { t: "IT Consultancy", d: "Strategic IT roadmaps from senior technology partners.", icon: Briefcase },
-  { t: "Managed IT Services", d: "End-to-end management of your IT infrastructure.", icon: Settings2 },
-  { t: "Market Strategy", d: "Data-driven market plans that scale your business.", icon: BarChart3 },
-  { t: "Software Develop", d: "Custom software crafted to fit your operations.", icon: Code2 },
+  { t: "Automated Software", d: "It is used in business process management to increase productivity & efficiency.", icon: Cpu },
+  { t: "IT Consultancy", d: "Improvement of staff productivity, cost savings, competitive edge, and more.", icon: Briefcase },
+  { t: "Market Strategy", d: "We provide a variety of the best marketing strategies to grow your business.", icon: BarChart3 },
+  { t: "Data Structuring", d: "Analyze nature of the data and its importance in the larger scheme of things.", icon: Database },
+  { t: "Managed IT Services", d: "Our managed IT services include network monitoring, security & virtualization.", icon: Settings2 },
+  { t: "Software Develop", d: "An entire process of creating, designing, deploying and supporting software.", icon: Code2 },
 ];
 
 const projects = [
@@ -163,18 +163,35 @@ function HomePage() {
       </section>
 
       {/* SERVICES GRID 3x2 */}
-      <section className="section-y bg-section">
-        <div className="container-x text-center reveal max-w-2xl mx-auto">
-          <div className="eyebrow mb-3 justify-center">What we're offering</div>
-          <h2 className="text-3xl md:text-5xl font-black leading-tight">Our Professional IT Services</h2>
+      <section className="section-y bg-section relative overflow-hidden">
+        <div
+          aria-hidden
+          className="absolute inset-0 opacity-[0.25] pointer-events-none"
+          style={{
+            backgroundImage: "radial-gradient(circle at 1px 1px, rgba(106,38,218,0.35) 1px, transparent 1.5px)",
+            backgroundSize: "26px 26px",
+            maskImage: "radial-gradient(ellipse at center, transparent 30%, black 80%)",
+            WebkitMaskImage: "radial-gradient(ellipse at center, transparent 30%, black 80%)",
+          }}
+        />
+        <div className="container-x relative text-center reveal max-w-3xl mx-auto">
+          <div className="eyebrow mb-4 justify-center">What We're Offering to Our Clients</div>
+          <h2 className="text-3xl md:text-5xl font-black leading-[1.15]">Real Time Dealing in all Professional<br />IT Solutions &amp; Services</h2>
         </div>
-        <div className="container-x mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="container-x relative mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-0 border-l border-t border-foreground/10 bg-white">
           {services.map((s, i) => (
-            <div key={s.t} className="card-soft p-7 flex items-start gap-5 reveal" style={{ transitionDelay: `${i*80}ms`}}>
-              <div className="w-14 h-14 rounded-sm grid place-items-center bg-accent text-primary shrink-0"><s.icon className="w-6 h-6" /></div>
-              <div>
-                <h3 className="font-bold text-lg">{s.t}</h3>
-                <p className="text-sm text-muted-foreground mt-2">{s.d}</p>
+            <div
+              key={s.t}
+              className="relative bg-white p-10 border-r border-b border-foreground/10 min-h-[260px] reveal group hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition-all"
+              style={{ transitionDelay: `${i*70}ms`}}
+            >
+              <h3 className="font-black text-[22px] tracking-tight">{s.t}</h3>
+              <p className="mt-6 text-[14px] text-muted-foreground leading-relaxed max-w-[260px]">{s.d}</p>
+              <div className="absolute right-8 bottom-8">
+                <div className="relative">
+                  <span className="absolute -top-3 -left-3 w-12 h-12 rounded-full bg-primary/10" />
+                  <s.icon className="relative w-12 h-12 text-primary" strokeWidth={1.4} />
+                </div>
               </div>
             </div>
           ))}
