@@ -60,74 +60,76 @@ function HomePage() {
   return (
     <SiteShell>
       {/* HERO */}
-      <section className="relative bg-white overflow-hidden">
+      <section className="relative bg-[#f3f1f7] overflow-hidden">
+        {/* Full-bleed hero image on the right half */}
+        <div className="absolute inset-y-0 right-0 w-full lg:w-1/2 pointer-events-none">
+          <img
+            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1400&q=80"
+            alt="Tech professional"
+            className="w-full h-full object-cover grayscale opacity-90 lg:opacity-100"
+          />
+          {/* fade overlay on the left edge of the image to blend into bg */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#f3f1f7] via-[#f3f1f7]/40 to-transparent lg:via-transparent" />
+        </div>
+
+        {/* Circuit decoration on the left */}
         <div
-          className="absolute inset-0 pointer-events-none opacity-[0.05]"
+          aria-hidden
+          className="hidden md:block absolute left-0 top-0 bottom-0 w-1/3 opacity-[0.35] pointer-events-none"
           style={{
             backgroundImage:
-              "linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
+              "radial-gradient(circle at 1px 1px, rgba(106,38,218,0.55) 1px, transparent 1.5px)",
+            backgroundSize: "22px 22px",
+            maskImage: "linear-gradient(to right, black, transparent)",
+            WebkitMaskImage: "linear-gradient(to right, black, transparent)",
           }}
         />
-        <div className="container-x pt-20 lg:pt-24 pb-40 grid lg:grid-cols-2 gap-10 items-center relative">
+
+        <div className="container-x relative pt-24 lg:pt-32 pb-44 lg:pb-56 grid lg:grid-cols-2 gap-10">
           <div className="reveal">
-            <div className="inline-flex items-center gap-3 text-primary text-xs font-semibold uppercase tracking-[0.15em] mb-6">
-              <span className="w-8 h-px bg-primary" />
+            <div className="inline-flex items-center gap-3 text-primary text-xs font-semibold uppercase tracking-[0.2em] mb-7">
               Welcome to Infetech
             </div>
-            <h1 className="font-black text-foreground leading-[1.05] tracking-tight text-[42px] sm:text-[56px] lg:text-[68px]">
+            <h1 className="font-black text-foreground leading-[1.05] tracking-tight text-[44px] sm:text-[60px] lg:text-[76px]">
               <span className="relative inline-block">
                 Future
-                <span className="absolute left-0 -bottom-2 w-20 h-[3px] bg-primary" />
+                <svg className="absolute left-0 -bottom-1 w-[180px] h-3" viewBox="0 0 180 12" fill="none" preserveAspectRatio="none">
+                  <path d="M2 8 C 40 2, 90 10, 178 4" stroke="#6A26DA" strokeWidth="4" strokeLinecap="round" fill="none" />
+                </svg>
               </span>
               <br />belongs to<br />technology
             </h1>
-            <p className="mt-8 text-muted-foreground max-w-md leading-[1.75]">
-              We help organizations design, build and scale the digital systems that define the next decade of work.
-            </p>
-            <Link to="/about" className="btn-primary mt-9">Learn More</Link>
+            <Link to="/about" className="btn-primary mt-10">Learn More</Link>
           </div>
-          <div className="relative reveal">
-            <img
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1100&q=80"
-              alt="Tech professional"
-              className="relative w-full h-[460px] lg:h-[560px] object-cover grayscale"
-            />
-            <div className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 flex-col gap-3">
-              <button aria-label="Previous slide" className="w-11 h-11 rounded-full border border-foreground/20 bg-white grid place-items-center text-foreground/70 hover:bg-primary hover:text-white hover:border-primary transition-colors">
-                <ArrowRight className="w-4 h-4 rotate-180" />
-              </button>
-              <button aria-label="Next slide" className="w-11 h-11 rounded-full border border-foreground/20 bg-white grid place-items-center text-foreground/70 hover:bg-primary hover:text-white hover:border-primary transition-colors">
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-            <div className="absolute -right-8 bottom-6 hidden lg:flex flex-col gap-2">
-              {[0, 1, 2].map((i) => (
-                <span
-                  key={i}
-                  className={`block rounded-full transition-all ${i === 0 ? "w-2.5 h-2.5 bg-primary" : "w-2 h-2 bg-foreground/20"}`}
-                />
-              ))}
-            </div>
+
+          {/* slider controls on right */}
+          <div className="hidden lg:flex absolute right-6 top-1/2 -translate-y-1/2 flex-col items-center gap-3 z-10">
+            {[0, 1, 2].map((i) => (
+              <span
+                key={i}
+                className={`block rounded-full transition-all ${i === 0 ? "w-2.5 h-2.5 bg-primary" : "w-2 h-2 bg-foreground/25"}`}
+              />
+            ))}
           </div>
         </div>
+
         {/* overlapping cards */}
-        <div className="container-x relative -mt-28 pb-24 grid md:grid-cols-3 gap-6">
+        <div className="container-x relative -mt-32 lg:-mt-40 pb-24 grid md:grid-cols-3 gap-6 z-10">
           {heroCards.map((c, i) => (
             <div
               key={c.t}
-              className="relative bg-white p-8 border-l-[3px] border-primary shadow-[0_10px_40px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.14)] hover:-translate-y-1.5 transition-all duration-300 reveal"
+              className="relative bg-white p-8 pb-10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.14)] hover:-translate-y-1.5 transition-all duration-300 reveal"
               style={{ transitionDelay: `${i * 100}ms` }}
             >
-              <span className="absolute top-3 right-3 w-2.5 h-2.5 bg-primary" />
-              <span className="absolute right-5 bottom-3 text-[64px] font-black leading-none text-foreground/[0.06] select-none">{c.n}</span>
-              <c.icon className="w-10 h-10 text-primary" strokeWidth={1.5} />
-              <h3 className="relative mt-6 text-[17px] font-bold uppercase tracking-wide">{c.t}</h3>
-              <p className="relative mt-3 text-sm text-muted-foreground leading-relaxed">{c.d}</p>
+              <span className="absolute top-0 right-0 w-3 h-3 bg-primary" />
+              <span className="absolute right-6 bottom-4 text-[70px] font-black leading-none text-foreground/[0.07] select-none">{c.n}</span>
+              <h3 className="relative text-[18px] font-black uppercase tracking-wide leading-tight max-w-[180px]">{c.t}</h3>
+              <p className="relative mt-5 text-[13px] text-muted-foreground leading-relaxed max-w-[220px]">{c.d}</p>
             </div>
           ))}
         </div>
       </section>
+
 
       {/* WHY CHOOSE OUR SERVICES */}
       <section className="section-y bg-white">
