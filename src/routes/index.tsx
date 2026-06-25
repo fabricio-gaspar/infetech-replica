@@ -54,37 +54,76 @@ function HomePage() {
     <SiteShell>
       {/* HERO */}
       <section className="relative bg-white overflow-hidden">
-        <div className="absolute inset-y-0 left-0 w-1/2 pointer-events-none opacity-[0.04]" style={{ backgroundImage: "repeating-linear-gradient(45deg, #000 0 1px, transparent 1px 18px)" }} />
-        <div className="container-x pt-16 pb-32 grid lg:grid-cols-2 gap-10 items-center relative">
+        <div
+          className="absolute inset-0 pointer-events-none opacity-[0.05]"
+          style={{
+            backgroundImage:
+              "linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+        <div className="container-x pt-20 lg:pt-24 pb-40 grid lg:grid-cols-2 gap-10 items-center relative">
           <div className="reveal">
-            <div className="eyebrow mb-5">Welcome to Infetech</div>
-            <h1 className="text-5xl md:text-7xl font-black leading-[1.05] tracking-tight">
-              <span className="border-b-4 border-primary pb-1">Future</span><br />belongs to<br />technology
+            <div className="inline-flex items-center gap-3 text-primary text-xs font-semibold uppercase tracking-[0.15em] mb-6">
+              <span className="w-8 h-px bg-primary" />
+              Welcome to Infetech
+            </div>
+            <h1 className="font-black text-foreground leading-[1.05] tracking-tight text-[42px] sm:text-[56px] lg:text-[68px]">
+              <span className="relative inline-block">
+                Future
+                <span className="absolute left-0 -bottom-2 w-20 h-[3px] bg-primary" />
+              </span>
+              <br />belongs to<br />technology
             </h1>
-            <p className="mt-6 text-muted-foreground max-w-md">
+            <p className="mt-8 text-muted-foreground max-w-md leading-[1.75]">
               We help organizations design, build and scale the digital systems that define the next decade of work.
             </p>
-            <Link to="/about" className="btn-primary mt-8">Learn More <ArrowRight className="w-4 h-4" /></Link>
+            <Link to="/about" className="btn-primary mt-9">Learn More</Link>
           </div>
           <div className="relative reveal">
-            <div className="absolute -top-8 -right-8 w-2/3 h-2/3 purple-gradient opacity-10 rounded-full blur-3xl" />
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1100&q=80" alt="Tech professional" className="relative w-full h-[520px] object-cover grayscale rounded-sm" />
+            <img
+              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1100&q=80"
+              alt="Tech professional"
+              className="relative w-full h-[460px] lg:h-[560px] object-cover grayscale"
+            />
+            {/* slider arrows */}
+            <div className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 flex-col gap-3">
+              <button aria-label="Previous slide" className="w-11 h-11 rounded-full border border-foreground/20 bg-white grid place-items-center text-foreground/70 hover:bg-primary hover:text-white hover:border-primary transition-colors">
+                <ArrowRight className="w-4 h-4 rotate-180" />
+              </button>
+              <button aria-label="Next slide" className="w-11 h-11 rounded-full border border-foreground/20 bg-white grid place-items-center text-foreground/70 hover:bg-primary hover:text-white hover:border-primary transition-colors">
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+            {/* slider dots */}
+            <div className="absolute -right-8 bottom-6 hidden lg:flex flex-col gap-2">
+              {[0, 1, 2].map((i) => (
+                <span
+                  key={i}
+                  className={`block rounded-full transition-all ${i === 0 ? "w-2.5 h-2.5 bg-primary" : "w-2 h-2 bg-foreground/20"}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
         {/* overlapping cards */}
-        <div className="container-x relative -mt-20 pb-20 grid md:grid-cols-3 gap-6">
+        <div className="container-x relative -mt-28 pb-24 grid md:grid-cols-3 gap-6">
           {heroCards.map((c, i) => (
-            <div key={c.t} className="card-soft p-7 reveal" style={{ transitionDelay: `${i * 100}ms` }}>
-              <div className="flex items-start justify-between">
-                <c.icon className="w-10 h-10 text-primary" strokeWidth={1.5} />
-                <span className="text-4xl font-black text-foreground/10">{c.n}</span>
-              </div>
-              <h3 className="mt-5 text-lg font-bold uppercase tracking-wide">{c.t}</h3>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{c.d}</p>
+            <div
+              key={c.t}
+              className="relative bg-white p-8 border-l-[3px] border-primary shadow-[0_10px_40px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.14)] hover:-translate-y-1.5 transition-all duration-300 reveal"
+              style={{ transitionDelay: `${i * 100}ms` }}
+            >
+              <span className="absolute top-3 right-3 w-2.5 h-2.5 bg-primary" />
+              <span className="absolute right-5 bottom-3 text-[64px] font-black leading-none text-foreground/[0.06] select-none">{c.n}</span>
+              <c.icon className="w-10 h-10 text-primary" strokeWidth={1.5} />
+              <h3 className="relative mt-6 text-[17px] font-bold uppercase tracking-wide">{c.t}</h3>
+              <p className="relative mt-3 text-sm text-muted-foreground leading-relaxed">{c.d}</p>
             </div>
           ))}
         </div>
       </section>
+
 
       {/* BEST TECH SOLUTIONS */}
       <section className="section-y bg-white">
