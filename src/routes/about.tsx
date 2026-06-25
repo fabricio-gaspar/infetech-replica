@@ -8,22 +8,22 @@ import { Check, Star, Share2, ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   head: () => ({ meta: [
-    { title: "About — Infetech IT Solutions" },
-    { name: "description", content: "Learn how Infetech partners with organizations to deliver world-class IT solutions, software and consulting." },
+    { title: "Sobre — Infetech Soluções de TI" },
+    { name: "description", content: "Conheça como a Infetech atua junto a organizações para entregar soluções, software e consultoria de TI de classe mundial." },
   ]}),
   component: AboutPage,
 });
 
 const team = [
-  { name: "Christine Eve", role: "Developer", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" },
-  { name: "Mike Hardson", role: "Developer", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" },
-  { name: "Jessica Brown", role: "Developer", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80" },
+  { name: "Christine Eve", role: "Desenvolvedora", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" },
+  { name: "Mike Hardson", role: "Desenvolvedor", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" },
+  { name: "Jessica Brown", role: "Desenvolvedora", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80" },
 ];
 
 function AboutPage() {
   return (
     <SiteShell>
-      <InternalHero title="About" />
+      <InternalHero title="Sobre" />
 
       <section className="section-y bg-white">
         <div className="container-x grid lg:grid-cols-2 gap-16 items-center">
@@ -36,7 +36,7 @@ function AboutPage() {
                 </defs>
                 <circle cx="100" cy="100" r="96" fill="white" />
                 <text fill="oklch(0.18 0.03 270)" fontSize="17" fontWeight="700" letterSpacing="3">
-                  <textPath href="#badgeCircle" startOffset="0">IT SOLUTION • DEVELOPMENT SERVICES • </textPath>
+                  <textPath href="#badgeCircle" startOffset="0">SOLUÇÕES DE TI • SERVIÇOS DE DESENVOLVIMENTO • </textPath>
                 </text>
               </svg>
               <div className="absolute inset-0 m-auto w-16 h-16 rounded-full purple-gradient grid place-items-center text-white font-black text-xl shadow-lg">S</div>
@@ -44,20 +44,20 @@ function AboutPage() {
             <div className="absolute -left-4 -top-4 w-24 h-full border-l-4 border-primary" />
           </div>
           <div className="reveal">
-            <div className="eyebrow mb-4">About Your Company</div>
-            <h2 className="text-4xl md:text-5xl font-black leading-tight">We're Partner of Your<br />Innovations</h2>
+            <div className="eyebrow mb-4">Sobre a nossa empresa</div>
+            <h2 className="text-4xl md:text-5xl font-black leading-tight">Somos parceiros<br />das suas inovações</h2>
             <p className="mt-5 text-muted-foreground">
-              Infetech is a provider of IT consulting and software development services. We help organizations and companies improve business performance by partnering with their teams from discovery to launch.
+              A Infetech é especialista em consultoria de TI e desenvolvimento de software. Apoiamos organizações e empresas a melhorar a performance do negócio, atuando junto às suas equipes do descobrimento ao lançamento.
             </p>
             <div className="mt-7 grid sm:grid-cols-2 gap-3">
-              {["Best quality support", "Serve the best", "Money back guarantee", "Trusted Professionals"].map((b) => (
+              {["Suporte de alta qualidade", "Atendimento excelente", "Garantia de satisfação", "Profissionais confiáveis"].map((b) => (
                 <div key={b} className="flex items-center gap-2 text-sm font-semibold">
                   <span className="w-5 h-5 rounded-full bg-accent text-primary grid place-items-center"><Check className="w-3 h-3" /></span>
                   {b}
                 </div>
               ))}
             </div>
-            <a href="/contact" className="btn-primary mt-8">Learn More <ArrowRight className="w-4 h-4" /></a>
+            <a href="/contact" className="btn-primary mt-8">Saiba mais <ArrowRight className="w-4 h-4" /></a>
           </div>
         </div>
       </section>
@@ -68,18 +68,18 @@ function AboutPage() {
       <section className="section-y bg-section">
         <div className="container-x grid lg:grid-cols-2 gap-14 items-center">
           <div className="reveal">
-            <div className="eyebrow mb-3">Client Testimonials</div>
-            <h2 className="text-4xl font-black leading-tight">Check What They're<br />Talking About</h2>
+            <div className="eyebrow mb-3">Depoimentos de Clientes</div>
+            <h2 className="text-4xl font-black leading-tight">Veja o que estão<br />falando sobre nós</h2>
             <div className="mt-8 flex items-center gap-4">
               <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80" className="w-16 h-16 rounded-full object-cover border-4 border-primary/30" alt="" />
               <div>
                 <div className="font-bold">Mike Hardson</div>
-                <div className="text-xs text-muted-foreground">Senior Designer</div>
+                <div className="text-xs text-muted-foreground">Designer Sênior</div>
                 <div className="flex gap-0.5 mt-1 text-primary">{Array.from({length:5}).map((_,i)=><Star key={i} className="w-3.5 h-3.5 fill-current"/>)}</div>
               </div>
             </div>
             <p className="mt-6 text-muted-foreground max-w-md leading-relaxed">
-              Infetech is a professional IT company that always creates quality software for clients. If you are looking for a team of talented developers to find out the best IT solutions, Infetech is a company that your team should consider.
+              A Infetech é uma empresa profissional de TI que sempre entrega software de qualidade aos seus clientes. Se você procura uma equipe de desenvolvedores talentosos para encontrar as melhores soluções de TI, a Infetech é uma empresa que o seu time deve considerar.
             </p>
             <div className="flex gap-2 mt-6">
               <span className="w-10 h-1 bg-primary rounded" />
@@ -106,11 +106,11 @@ function AboutPage() {
       <section className="section-y bg-white">
         <div className="container-x grid lg:grid-cols-2 gap-10 mb-12">
           <div className="reveal">
-            <div className="eyebrow mb-3">Our Expert People</div>
-            <h2 className="text-4xl md:text-5xl font-black leading-tight">Meet Our Professional Team<br />Member</h2>
+            <div className="eyebrow mb-3">Nossos especialistas</div>
+            <h2 className="text-4xl md:text-5xl font-black leading-tight">Conheça os profissionais<br />da nossa equipe</h2>
           </div>
           <p className="text-muted-foreground self-end reveal">
-            Meet talented, experienced and knowledgeable team members who make individuals and businesses closer with their portfolios. They often take the job seriously and carefully.
+            Conheça membros talentosos, experientes e capacitados que aproximam pessoas e empresas com seus portfólios. Eles encaram cada projeto com seriedade e cuidado.
           </p>
         </div>
         <div className="container-x grid md:grid-cols-3 gap-7">

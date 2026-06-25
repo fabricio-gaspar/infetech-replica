@@ -3,12 +3,12 @@ import { useEffect, useState } from "react";
 import { Search, Phone, ChevronDown, Twitter, Facebook, Instagram } from "lucide-react";
 
 const nav = [
-  { label: "Home", to: "/" },
-  { label: "About", to: "/about" },
-  { label: "Pages", to: "/about", dropdown: true },
-  { label: "Services", to: "/services", dropdown: true },
+  { label: "Início", to: "/" },
+  { label: "Sobre", to: "/about" },
+  { label: "Páginas", to: "/about", dropdown: true },
+  { label: "Serviços", to: "/services", dropdown: true },
   { label: "Blog", to: "/blog" },
-  { label: "Contact", to: "/contact" },
+  { label: "Contato", to: "/contact" },
 ];
 
 export function Header() {
@@ -25,10 +25,10 @@ export function Header() {
       {/* topbar */}
       <div className={`bg-dark text-white/80 text-xs transition-all duration-300 ${scrolled ? "h-0 overflow-hidden opacity-0" : "py-2.5"}`}>
         <div className="container-x flex items-center justify-between gap-4">
-          <span className="hidden md:block">Welcome to IT Solutions & Services Company</span>
+          <span className="hidden md:block">Bem-vindo à Infetech — Soluções e Serviços de TI</span>
           <div className="flex items-center gap-5">
-            <span className="hidden sm:inline">needhelp@infetech.com</span>
-            <span className="hidden md:inline">Mon - Sat: 8.00 am - 7.00 pm</span>
+            <span className="hidden sm:inline">contato@infetech.com</span>
+            <span className="hidden md:inline">Seg - Sáb: 8h às 19h</span>
             <div className="flex items-center gap-3 text-white/70">
               <Twitter className="w-3.5 h-3.5 hover:text-primary cursor-pointer" />
               <Facebook className="w-3.5 h-3.5 hover:text-primary cursor-pointer" />
@@ -70,8 +70,8 @@ export function Header() {
                 <Phone className="w-4 h-4" />
               </div>
               <div className="leading-tight">
-                <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Call Anytime</div>
-                <div className="text-sm font-bold">+ 88 ( 9800 ) 6802</div>
+                <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Ligue a qualquer hora</div>
+                <div className="text-sm font-bold">+55 (11) 9 8800-6802</div>
               </div>
             </div>
             <button onClick={() => setOpen(!open)} className="lg:hidden p-2">

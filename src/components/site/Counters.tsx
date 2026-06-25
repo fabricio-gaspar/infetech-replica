@@ -34,10 +34,10 @@ function Counter({ end, suffix = "+" }: { end: number; suffix?: string }) {
 }
 
 const items = [
-  { n: 330, label: "Active Clients" },
-  { n: 980, label: "Projects Completed" },
-  { n: 20, label: "Glorious Years" },
-  { n: 112, label: "Professional Team" },
+  { n: 330, label: "Clientes Ativos" },
+  { n: 980, label: "Projetos Concluídos" },
+  { n: 20, label: "Anos de História" },
+  { n: 112, label: "Equipe Profissional" },
 ];
 
 export function Counters() {
