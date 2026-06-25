@@ -29,15 +29,6 @@ const services = [
   { t: "Software Develop", d: "An entire process of creating, designing, deploying and supporting software.", icon: Code2 },
 ];
 
-const projects = [
-  { t: "Virtual Reality", c: "Design / Ideas", img: "https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?w=900&q=80" },
-  { t: "Smart Marketing", c: "Ideas", img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=900&q=80" },
-  { t: "Platform Integration", c: "Design", img: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=900&q=80" },
-  { t: "Tech Solutions", c: "Ideas", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&q=80" },
-  { t: "Smart Visions", c: "Design", img: "https://images.unsplash.com/photo-1573164574572-cb89e39749b4?w=900&q=80" },
-  { t: "Web Development", c: "Design / Ideas", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=900&q=80" },
-];
-
 const industries = [
   { letter: "G", t: "Gaming and Entertainment", d: "Immersive platforms, live operations and engaging entertainment experiences built to scale." },
   { letter: "B", t: "Business and Finance", d: "Secure financial systems, intelligent reporting and modern enterprise platforms." },
@@ -290,33 +281,6 @@ function HomePage() {
         </div>
       </section>
 
-      {/* PROJECTS CAROUSEL */}
-      <section className="section-y bg-white">
-        <div className="container-x text-center reveal max-w-3xl mx-auto">
-          <div className="eyebrow mb-3 justify-center">Our Completed Projects</div>
-          <h2 className="text-3xl md:text-5xl font-black leading-tight">Real Time Dealing in all Professional<br />IT Solutions &amp; Services</h2>
-        </div>
-        <div className="container-x mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((p) => (
-            <div key={p.t} className="group relative overflow-hidden reveal">
-              <img src={p.img} className="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110" alt={p.t} />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/30 to-transparent" />
-              <div className="absolute left-5 right-5 bottom-5">
-                <div className="text-[10px] uppercase tracking-widest text-primary font-bold">{p.c}</div>
-                <h3 className="mt-1 text-xl font-bold text-white">{p.t}</h3>
-              </div>
-              <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-primary grid place-items-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <ArrowRight className="w-4 h-4 text-white" />
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="flex justify-center gap-2 mt-10">
-          {[0,1,2,3,4,5].map((i) => (
-            <button key={i} aria-label={`Go to slide ${i+1}`} className={`h-2.5 rounded-full transition-all ${i===0?'w-8 bg-primary':'w-2.5 bg-foreground/20'}`} />
-          ))}
-        </div>
-      </section>
 
       {/* BETTER IT SOLUTIONS BLOCK */}
       <section className="bg-section">
