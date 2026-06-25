@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteShell } from "@/components/site/SiteShell";
 import {
   ShieldCheck, Cloud, HardDrive, ArrowRight, Cpu, Code2, BarChart3, Database, Settings2,
-  Briefcase, MonitorSmartphone, Award, Users, Trophy, CheckCircle2, Calendar, MessageCircle, User,
+  Briefcase, Award, Users, Trophy, Calendar, MessageCircle, User,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -131,33 +131,81 @@ function HomePage() {
       </section>
 
 
-      {/* WHY CHOOSE OUR SERVICES */}
-      <section className="section-y bg-white">
-        <div className="container-x grid lg:grid-cols-2 gap-14 items-center">
-          <div className="relative reveal">
-            <div className="absolute -left-8 -bottom-8 w-2/3 h-2/3 bg-primary/10" />
-            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=900&q=80" className="relative w-full h-[460px] object-cover" alt="" />
-          </div>
-          <div className="reveal">
-            <div className="eyebrow mb-4">Why Choose Us</div>
-            <h2 className="text-4xl md:text-5xl font-black leading-tight">Why you Should choose<br />Our Services</h2>
-            <p className="mt-5 text-muted-foreground max-w-lg">
-              We provide custom software solutions for your business with the most reasonable price.
+      {/* WHY CHOOSE OUR SERVICES / COMPANY BENEFITS */}
+      <section className="section-y bg-white relative overflow-hidden">
+        {/* Decorative curved shape top-right */}
+        <div
+          aria-hidden
+          className="absolute -top-10 -right-10 lg:top-[-140px] lg:right-[-120px] w-[360px] h-[360px] lg:w-[520px] lg:h-[520px] rounded-full bg-primary/[0.05] pointer-events-none"
+        />
+        <div className="container-x relative grid lg:grid-cols-2 gap-14 items-center">
+          <div className="reveal max-w-[560px]">
+            <div className="eyebrow mb-4">Company Benefits</div>
+            <h2 className="text-[34px] md:text-[46px] font-black leading-[1.12]">The Best Tech Solutions for Our Clients</h2>
+            <p className="mt-6 text-muted-foreground leading-[1.85] text-[15px]">
+              Infetech is a provider of IT consulting and software development services. We have helped organizations and companies improve business performance & enhance their competitiveness. We provide unhindered support 24 hours, 7 days to meet all requirements of clients
             </p>
-            <div className="mt-8 space-y-6">
-              {[
-                { t: "Cloud Based Services", d: "Resilient, scalable cloud architectures and infrastructure built on best practices." },
-                { t: "Expert Team Members", d: "A highly qualified, professional team across product, design and engineering." },
-              ].map((b) => (
-                <div key={b.t} className="flex gap-4">
-                  <div className="w-12 h-12 rounded-full grid place-items-center bg-primary text-white shrink-0"><CheckCircle2 className="w-5 h-5" /></div>
-                  <div>
-                    <h4 className="font-bold">{b.t}</h4>
-                    <p className="text-sm text-muted-foreground">{b.d}</p>
-                  </div>
+
+            <div className="mt-10 space-y-8">
+              <div className="flex gap-6 items-start">
+                <div className="shrink-0">
+                  {/* Cloud + circuit icon */}
+                  <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M62 44.5H56.5C54.5 44.5 53 43.2 53 41.5C53 40.5 53.5 39.5 54.5 38.9C54.5 38.9 54.5 38.8 54.5 38.7C54.5 32.5 49.5 27.5 43.3 27.5C41.5 27.5 39.8 28 38.2 28.8C36.2 24.6 32 21.5 27 21.5C20 21.5 14.5 27 14.5 34C14.5 34.7 14.5 35.4 14.7 36.1C11.8 37.4 9.5 40.5 9.5 44.5C9.5 49.5 13.5 53.5 18.5 53.5H62C67 53.5 71 49.5 71 44.5C71 39.5 67 35.5 62 35.5V44.5Z"
+                      stroke="#6A26DA"
+                      strokeWidth="2.2"
+                      strokeLinejoin="round"
+                    />
+                    <circle cx="40" cy="40" r="4" stroke="#6A26DA" strokeWidth="2" />
+                    <path d="M40 36V32" stroke="#6A26DA" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M43 41H48" stroke="#6A26DA" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M32 41H37" stroke="#6A26DA" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M38 44L35 48" stroke="#6A26DA" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M42 44L45 48" stroke="#6A26DA" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M21 66C26 72 54 72 59 66" stroke="#6A26DA" strokeWidth="2.5" strokeLinecap="round" />
+                  </svg>
                 </div>
-              ))}
+                <div>
+                  <h4 className="text-[20px] font-bold leading-tight">End to End Developement</h4>
+                  <p className="mt-2 text-[14px] text-muted-foreground leading-[1.8]">Complete an entire process from creating a design concept and planning to launching a product.</p>
+                </div>
+              </div>
+
+              <div className="flex gap-6 items-start">
+                <div className="shrink-0">
+                  {/* Lightbulb + human head icon */}
+                  <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M32 58.5V62.5C32 65.5 34.5 68 37.5 68H42.5C45.5 68 48 65.5 48 62.5V58.5"
+                      stroke="#6A26DA"
+                      strokeWidth="2.2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M40 14C28.5 14 22 24 22 34C22 41 25 47 30 51V57.5H50V51C55 47 58 41 58 34C58 24 51.5 14 40 14Z"
+                      stroke="#6A26DA"
+                      strokeWidth="2.2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <circle cx="40" cy="34" r="9" stroke="#6A26DA" strokeWidth="2" />
+                    <path d="M36 43C36 43 38 45 40 45C42 45 44 43 44 43" stroke="#6A26DA" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M17 22L20 25" stroke="#6A26DA" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M63 22L60 25" stroke="#6A26DA" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M40 8V12" stroke="#6A26DA" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M21 66C26 72 54 72 59 66" stroke="#6A26DA" strokeWidth="2.5" strokeLinecap="round" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-[20px] font-bold leading-tight">Software IT Outsourcing</h4>
+                  <p className="mt-2 text-[14px] text-muted-foreground leading-[1.8]">We offer our customers with the truly beneficial solutions and is a professional service provider</p>
+                </div>
+              </div>
             </div>
+
+            <Link to="/about" className="btn-primary mt-10">Learn More</Link>
           </div>
         </div>
       </section>
