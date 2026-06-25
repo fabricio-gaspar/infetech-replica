@@ -1,4 +1,4 @@
-export function PurpleCTA({ text = "Looking for the Best IT Business Solutions?", small = "We're here to help to grow your business.", cta = "Learn More" }) {
+export function PurpleCTA({ text = "Procurando as melhores soluções de TI para o seu negócio?", small = "Estamos aqui para ajudar a sua empresa a crescer.", cta = "Saiba mais" }) {
   return (
     <section className="purple-gradient relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none opacity-30">
@@ -16,7 +16,7 @@ export function PurpleCTA({ text = "Looking for the Best IT Business Solutions?"
   );
 }
 
-export function DarkCTA({ title = "Better IT Solutions & Services", line2 = "at your Fingertips" }) {
+export function DarkCTA({ title = "Melhores soluções e serviços de TI", line2 = "ao seu alcance" }) {
   return (
     <section className="relative overflow-hidden diag-overlay h-[360px] grid place-items-center">
       <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1800&auto=format&fit=crop&q=80" className="absolute inset-0 w-full h-full object-cover grayscale" alt="" />
@@ -24,7 +24,7 @@ export function DarkCTA({ title = "Better IT Solutions & Services", line2 = "at 
       <div className="absolute bottom-0 right-0 w-1/4 h-2/3 bg-gradient-to-l from-primary/55 to-transparent skew-x-[-15deg] translate-x-12 pointer-events-none" />
       <div className="relative text-center text-white px-4">
         <h2 className="text-3xl md:text-5xl font-black leading-tight">{title}<br />{line2}</h2>
-        <a href="/contact" className="btn-light mt-7">Learn More</a>
+        <a href="/contact" className="btn-light mt-7">Saiba mais</a>
       </div>
     </section>
   );
