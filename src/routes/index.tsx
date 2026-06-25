@@ -139,7 +139,42 @@ function HomePage() {
           className="absolute -top-10 -right-10 lg:top-[-140px] lg:right-[-120px] w-[360px] h-[360px] lg:w-[520px] lg:h-[520px] rounded-full bg-primary/[0.05] pointer-events-none"
         />
         <div className="container-x relative grid lg:grid-cols-2 gap-14 items-center">
-          <div className="reveal max-w-[560px]">
+          {/* Left visual composition — photo collage with purple circle/ring */}
+          <div className="relative reveal order-2 lg:order-1">
+            {/* Large purple ring behind */}
+            <div
+              aria-hidden
+              className="absolute -left-10 lg:-left-16 top-1/2 -translate-y-1/2 w-[320px] h-[320px] md:w-[400px] md:h-[400px] lg:w-[460px] lg:h-[460px] rounded-full border-[36px] border-primary/[0.10] pointer-events-none"
+            />
+
+            {/* Decorative small circle */}
+            <div
+              aria-hidden
+              className="absolute top-4 right-10 lg:right-16 w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-primary/20 pointer-events-none"
+            />
+
+            {/* Main image */}
+            <div className="relative z-10 ml-8 lg:ml-12">
+              <img
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=80"
+                alt="Tech professional"
+                className="w-full max-w-[480px] h-[360px] md:h-[420px] object-cover"
+              />
+            </div>
+
+            {/* Overlapping small photo / counter card */}
+            <div className="absolute -bottom-8 -left-2 lg:-left-6 z-20 w-44 h-36 lg:w-52 lg:h-40 shadow-[0_20px_60px_rgba(0,0,0,0.18)]">
+              <img
+                src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&q=80"
+                alt="Team working"
+                className="w-full h-full object-cover"
+              />
+              {/* Purple accent corner */}
+              <div className="absolute top-0 right-0 w-3 h-3 bg-primary" />
+            </div>
+          </div>
+
+          <div className="reveal max-w-[560px] order-1 lg:order-2">
             <div className="eyebrow mb-4">Company Benefits</div>
             <h2 className="text-[34px] md:text-[46px] font-black leading-[1.12]">The Best Tech Solutions for Our Clients</h2>
             <p className="mt-6 text-muted-foreground leading-[1.85] text-[15px]">
@@ -209,6 +244,7 @@ function HomePage() {
           </div>
         </div>
       </section>
+
 
       {/* SERVICES GRID 3x2 */}
       <section className="section-y bg-section relative overflow-hidden">
