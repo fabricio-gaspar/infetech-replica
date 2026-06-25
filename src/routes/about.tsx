@@ -29,8 +29,17 @@ function AboutPage() {
         <div className="container-x grid lg:grid-cols-2 gap-16 items-center">
           <div className="relative reveal">
             <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=900&q=80" className="w-full h-[460px] object-cover" alt="" />
-            <div className="absolute -right-6 top-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-white shadow-xl border-4 border-primary/20 grid place-items-center text-center">
-              <div className="w-20 h-20 rounded-full purple-gradient grid place-items-center text-white font-black text-2xl">S</div>
+            <div className="absolute -right-10 top-1/2 -translate-y-1/2 w-36 h-36">
+              <svg viewBox="0 0 200 200" className="w-full h-full animate-[spin_18s_linear_infinite]">
+                <defs>
+                  <path id="badgeCircle" d="M 100,100 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0" />
+                </defs>
+                <circle cx="100" cy="100" r="96" fill="white" />
+                <text fill="oklch(0.18 0.03 270)" fontSize="17" fontWeight="700" letterSpacing="3">
+                  <textPath href="#badgeCircle" startOffset="0">IT SOLUTION • DEVELOPMENT SERVICES • </textPath>
+                </text>
+              </svg>
+              <div className="absolute inset-0 m-auto w-16 h-16 rounded-full purple-gradient grid place-items-center text-white font-black text-xl shadow-lg">S</div>
             </div>
             <div className="absolute -left-4 -top-4 w-24 h-full border-l-4 border-primary" />
           </div>
