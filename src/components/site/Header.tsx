@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Search, Phone, ChevronDown, Twitter, Facebook, Instagram } from "lucide-react";
+import { Phone, ChevronDown, Twitter, Facebook, Instagram } from "lucide-react";
 
 const nav = [
   { label: "Início", to: "/" },
