@@ -5,7 +5,6 @@ import { Search, Phone, ChevronDown, Twitter, Facebook, Instagram } from "lucide
 const nav = [
   { label: "Início", to: "/" },
   { label: "Sobre", to: "/about" },
-  { label: "Páginas", to: "/about", dropdown: true },
   { label: "Serviços", to: "/services", dropdown: true },
   { label: "Blog", to: "/blog" },
   { label: "Contato", to: "/contact" },
