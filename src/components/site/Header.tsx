@@ -44,7 +44,7 @@ export function Header() {
             <span className="font-display text-2xl font-black tracking-tight">infetech</span>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-7">
+          <nav className="hidden lg:flex items-center gap-7 lg:ml-auto lg:mr-8">
             {nav.map((n) => (
               <Link
                 key={n.label}
