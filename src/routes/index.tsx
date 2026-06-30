@@ -85,7 +85,7 @@ function HomePage() {
               <span className="relative inline-block">
                 O futuro
                 <svg className="absolute left-0 -bottom-1 w-[220px] h-3" viewBox="0 0 180 12" fill="none" preserveAspectRatio="none">
-                  <path d="M2 8 C 40 2, 90 10, 178 4" stroke="#6A26DA" strokeWidth="4" strokeLinecap="round" fill="none" />
+                  <path d="M2 8 C 40 2, 90 10, 178 4" stroke="#FF6933" strokeWidth="4" strokeLinecap="round" fill="none" />
                 </svg>
               </span>
               <br />pertence à<br />tecnologia
@@ -170,17 +170,17 @@ function HomePage() {
                   <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M62 44.5H56.5C54.5 44.5 53 43.2 53 41.5C53 40.5 53.5 39.5 54.5 38.9C54.5 38.9 54.5 38.8 54.5 38.7C54.5 32.5 49.5 27.5 43.3 27.5C41.5 27.5 39.8 28 38.2 28.8C36.2 24.6 32 21.5 27 21.5C20 21.5 14.5 27 14.5 34C14.5 34.7 14.5 35.4 14.7 36.1C11.8 37.4 9.5 40.5 9.5 44.5C9.5 49.5 13.5 53.5 18.5 53.5H62C67 53.5 71 49.5 71 44.5C71 39.5 67 35.5 62 35.5V44.5Z"
-                      stroke="#6A26DA"
+                      stroke="#FF6933"
                       strokeWidth="2.2"
                       strokeLinejoin="round"
                     />
-                    <circle cx="40" cy="40" r="4" stroke="#6A26DA" strokeWidth="2" />
-                    <path d="M40 36V32" stroke="#6A26DA" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M43 41H48" stroke="#6A26DA" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M32 41H37" stroke="#6A26DA" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M38 44L35 48" stroke="#6A26DA" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M42 44L45 48" stroke="#6A26DA" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M21 66C26 72 54 72 59 66" stroke="#6A26DA" strokeWidth="2.5" strokeLinecap="round" />
+                    <circle cx="40" cy="40" r="4" stroke="#FF6933" strokeWidth="2" />
+                    <path d="M40 36V32" stroke="#FF6933" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M43 41H48" stroke="#FF6933" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M32 41H37" stroke="#FF6933" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M38 44L35 48" stroke="#FF6933" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M42 44L45 48" stroke="#FF6933" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M21 66C26 72 54 72 59 66" stroke="#FF6933" strokeWidth="2.5" strokeLinecap="round" />
                   </svg>
                 </div>
                 <div>
@@ -194,24 +194,24 @@ function HomePage() {
                   <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M32 58.5V62.5C32 65.5 34.5 68 37.5 68H42.5C45.5 68 48 65.5 48 62.5V58.5"
-                      stroke="#6A26DA"
+                      stroke="#FF6933"
                       strokeWidth="2.2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />
                     <path
                       d="M40 14C28.5 14 22 24 22 34C22 41 25 47 30 51V57.5H50V51C55 47 58 41 58 34C58 24 51.5 14 40 14Z"
-                      stroke="#6A26DA"
+                      stroke="#FF6933"
                       strokeWidth="2.2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />
-                    <circle cx="40" cy="34" r="9" stroke="#6A26DA" strokeWidth="2" />
-                    <path d="M36 43C36 43 38 45 40 45C42 45 44 43 44 43" stroke="#6A26DA" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M17 22L20 25" stroke="#6A26DA" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M63 22L60 25" stroke="#6A26DA" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M40 8V12" stroke="#6A26DA" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M21 66C26 72 54 72 59 66" stroke="#6A26DA" strokeWidth="2.5" strokeLinecap="round" />
+                    <circle cx="40" cy="34" r="9" stroke="#FF6933" strokeWidth="2" />
+                    <path d="M36 43C36 43 38 45 40 45C42 45 44 43 44 43" stroke="#FF6933" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M17 22L20 25" stroke="#FF6933" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M63 22L60 25" stroke="#FF6933" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M40 8V12" stroke="#FF6933" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M21 66C26 72 54 72 59 66" stroke="#FF6933" strokeWidth="2.5" strokeLinecap="round" />
                   </svg>
                 </div>
                 <div>
