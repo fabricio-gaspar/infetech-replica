@@ -43,9 +43,9 @@ const items = [
 export function Counters() {
   return (
     <section className="section-y bg-white">
-      <div className="container-x grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+      <div className="container-x grid grid-cols-2 md:grid-cols-4 gap-6 text-center reveal-stagger">
         {items.map((i) => (
-          <div key={i.label}>
+          <div key={i.label} className="card-tech p-8 reveal">
             <div className="text-5xl md:text-6xl font-black text-foreground"><Counter end={i.n} /></div>
             <div className="mt-3 text-xs tracking-[0.18em] uppercase font-bold text-primary">{i.label}</div>
           </div>
