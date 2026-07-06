@@ -109,10 +109,9 @@ function HomePage() {
           {heroCards.map((c, i) => (
             <div
               key={c.t}
-              className="relative bg-white p-8 pb-10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.14)] hover:-translate-y-1.5 transition-all duration-300 reveal"
+              className="card-tech p-8 pb-10 reveal"
               style={{ transitionDelay: `${i * 100}ms` }}
             >
-              <span className="absolute top-0 right-0 w-3 h-3 bg-primary" />
               <span className="absolute right-6 bottom-4 text-[70px] font-black leading-none text-foreground/[0.07] select-none">{c.n}</span>
               <h3 className="relative text-[18px] font-black uppercase tracking-wide leading-tight max-w-[180px]">{c.t}</h3>
               <p className="relative mt-5 text-[13px] text-muted-foreground leading-relaxed max-w-[220px]">{c.d}</p>
