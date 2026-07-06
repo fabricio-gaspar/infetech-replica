@@ -289,9 +289,9 @@ function HomePage() {
 
       {/* INDUSTRIES */}
       <section className="section-y bg-white">
-        <div className="container-x grid md:grid-cols-3 gap-6">
+        <div className="container-x grid md:grid-cols-3 gap-6 reveal-stagger">
           {industries.map((i) => (
-            <div key={i.letter} className="group relative bg-white border border-border p-8 hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)] transition-all reveal">
+            <div key={i.letter} className="card-tech group p-8 reveal">
               <div className="w-20 h-20 purple-gradient text-white font-black text-5xl grid place-items-center mb-6 leading-none">{i.letter}</div>
               <h3 className="text-xl font-bold">{i.t}</h3>
               <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{i.d}</p>
