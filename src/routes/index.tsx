@@ -246,15 +246,14 @@ function HomePage() {
           {services.map((s, i) => (
             <div
               key={s.t}
-              className="relative bg-white p-10 border-r border-b border-foreground/10 min-h-[260px] reveal group hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition-all"
+              className="card-tech p-10 min-h-[260px] reveal group"
               style={{ transitionDelay: `${i*70}ms`}}
             >
               <h3 className="font-black text-[22px] tracking-tight">{s.t}</h3>
               <p className="mt-6 text-[14px] text-muted-foreground leading-relaxed max-w-[260px]">{s.d}</p>
               <div className="absolute right-8 bottom-8">
-                <div className="relative">
-                  <span className="absolute -top-3 -left-3 w-12 h-12 rounded-full bg-primary/10" />
-                  <s.icon className="relative w-12 h-12 text-primary" strokeWidth={1.4} />
+                <div className="card-tech-icon">
+                  <s.icon className="w-7 h-7" strokeWidth={1.5} />
                 </div>
               </div>
             </div>
