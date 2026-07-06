@@ -8,8 +8,8 @@ import { ArrowRight, Play, Lightbulb, Cpu } from "lucide-react";
 
 export const Route = createFileRoute("/services")({
   head: () => ({ meta: [
-    { title: "Serviços — Infetech Soluções de TI" },
-    { name: "description", content: "Conheça o catálogo completo de serviços de TI da Infetech: consultoria, desenvolvimento de software, nuvem e operações gerenciadas." },
+    { title: "Serviços — WF Digital Soluções de TI" },
+    { name: "description", content: "Conheça o catálogo completo de serviços de TI da WF Digital: consultoria, desenvolvimento de software, nuvem e operações gerenciadas." },
   ]}),
   component: ServicesPage,
 });
@@ -62,11 +62,11 @@ function ServicesPage() {
             </div>
           </div>
           <div className="reveal">
-            <div className="eyebrow mb-3">Conheça a Infetech</div>
-            <h2 className="text-4xl md:text-5xl font-black leading-tight">Infetech: liderança no<br />mercado de tecnologia</h2>
+            <div className="eyebrow mb-3">Conheça a WF Digital</div>
+            <h2 className="text-4xl md:text-5xl font-black leading-tight">WF Digital: liderança no<br />mercado de tecnologia</h2>
             <p className="mt-4 text-primary font-semibold">As melhores soluções de TI para suas ideias inovadoras.</p>
             <p className="mt-4 text-muted-foreground">
-              A Infetech é especialista em consultoria de TI e desenvolvimento de software, ajudando organizações e empresas a melhorar a performance do negócio.
+              A WF Digital é especialista em consultoria de TI e desenvolvimento de software, ajudando organizações e empresas a melhorar a performance do negócio.
             </p>
             <blockquote className="mt-6 bg-white border-l-4 border-primary px-5 py-4 text-sm font-semibold shadow-sm">
               Criamos soluções de tecnologia excelentes e sustentáveis, baseadas em profundo domínio da área de TI.

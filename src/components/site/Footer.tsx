@@ -8,7 +8,7 @@ export function Footer() {
         <div>
           <Link to="/" className="flex items-center gap-2 mb-5">
             <div className="w-9 h-9 grid place-items-center rounded-sm purple-gradient text-white font-black text-lg">S</div>
-            <span className="font-display text-2xl font-black text-white">infetech</span>
+            <span className="font-display text-2xl font-black text-white">WF Digital</span>
           </Link>
           <p className="text-sm leading-relaxed text-white/65 max-w-xs">
             Trabalhamos com paixão por aceitar desafios e criar novas oportunidades no setor de tecnologia.
@@ -48,13 +48,13 @@ export function Footer() {
           <h4 className="text-white font-bold text-lg mb-5 relative pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-10 after:h-0.5 after:bg-primary">Contato</h4>
           <ul className="space-y-3 text-sm">
             <li className="flex items-start gap-3"><Phone className="w-4 h-4 mt-0.5 text-primary shrink-0" />+55 (11) 9 8800-6802</li>
-            <li className="flex items-start gap-3"><Mail className="w-4 h-4 mt-0.5 text-primary shrink-0" />contato@infetech.com</li>
+            <li className="flex items-start gap-3"><Mail className="w-4 h-4 mt-0.5 text-primary shrink-0" />contato@WF Digital.com</li>
             <li className="flex items-start gap-3"><MapPin className="w-4 h-4 mt-0.5 text-primary shrink-0" />Av. Paulista, 1000 — São Paulo, SP — Brasil</li>
           </ul>
         </div>
       </div>
       <div className="border-t border-white/10">
-        <div className="container-x py-5 text-center text-xs text-white/55">© Todos os direitos reservados {new Date().getFullYear()} — Infetech</div>
+        <div className="container-x py-5 text-center text-xs text-white/55">© Todos os direitos reservados {new Date().getFullYear()} — WF Digital</div>
       </div>
     </footer>
   );

@@ -77,9 +77,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Infetech — Soluções e Serviços de TI" },
-      { name: "description", content: "A Infetech entrega soluções premium de TI, cibersegurança, nuvem e desenvolvimento de software para empresas em todo o mundo." },
-      { property: "og:title", content: "Infetech — Soluções e Serviços de TI" },
+      { title: "WF Digital — Soluções e Serviços de TI" },
+      { name: "description", content: "A WF Digital entrega soluções premium de TI, cibersegurança, nuvem e desenvolvimento de software para empresas em todo o mundo." },
+      { property: "og:title", content: "WF Digital — Soluções e Serviços de TI" },
       { property: "og:description", content: "Soluções premium de TI, cibersegurança, nuvem e desenvolvimento de software." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
