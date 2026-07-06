@@ -5,8 +5,8 @@ import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({ meta: [
-    { title: "Contato — Infetech Soluções de TI" },
-    { name: "description", content: "Fale com a Infetech para consultoria de TI, desenvolvimento de software sob medida, nuvem e serviços gerenciados." },
+    { title: "Contato — WF Digital Soluções de TI" },
+    { name: "description", content: "Fale com a WF Digital para consultoria de TI, desenvolvimento de software sob medida, nuvem e serviços gerenciados." },
   ]}),
   component: ContactPage,
 });
@@ -24,7 +24,7 @@ function ContactPage() {
             <div className="mt-10 space-y-6">
               {[
                 { i: Phone, l: "Ligue a qualquer hora", v: "+55 (11) 9 8800-6802" },
-                { i: Mail, l: "Envie um e-mail", v: "contato@infetech.com" },
+                { i: Mail, l: "Envie um e-mail", v: "contato@WF Digital.com" },
                 { i: MapPin, l: "Venha nos visitar", v: "Av. Paulista, 1000 — São Paulo, SP" },
               ].map((c) => (
                 <div key={c.l} className="flex items-center gap-5">

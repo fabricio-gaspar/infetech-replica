@@ -24,9 +24,9 @@ export function Header() {
       {/* topbar */}
       <div className={`bg-dark text-white/80 text-xs transition-all duration-300 ${scrolled ? "h-0 overflow-hidden opacity-0" : "py-2.5"}`}>
         <div className="container-x flex items-center justify-between gap-4">
-          <span className="hidden md:block">Bem-vindo à Infetech — Soluções e Serviços de TI</span>
+          <span className="hidden md:block">Bem-vindo à WF Digital — Soluções e Serviços de TI</span>
           <div className="flex items-center gap-5">
-            <span className="hidden sm:inline">contato@infetech.com</span>
+            <span className="hidden sm:inline">contato@WF Digital.com</span>
             <span className="hidden md:inline">Seg - Sáb: 8h às 19h</span>
             <div className="flex items-center gap-3 text-white/70">
               <Twitter className="w-3.5 h-3.5 hover:text-primary cursor-pointer" />
@@ -41,7 +41,7 @@ export function Header() {
         <div className="container-x flex items-center justify-between gap-6">
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <div className="w-9 h-9 grid place-items-center rounded-sm purple-gradient text-white font-black text-lg">S</div>
-            <span className="font-display text-2xl font-black tracking-tight">infetech</span>
+            <span className="font-display text-2xl font-black tracking-tight">WF Digital</span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-7 lg:ml-auto lg:mr-8">

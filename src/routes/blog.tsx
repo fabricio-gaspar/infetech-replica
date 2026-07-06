@@ -5,8 +5,8 @@ import { Search, Calendar, Folder, MessageCircle, ChevronRight, ChevronLeft } fr
 
 export const Route = createFileRoute("/blog")({
   head: () => ({ meta: [
-    { title: "Blog — Infetech Soluções de TI" },
-    { name: "description", content: "Histórias, guias e insights sobre TI, cibersegurança, nuvem e desenvolvimento de software pela equipe Infetech." },
+    { title: "Blog — WF Digital Soluções de TI" },
+    { name: "description", content: "Histórias, guias e insights sobre TI, cibersegurança, nuvem e desenvolvimento de software pela equipe WF Digital." },
   ]}),
   component: BlogPage,
 });

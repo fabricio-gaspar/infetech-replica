@@ -8,8 +8,8 @@ import { Check, Star, Share2, ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   head: () => ({ meta: [
-    { title: "Sobre — Infetech Soluções de TI" },
-    { name: "description", content: "Conheça como a Infetech atua junto a organizações para entregar soluções, software e consultoria de TI de classe mundial." },
+    { title: "Sobre — WF Digital Soluções de TI" },
+    { name: "description", content: "Conheça como a WF Digital atua junto a organizações para entregar soluções, software e consultoria de TI de classe mundial." },
   ]}),
   component: AboutPage,
 });
@@ -47,7 +47,7 @@ function AboutPage() {
             <div className="eyebrow mb-4">Sobre a nossa empresa</div>
             <h2 className="text-4xl md:text-5xl font-black leading-tight">Somos parceiros<br />das suas inovações</h2>
             <p className="mt-5 text-muted-foreground">
-              A Infetech é especialista em consultoria de TI e desenvolvimento de software. Apoiamos organizações e empresas a melhorar a performance do negócio, atuando junto às suas equipes do descobrimento ao lançamento.
+              A WF Digital é especialista em consultoria de TI e desenvolvimento de software. Apoiamos organizações e empresas a melhorar a performance do negócio, atuando junto às suas equipes do descobrimento ao lançamento.
             </p>
             <div className="mt-7 grid sm:grid-cols-2 gap-3">
               {["Suporte de alta qualidade", "Atendimento excelente", "Garantia de satisfação", "Profissionais confiáveis"].map((b) => (
@@ -79,7 +79,7 @@ function AboutPage() {
               </div>
             </div>
             <p className="mt-6 text-muted-foreground max-w-md leading-relaxed">
-              A Infetech é uma empresa profissional de TI que sempre entrega software de qualidade aos seus clientes. Se você procura uma equipe de desenvolvedores talentosos para encontrar as melhores soluções de TI, a Infetech é uma empresa que o seu time deve considerar.
+              A WF Digital é uma empresa profissional de TI que sempre entrega software de qualidade aos seus clientes. Se você procura uma equipe de desenvolvedores talentosos para encontrar as melhores soluções de TI, a WF Digital é uma empresa que o seu time deve considerar.
             </p>
             <div className="flex gap-2 mt-6">
               <span className="w-10 h-1 bg-primary rounded" />

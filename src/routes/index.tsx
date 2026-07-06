@@ -7,9 +7,9 @@ import {
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
-    { title: "Infetech — O futuro pertence à tecnologia" },
-    { name: "description", content: "A Infetech entrega soluções de TI de classe mundial, cibersegurança, serviços em nuvem e desenvolvimento de software para empresas inovadoras." },
-    { property: "og:title", content: "Infetech — O futuro pertence à tecnologia" },
+    { title: "WF Digital — O futuro pertence à tecnologia" },
+    { name: "description", content: "A WF Digital entrega soluções de TI de classe mundial, cibersegurança, serviços em nuvem e desenvolvimento de software para empresas inovadoras." },
+    { property: "og:title", content: "WF Digital — O futuro pertence à tecnologia" },
   ]}),
   component: HomePage,
 });
@@ -79,7 +79,7 @@ function HomePage() {
         <div className="container-x relative pt-24 lg:pt-32 pb-44 lg:pb-56 grid lg:grid-cols-2 gap-10">
           <div className="reveal">
             <div className="inline-flex items-center gap-3 text-primary text-xs font-semibold uppercase tracking-[0.2em] mb-7">
-              Bem-vindo à Infetech
+              Bem-vindo à WF Digital
             </div>
             <h1 className="font-black text-foreground leading-[1.05] tracking-tight text-[44px] sm:text-[60px] lg:text-[76px]">
               <span className="relative inline-block">
@@ -161,7 +161,7 @@ function HomePage() {
             <div className="eyebrow mb-4">Benefícios da Empresa</div>
             <h2 className="text-[34px] md:text-[46px] font-black leading-[1.12]">As melhores soluções tecnológicas para seus clientes</h2>
             <p className="mt-6 text-muted-foreground leading-[1.85] text-[15px]">
-              A Infetech é especialista em consultoria de TI e desenvolvimento de software. Ajudamos organizações e empresas a melhorar a performance e a competitividade do negócio. Oferecemos suporte 24 horas, 7 dias por semana, para atender a todas as demandas dos nossos clientes.
+              A WF Digital é especialista em consultoria de TI e desenvolvimento de software. Ajudamos organizações e empresas a melhorar a performance e a competitividade do negócio. Oferecemos suporte 24 horas, 7 dias por semana, para atender a todas as demandas dos nossos clientes.
             </p>
 
             <div className="mt-10 space-y-8">
