@@ -309,9 +309,9 @@ function HomePage() {
           <div className="eyebrow mb-3 justify-center">Caminho da Tecnologia</div>
           <h2 className="text-3xl md:text-5xl font-black leading-tight">A agência de soluções e serviços de TI<br />em que você pode confiar</h2>
         </div>
-        <div className="container-x mt-12 grid md:grid-cols-3 gap-6">
+        <div className="container-x mt-12 grid md:grid-cols-3 gap-6 reveal-stagger">
           {pillars.map((p) => (
-            <div key={p.t} className="card-soft p-8 text-center reveal">
+            <div key={p.t} className="card-tech p-8 text-center reveal">
               <div className="w-16 h-16 mx-auto rounded-full purple-gradient text-white grid place-items-center mb-5">
                 <p.i className="w-7 h-7" />
               </div>
