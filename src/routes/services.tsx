@@ -32,7 +32,7 @@ function ServicesPage() {
             <div key={s.t} className="relative reveal">
               <img src={s.img} className="w-full h-80 object-cover grayscale" alt="" />
               <div className="absolute top-0 right-0 w-1/4 h-full bg-gradient-to-l from-primary/45 to-transparent skew-x-[-12deg] translate-x-6 pointer-events-none" />
-              <div className="absolute -bottom-6 left-6 right-12 bg-white shadow-xl p-5 flex items-center justify-between gap-4">
+              <div className="corner-accent absolute -bottom-6 left-6 right-12 bg-white shadow-xl p-5 flex items-center justify-between gap-4">
                 <p className="font-bold text-sm">{s.t}</p>
                 <button className="w-10 h-10 rounded-full purple-gradient text-white grid place-items-center shrink-0 hover:rotate-12 transition-transform"><ArrowRight className="w-4 h-4" /></button>
               </div>

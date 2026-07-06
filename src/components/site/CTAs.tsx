@@ -1,6 +1,6 @@
 export function PurpleCTA({ text = "Procurando as melhores soluções de TI para o seu negócio?", small = "Estamos aqui para ajudar a sua empresa a crescer.", cta = "Saiba mais" }) {
   return (
-    <section className="purple-gradient relative overflow-hidden">
+    <section className="purple-gradient circuit-panel relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none opacity-30">
         <div className="absolute -left-10 top-0 bottom-0 w-32 bg-white/10 skew-x-[-18deg]" />
         <div className="absolute right-1/3 top-0 bottom-0 w-24 bg-white/10 skew-x-[-18deg]" />
@@ -18,7 +18,7 @@ export function PurpleCTA({ text = "Procurando as melhores soluções de TI para
 
 export function DarkCTA({ title = "Melhores soluções e serviços de TI", line2 = "ao seu alcance" }) {
   return (
-    <section className="relative overflow-hidden diag-overlay h-[360px] grid place-items-center">
+    <section className="relative overflow-hidden diag-overlay circuit-panel h-[360px] grid place-items-center">
       <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1800&auto=format&fit=crop&q=80" className="absolute inset-0 w-full h-full object-cover grayscale" alt="" />
       <div className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r from-primary/55 to-transparent skew-x-[-15deg] -translate-x-16 pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-1/4 h-2/3 bg-gradient-to-l from-primary/55 to-transparent skew-x-[-15deg] translate-x-12 pointer-events-none" />

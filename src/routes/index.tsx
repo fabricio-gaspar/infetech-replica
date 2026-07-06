@@ -109,10 +109,9 @@ function HomePage() {
           {heroCards.map((c, i) => (
             <div
               key={c.t}
-              className="relative bg-white p-8 pb-10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.14)] hover:-translate-y-1.5 transition-all duration-300 reveal"
+              className="card-tech p-8 pb-10 reveal"
               style={{ transitionDelay: `${i * 100}ms` }}
             >
-              <span className="absolute top-0 right-0 w-3 h-3 bg-primary" />
               <span className="absolute right-6 bottom-4 text-[70px] font-black leading-none text-foreground/[0.07] select-none">{c.n}</span>
               <h3 className="relative text-[18px] font-black uppercase tracking-wide leading-tight max-w-[180px]">{c.t}</h3>
               <p className="relative mt-5 text-[13px] text-muted-foreground leading-relaxed max-w-[220px]">{c.d}</p>
@@ -243,19 +242,18 @@ function HomePage() {
           <div className="eyebrow mb-4 justify-center">O que oferecemos aos nossos clientes</div>
           <h2 className="text-3xl md:text-5xl font-black leading-[1.15]">Atendimento em tempo real em todas as<br />soluções e serviços profissionais de TI</h2>
         </div>
-        <div className="container-x relative mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-0 border-l border-t border-foreground/10 bg-white">
+        <div className="container-x relative mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
           {services.map((s, i) => (
             <div
               key={s.t}
-              className="relative bg-white p-10 border-r border-b border-foreground/10 min-h-[260px] reveal group hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition-all"
+              className="card-tech p-10 min-h-[260px] reveal group"
               style={{ transitionDelay: `${i*70}ms`}}
             >
               <h3 className="font-black text-[22px] tracking-tight">{s.t}</h3>
               <p className="mt-6 text-[14px] text-muted-foreground leading-relaxed max-w-[260px]">{s.d}</p>
               <div className="absolute right-8 bottom-8">
-                <div className="relative">
-                  <span className="absolute -top-3 -left-3 w-12 h-12 rounded-full bg-primary/10" />
-                  <s.icon className="relative w-12 h-12 text-primary" strokeWidth={1.4} />
+                <div className="card-tech-icon">
+                  <s.icon className="w-7 h-7" strokeWidth={1.5} />
                 </div>
               </div>
             </div>
@@ -291,9 +289,9 @@ function HomePage() {
 
       {/* INDUSTRIES */}
       <section className="section-y bg-white">
-        <div className="container-x grid md:grid-cols-3 gap-6">
+        <div className="container-x grid md:grid-cols-3 gap-6 reveal-stagger">
           {industries.map((i) => (
-            <div key={i.letter} className="group relative bg-white border border-border p-8 hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)] transition-all reveal">
+            <div key={i.letter} className="card-tech group p-8 reveal">
               <div className="w-20 h-20 purple-gradient text-white font-black text-5xl grid place-items-center mb-6 leading-none">{i.letter}</div>
               <h3 className="text-xl font-bold">{i.t}</h3>
               <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{i.d}</p>
@@ -311,9 +309,9 @@ function HomePage() {
           <div className="eyebrow mb-3 justify-center">Caminho da Tecnologia</div>
           <h2 className="text-3xl md:text-5xl font-black leading-tight">A agência de soluções e serviços de TI<br />em que você pode confiar</h2>
         </div>
-        <div className="container-x mt-12 grid md:grid-cols-3 gap-6">
+        <div className="container-x mt-12 grid md:grid-cols-3 gap-6 reveal-stagger">
           {pillars.map((p) => (
-            <div key={p.t} className="card-soft p-8 text-center reveal">
+            <div key={p.t} className="card-tech p-8 text-center reveal">
               <div className="w-16 h-16 mx-auto rounded-full purple-gradient text-white grid place-items-center mb-5">
                 <p.i className="w-7 h-7" />
               </div>
@@ -330,9 +328,9 @@ function HomePage() {
           <div className="eyebrow mb-3 justify-center">Novidades</div>
           <h2 className="text-3xl md:text-5xl font-black leading-tight">Notícias &amp; Artigos</h2>
         </div>
-        <div className="container-x mt-12 grid md:grid-cols-3 gap-7">
+        <div className="container-x mt-12 grid md:grid-cols-3 gap-7 reveal-stagger">
           {posts.map((p) => (
-            <article key={p.t} className="card-soft overflow-hidden reveal">
+            <article key={p.t} className="card-tech overflow-hidden reveal">
               <div className="relative overflow-hidden">
                 <img src={p.img} className="w-full h-56 object-cover transition-transform duration-700 hover:scale-110" alt={p.t} />
                 <div className="absolute top-4 left-4 bg-primary text-white text-center px-3 py-2 leading-none">

@@ -35,10 +35,10 @@ function BlogPage() {
       <section className="section-y bg-white">
         <div className="container-x grid lg:grid-cols-[1fr_320px] gap-10">
           {/* posts */}
-          <div className="grid sm:grid-cols-2 gap-7">
+          <div className="grid sm:grid-cols-2 gap-7 reveal-stagger">
             {posts.map((p) => (
-              <article key={p.t} className="reveal">
-                <div className="relative overflow-hidden">
+              <article key={p.t} className="card-tech p-5 reveal">
+                <div className="relative overflow-hidden -m-5 mb-0">
                   <img src={p.img} className="w-full h-56 object-cover transition-transform duration-700 hover:scale-110" alt={p.t} />
                 </div>
                 <h3 className="mt-5 font-bold leading-snug">{p.t}</h3>
