@@ -328,9 +328,9 @@ function HomePage() {
           <div className="eyebrow mb-3 justify-center">Novidades</div>
           <h2 className="text-3xl md:text-5xl font-black leading-tight">Notícias &amp; Artigos</h2>
         </div>
-        <div className="container-x mt-12 grid md:grid-cols-3 gap-7">
+        <div className="container-x mt-12 grid md:grid-cols-3 gap-7 reveal-stagger">
           {posts.map((p) => (
-            <article key={p.t} className="card-soft overflow-hidden reveal">
+            <article key={p.t} className="card-tech overflow-hidden reveal">
               <div className="relative overflow-hidden">
                 <img src={p.img} className="w-full h-56 object-cover transition-transform duration-700 hover:scale-110" alt={p.t} />
                 <div className="absolute top-4 left-4 bg-primary text-white text-center px-3 py-2 leading-none">
