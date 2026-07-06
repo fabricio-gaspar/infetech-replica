@@ -1,6 +1,6 @@
 export function PurpleCTA({ text = "Procurando as melhores soluções de TI para o seu negócio?", small = "Estamos aqui para ajudar a sua empresa a crescer.", cta = "Saiba mais" }) {
   return (
-    <section className="purple-gradient relative overflow-hidden">
+    <section className="purple-gradient circuit-panel relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none opacity-30">
         <div className="absolute -left-10 top-0 bottom-0 w-32 bg-white/10 skew-x-[-18deg]" />
         <div className="absolute right-1/3 top-0 bottom-0 w-24 bg-white/10 skew-x-[-18deg]" />
