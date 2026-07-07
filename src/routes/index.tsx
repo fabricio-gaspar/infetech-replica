@@ -163,154 +163,109 @@ function HomePage() {
       </section>
 
 
-      {/* COMPANY BENEFITS */}
-      <section className="section-y bg-white relative overflow-hidden">
-        {/* Decorative curved shape top-right */}
-        <div
-          aria-hidden
-          className="absolute -top-10 -right-10 lg:top-[-140px] lg:right-[-120px] w-[360px] h-[360px] lg:w-[520px] lg:h-[520px] rounded-full bg-primary/[0.05] pointer-events-none"
-        />
-        <div className="container-x relative grid lg:grid-cols-2 gap-14 items-center">
-          {/* Left visual composition — circular photo cutouts + triangle confetti */}
-          <div className="relative reveal order-2 lg:order-1 h-[480px] md:h-[560px]">
-            {/* Triangle confetti (scattered geometric shapes) */}
-            <svg
-              aria-hidden
-              className="absolute inset-0 w-full h-full pointer-events-none"
-              viewBox="0 0 600 560"
-              fill="none"
-              preserveAspectRatio="xMidYMid slice"
-            >
-              <g fill="#FF6933" fillOpacity="0.18" stroke="#FF6933" strokeOpacity="0.35" strokeWidth="1">
-                {[
-                  { p: "M120,60 L138,52 L132,76 Z", r: 0 },
-                  { p: "M180,110 L204,100 L196,128 Z", r: 15 },
-                  { p: "M90,140 L108,132 L100,158 Z", r: -20 },
-                  { p: "M240,40 L258,32 L250,58 Z", r: 8 },
-                  { p: "M300,90 L322,80 L314,108 Z", r: -10 },
-                  { p: "M160,180 L182,170 L172,198 Z", r: 25 },
-                  { p: "M60,220 L82,210 L72,238 Z", r: -5 },
-                  { p: "M220,220 L240,212 L232,236 Z", r: 12 },
-                  { p: "M360,150 L382,140 L372,168 Z", r: -18 },
-                  { p: "M420,60 L440,52 L432,78 Z", r: 22 },
-                  { p: "M480,180 L502,170 L492,200 Z", r: -8 },
-                  { p: "M540,120 L560,112 L552,138 Z", r: 14 },
-                  { p: "M500,280 L522,270 L512,300 Z", r: -12 },
-                  { p: "M560,340 L582,330 L572,358 Z", r: 18 },
-                  { p: "M40,320 L60,310 L52,338 Z", r: 6 },
-                  { p: "M100,400 L122,390 L112,418 Z", r: -15 },
-                  { p: "M40,460 L60,452 L52,478 Z", r: 10 },
-                  { p: "M180,480 L202,470 L192,498 Z", r: -22 },
-                  { p: "M540,460 L562,450 L552,478 Z", r: 16 },
-                  { p: "M280,510 L300,502 L292,528 Z", r: -6 },
-                ].map((t, i) => (
-                  <path key={i} d={t.p} transform={`rotate(${t.r} ${120 + i * 5} ${60 + i * 5})`} />
-                ))}
-              </g>
-            </svg>
+      {/* TESTIMONIAL DETAIL — same circular-photo scale/placement as reference */}
+      <section className="section-y bg-[#f4f1fb] relative overflow-hidden">
+        <div className="container-x relative grid lg:grid-cols-[0.88fr_1.12fr] gap-10 lg:gap-16 items-center">
+          <div className="reveal max-w-[450px]">
+            <div className="inline-flex items-center gap-3 text-[#6d4cff] text-xs font-bold mb-4">
+              <span className="w-3 h-[2px] bg-[#6d4cff]" />
+              Client Testimonials
+            </div>
+            <h2 className="text-[34px] md:text-[40px] font-black leading-[1.18] text-[#211b31]">
+              Check What They’re<br />Talking About
+            </h2>
 
-            {/* Small top-left circle */}
-            <div className="absolute left-2 top-4 w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-[6px] ring-white shadow-[0_10px_30px_rgba(0,0,0,0.18)] z-[2]">
-              <img
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&q=80"
-                alt=""
-                className="w-full h-full object-cover"
-              />
+            <div className="mt-4 flex items-center gap-4">
+              <div className="w-[92px] h-[92px] rounded-full p-[5px] bg-[#734cff] shadow-[0_12px_28px_rgba(90,59,214,0.2)]">
+                <div className="w-full h-full rounded-full overflow-hidden border-[4px] border-white">
+                  <img
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=220&q=80"
+                    alt="Mike Hardson"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div>
+                <h3 className="text-[16px] font-black leading-tight text-[#211b31]">Mike Hardson</h3>
+                <p className="mt-1 text-[11px] font-bold text-[#6d4cff]">Senior Designer</p>
+                <div className="mt-2 flex gap-0.5 text-[#ffb400] text-[17px] leading-none" aria-label="Avaliação cinco estrelas">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+              </div>
             </div>
 
-            {/* Large main circle */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-[42%] -translate-y-[46%] w-[340px] h-[340px] md:w-[420px] md:h-[420px] lg:w-[460px] lg:h-[460px] rounded-full overflow-hidden ring-[6px] ring-white shadow-[0_30px_80px_rgba(0,0,0,0.22)] z-[3]">
-              <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=80"
-                alt="Profissional de tecnologia sorrindo"
-                className="w-full h-full object-cover"
-              />
-            </div>
+            <p className="mt-8 text-[14px] leading-[1.85] text-[#6f6a7c] max-w-[390px]">
+              A WF Digital cria soluções de tecnologia com qualidade para clientes que precisam de uma equipe confiável, estratégica e preparada para encontrar as melhores soluções de TI.
+            </p>
 
-            {/* Medium top-right circle — overlaps main upper-right */}
-            <div className="absolute right-0 top-10 md:top-16 w-44 h-44 md:w-56 md:h-56 lg:w-60 lg:h-60 rounded-full overflow-hidden ring-[6px] ring-white shadow-[0_20px_50px_rgba(0,0,0,0.22)] z-[4]">
-              <img
-                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&q=80"
-                alt=""
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            {/* Small bottom-right circle */}
-            <div className="absolute right-6 bottom-24 md:right-10 md:bottom-20 w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden ring-[6px] ring-white shadow-[0_10px_28px_rgba(0,0,0,0.18)] z-[5]">
-              <img
-                src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=300&q=80"
-                alt=""
-                className="w-full h-full object-cover"
-              />
+            <div className="mt-4 flex items-center gap-2" aria-hidden>
+              <span className="w-6 h-1 bg-[#6d4cff]" />
+              <span className="w-6 h-1 bg-[#c6c2ce]" />
+              <span className="w-6 h-1 bg-[#c6c2ce]" />
             </div>
           </div>
 
-          <div className="reveal max-w-[560px] order-1 lg:order-2">
-            <div className="eyebrow mb-4">Benefícios da Empresa</div>
-            <h2 className="text-[34px] md:text-[46px] font-black leading-[1.12]">As melhores soluções tecnológicas para seus clientes</h2>
-            <p className="mt-6 text-muted-foreground leading-[1.85] text-[15px]">
-              A WF Digital é especialista em consultoria de TI e desenvolvimento de software. Ajudamos organizações e empresas a melhorar a performance e a competitividade do negócio. Oferecemos suporte 24 horas, 7 dias por semana, para atender a todas as demandas dos nossos clientes.
-            </p>
+          <div className="relative reveal h-[430px] md:h-[460px] lg:h-[430px] max-w-[590px] w-full justify-self-center lg:justify-self-end">
+            <svg
+              aria-hidden
+              className="absolute left-[42px] top-0 w-[520px] h-[420px] pointer-events-none"
+              viewBox="0 0 520 420"
+              fill="none"
+              preserveAspectRatio="none"
+            >
+              <g fill="#8f65ff" fillOpacity="0.18" stroke="#8f65ff" strokeOpacity="0.16" strokeWidth="1">
+                <path d="M46 15 L56 20 L48 26 Z" />
+                <path d="M108 78 L124 70 L119 95 Z" />
+                <path d="M32 111 L40 92 L51 120 Z" />
+                <path d="M146 24 L164 18 L158 44 Z" />
+                <path d="M205 106 L223 94 L218 128 Z" />
+                <path d="M260 42 L275 34 L272 64 Z" />
+                <path d="M312 84 L334 73 L325 105 Z" />
+                <path d="M365 54 L388 45 L379 86 Z" />
+                <path d="M420 98 L445 86 L437 128 Z" />
+                <path d="M475 140 L508 126 L494 178 Z" />
+                <path d="M455 225 L487 212 L476 260 Z" />
+                <path d="M416 307 L438 296 L431 331 Z" />
+                <path d="M347 338 L368 330 L360 359 Z" />
+                <path d="M255 315 L273 307 L266 336 Z" />
+                <path d="M180 274 L199 266 L192 294 Z" />
+                <path d="M118 210 L136 200 L130 230 Z" />
+                <path d="M70 266 L92 255 L84 292 Z" />
+                <path d="M24 190 L40 181 L35 210 Z" />
+              </g>
+            </svg>
 
-            <div className="mt-10 space-y-8">
-              <div className="flex gap-6 items-start">
-                <div className="shrink-0">
-                  <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M62 44.5H56.5C54.5 44.5 53 43.2 53 41.5C53 40.5 53.5 39.5 54.5 38.9C54.5 38.9 54.5 38.8 54.5 38.7C54.5 32.5 49.5 27.5 43.3 27.5C41.5 27.5 39.8 28 38.2 28.8C36.2 24.6 32 21.5 27 21.5C20 21.5 14.5 27 14.5 34C14.5 34.7 14.5 35.4 14.7 36.1C11.8 37.4 9.5 40.5 9.5 44.5C9.5 49.5 13.5 53.5 18.5 53.5H62C67 53.5 71 49.5 71 44.5C71 39.5 67 35.5 62 35.5V44.5Z"
-                      stroke="#FF6933"
-                      strokeWidth="2.2"
-                      strokeLinejoin="round"
-                    />
-                    <circle cx="40" cy="40" r="4" stroke="#FF6933" strokeWidth="2" />
-                    <path d="M40 36V32" stroke="#FF6933" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M43 41H48" stroke="#FF6933" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M32 41H37" stroke="#FF6933" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M38 44L35 48" stroke="#FF6933" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M42 44L45 48" stroke="#FF6933" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M21 66C26 72 54 72 59 66" stroke="#FF6933" strokeWidth="2.5" strokeLinecap="round" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="text-[20px] font-bold leading-tight">Desenvolvimento de Ponta a Ponta</h4>
-                  <p className="mt-2 text-[14px] text-muted-foreground leading-[1.8]">Conduzimos o processo completo, do conceito de design e planejamento até o lançamento do produto.</p>
-                </div>
-              </div>
-
-              <div className="flex gap-6 items-start">
-                <div className="shrink-0">
-                  <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M32 58.5V62.5C32 65.5 34.5 68 37.5 68H42.5C45.5 68 48 65.5 48 62.5V58.5"
-                      stroke="#FF6933"
-                      strokeWidth="2.2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M40 14C28.5 14 22 24 22 34C22 41 25 47 30 51V57.5H50V51C55 47 58 41 58 34C58 24 51.5 14 40 14Z"
-                      stroke="#FF6933"
-                      strokeWidth="2.2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <circle cx="40" cy="34" r="9" stroke="#FF6933" strokeWidth="2" />
-                    <path d="M36 43C36 43 38 45 40 45C42 45 44 43 44 43" stroke="#FF6933" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M17 22L20 25" stroke="#FF6933" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M63 22L60 25" stroke="#FF6933" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M40 8V12" stroke="#FF6933" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M21 66C26 72 54 72 59 66" stroke="#FF6933" strokeWidth="2.5" strokeLinecap="round" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="text-[20px] font-bold leading-tight">Outsourcing de Software e TI</h4>
-                  <p className="mt-2 text-[14px] text-muted-foreground leading-[1.8]">Oferecemos aos nossos clientes soluções realmente benéficas com um serviço verdadeiramente profissional.</p>
-                </div>
-              </div>
+            <div className="absolute left-0 top-[6px] w-[78px] h-[78px] rounded-full overflow-hidden shadow-[0_14px_36px_rgba(70,44,128,0.18)] z-[3]">
+              <img
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=220&q=80"
+                alt="Cliente"
+                className="w-full h-full object-cover"
+              />
             </div>
 
-            <Link to="/about" className="btn-primary mt-10">Saiba mais</Link>
+            <div className="absolute left-[98px] top-[96px] w-[296px] h-[296px] rounded-full overflow-hidden shadow-[0_28px_70px_rgba(70,44,128,0.18)] z-[4]">
+              <img
+                src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=720&q=80"
+                alt="Cliente sorrindo com tablet"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            <div className="absolute left-[278px] top-[52px] w-[198px] h-[198px] rounded-full overflow-hidden shadow-[0_24px_58px_rgba(70,44,128,0.2)] z-[2]">
+              <img
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=460&q=80"
+                alt="Cliente"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            <div className="absolute left-[354px] top-[286px] w-[72px] h-[72px] rounded-full overflow-hidden shadow-[0_14px_30px_rgba(70,44,128,0.2)] z-[5]">
+              <img
+                src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=220&q=80"
+                alt="Cliente"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
