@@ -213,39 +213,46 @@ function HomePage() {
           <div className="reveal max-w-[450px]">
             <div className="inline-flex items-center gap-3 text-[#6d4cff] text-xs font-bold mb-2">
               <span className="w-3 h-[2px] bg-[#6d4cff]" />
-              Client Testimonials
+              Depoimentos de Clientes
             </div>
             <h2 className="text-[32px] md:text-[36px] font-black leading-[1.16] text-[#211b31] max-w-[360px]">
-              Check What They’re<br />Talking About
+              Veja o que estão<br />falando sobre nós
             </h2>
 
             <div className="mt-3 flex items-center gap-4">
               <div className="w-[92px] h-[92px] rounded-full p-[5px] bg-[#734cff] shadow-[0_12px_28px_rgba(90,59,214,0.2)]">
                 <div className="w-full h-full rounded-full overflow-hidden border-[4px] border-white">
                   <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=220&q=80"
-                    alt="Mike Hardson"
-                    className="w-full h-full object-cover"
+                    key={active.photo}
+                    src={active.photo}
+                    alt={active.name}
+                    className="w-full h-full object-cover transition-opacity duration-300"
                   />
                 </div>
               </div>
               <div>
-                <h3 className="text-[16px] font-black leading-tight text-[#211b31]">Mike Hardson</h3>
-                <p className="mt-1 text-[11px] font-bold text-[#6d4cff]">Senior Designer</p>
+                <h3 className="text-[16px] font-black leading-tight text-[#211b31]">{active.name}</h3>
+                <p className="mt-1 text-[11px] font-bold text-[#6d4cff]">{active.role}</p>
                 <div className="mt-2 flex gap-0.5 text-[#ffb400] text-[17px] leading-none" aria-label="Avaliação cinco estrelas">
                   <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                 </div>
               </div>
             </div>
 
-            <p className="mt-8 text-[14px] leading-[1.85] text-[#6f6a7c] max-w-[390px]">
-              A WF Digital cria soluções de tecnologia com qualidade para clientes que precisam de uma equipe confiável, estratégica e preparada para encontrar as melhores soluções de TI.
+            <p className="mt-8 text-[14px] leading-[1.85] text-[#6f6a7c] max-w-[390px] transition-opacity duration-300">
+              {active.quote}
             </p>
 
-            <div className="mt-4 flex items-center gap-2" aria-hidden>
-              <span className="w-6 h-1 bg-[#6d4cff]" />
-              <span className="w-6 h-1 bg-[#c6c2ce]" />
-              <span className="w-6 h-1 bg-[#c6c2ce]" />
+            <div className="mt-4 flex items-center gap-2">
+              {testimonials.map((t, i) => (
+                <button
+                  key={t.name}
+                  type="button"
+                  aria-label={`Ver depoimento de ${t.name}`}
+                  onClick={() => setActiveT(i)}
+                  className={`h-1 transition-all ${activeT === i ? "w-8 bg-[#6d4cff]" : "w-6 bg-[#c6c2ce] hover:bg-[#8f65ff]"}`}
+                />
+              ))}
             </div>
           </div>
 
@@ -279,37 +286,27 @@ function HomePage() {
               </g>
             </svg>
 
-            <div className="absolute left-[20px] top-[6px] w-[72px] h-[72px] md:w-[78px] md:h-[78px] rounded-full overflow-hidden shadow-[0_14px_36px_rgba(70,44,128,0.18)] z-[3]">
-              <img
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=220&q=80"
-                alt="Cliente"
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            <div className="absolute left-[118px] top-[96px] w-[296px] h-[296px] rounded-full overflow-hidden shadow-[0_28px_70px_rgba(70,44,128,0.18)] z-[4]">
-              <img
-                src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=720&q=80"
-                alt="Cliente sorrindo com tablet"
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            <div className="absolute left-[334px] top-[52px] w-[164px] h-[164px] rounded-full overflow-hidden shadow-[0_24px_58px_rgba(70,44,128,0.2)] z-[2]">
-              <img
-                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=460&q=80"
-                alt="Cliente"
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            <div className="absolute left-[374px] top-[286px] w-[72px] h-[72px] rounded-full overflow-hidden shadow-[0_14px_30px_rgba(70,44,128,0.2)] z-[5]">
-              <img
-                src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=220&q=80"
-                alt="Cliente"
-                className="w-full h-full object-cover"
-              />
-            </div>
+            {[
+              { i: 1, style: "left-[20px] top-[6px] w-[72px] h-[72px] md:w-[78px] md:h-[78px] z-[3] shadow-[0_14px_36px_rgba(70,44,128,0.18)]" },
+              { i: 0, style: "left-[118px] top-[96px] w-[296px] h-[296px] z-[4] shadow-[0_28px_70px_rgba(70,44,128,0.18)]" },
+              { i: 2, style: "left-[334px] top-[52px] w-[164px] h-[164px] z-[2] shadow-[0_24px_58px_rgba(70,44,128,0.2)]" },
+              { i: 3, style: "left-[374px] top-[286px] w-[72px] h-[72px] z-[5] shadow-[0_14px_30px_rgba(70,44,128,0.2)]" },
+            ].map(({ i, style }) => {
+              const t = testimonials[i];
+              const isActive = activeT === i;
+              return (
+                <button
+                  key={t.name}
+                  type="button"
+                  onClick={() => setActiveT(i)}
+                  onMouseEnter={() => setActiveT(i)}
+                  aria-label={`Ver depoimento de ${t.name}`}
+                  className={`absolute ${style} rounded-full overflow-hidden transition-all duration-300 hover:scale-[1.04] focus:outline-none ${isActive ? "ring-[4px] ring-[#6d4cff] ring-offset-2 ring-offset-[#f4f1fb]" : "ring-2 ring-white"}`}
+                >
+                  <img src={t.photo} alt={t.name} className="w-full h-full object-cover" />
+                </button>
+              );
+            })}
           </div>
         </div>
       </section>
