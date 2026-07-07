@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { SiteShell } from "@/components/site/SiteShell";
 import {
   ArrowRight, Cpu, Code2, Sparkles, Globe, Mail, Server, Wifi, ClipboardCheck, Clock,
