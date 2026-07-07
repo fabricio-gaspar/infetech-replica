@@ -67,7 +67,7 @@ export function Header() {
               </div>
               <div className="leading-tight">
                 <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Ligue a qualquer hora</div>
-                <div className="text-sm font-bold">+55 (11) 9 8800-6802</div>
+                <div className="text-sm font-bold">+55 (11) 9 9744-1875</div>
               </div>
             </div>
             <button onClick={() => setOpen(!open)} className="lg:hidden p-2">
