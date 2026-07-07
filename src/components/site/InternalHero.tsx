@@ -29,7 +29,7 @@ export function InternalHero({ title, crumb }: { title: string; crumb?: string }
           clipPath: "polygon(70% 0, 100% 0, 100% 100%, 100% 100%)",
           background:
             "linear-gradient(135deg, #FF7A4A 0%, #FF6933 45%, #C7431A 100%)",
-          opacity: 0.7,
+          opacity: 0.45,
         }}
       />
 
