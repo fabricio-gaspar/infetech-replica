@@ -95,7 +95,7 @@ function HomePage() {
   return (
     <SiteShell>
       {/* HERO */}
-      <section className="relative bg-[#f3f1f7] overflow-hidden">
+      <section className="relative bg-[#fff4ee] overflow-hidden">
         {/* Full-bleed hero image on the right half */}
         <div className="absolute inset-y-0 right-0 w-full lg:w-1/2 pointer-events-none">
           <img
@@ -104,7 +104,7 @@ function HomePage() {
             className="w-full h-full object-cover grayscale opacity-90 lg:opacity-100"
           />
           {/* fade overlay on the left edge of the image to blend into bg */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#f3f1f7] via-[#f3f1f7]/40 to-transparent lg:via-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#fff4ee] via-[#fff4ee]/40 to-transparent lg:via-transparent" />
         </div>
 
         {/* Circuit board traces decoration on the left */}
@@ -208,11 +208,11 @@ function HomePage() {
 
 
       {/* TESTIMONIAL DETAIL — same circular-photo scale/placement as reference */}
-      <section className="py-[72px] bg-[#f4f1fb] relative overflow-hidden">
+      <section className="py-[72px] bg-[#fff4ee] relative overflow-hidden">
         <div className="w-[calc(100%-40px)] max-w-[956px] mx-auto relative grid lg:grid-cols-[390px_526px] gap-10 items-start">
           <div className="reveal max-w-[450px]">
-            <div className="inline-flex items-center gap-3 text-[#6d4cff] text-xs font-bold mb-2">
-              <span className="w-3 h-[2px] bg-[#6d4cff]" />
+            <div className="inline-flex items-center gap-3 text-[#FF6933] text-xs font-bold mb-2">
+              <span className="w-3 h-[2px] bg-[#FF6933]" />
               Depoimentos de Clientes
             </div>
             <h2 className="text-[32px] md:text-[36px] font-black leading-[1.16] text-[#211b31] max-w-[360px]">
@@ -220,7 +220,7 @@ function HomePage() {
             </h2>
 
             <div className="mt-3 flex items-center gap-4">
-              <div className="w-[92px] h-[92px] rounded-full p-[5px] bg-[#734cff] shadow-[0_12px_28px_rgba(90,59,214,0.2)]">
+              <div className="w-[92px] h-[92px] rounded-full p-[5px] bg-[#FF6933] shadow-[0_12px_28px_rgba(255,105,51,0.25)]">
                 <div className="w-full h-full rounded-full overflow-hidden border-[4px] border-white">
                   <img
                     key={active.photo}
@@ -232,7 +232,7 @@ function HomePage() {
               </div>
               <div>
                 <h3 className="text-[16px] font-black leading-tight text-[#211b31]">{active.name}</h3>
-                <p className="mt-1 text-[11px] font-bold text-[#6d4cff]">{active.role}</p>
+                <p className="mt-1 text-[11px] font-bold text-[#FF6933]">{active.role}</p>
                 <div className="mt-2 flex gap-0.5 text-[#ffb400] text-[17px] leading-none" aria-label="Avaliação cinco estrelas">
                   <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                 </div>
@@ -250,7 +250,7 @@ function HomePage() {
                   type="button"
                   aria-label={`Ver depoimento de ${t.name}`}
                   onClick={() => setActiveT(i)}
-                  className={`h-1 transition-all ${activeT === i ? "w-8 bg-[#6d4cff]" : "w-6 bg-[#c6c2ce] hover:bg-[#8f65ff]"}`}
+                  className={`h-1 transition-all ${activeT === i ? "w-8 bg-[#FF6933]" : "w-6 bg-[#c6c2ce] hover:bg-[#FFB899]"}`}
                 />
               ))}
             </div>
@@ -264,7 +264,7 @@ function HomePage() {
               fill="none"
               preserveAspectRatio="none"
             >
-              <g fill="#8f65ff" fillOpacity="0.18" stroke="#8f65ff" strokeOpacity="0.16" strokeWidth="1">
+              <g fill="#FFB899" fillOpacity="0.18" stroke="#FFB899" strokeOpacity="0.16" strokeWidth="1">
                 <path d="M46 15 L56 20 L48 26 Z" />
                 <path d="M108 78 L124 70 L119 95 Z" />
                 <path d="M32 111 L40 92 L51 120 Z" />
@@ -287,10 +287,10 @@ function HomePage() {
             </svg>
 
             {[
-              { i: 1, style: "left-[20px] top-[6px] w-[72px] h-[72px] md:w-[78px] md:h-[78px] z-[3] shadow-[0_14px_36px_rgba(70,44,128,0.18)]" },
-              { i: 0, style: "left-[118px] top-[96px] w-[296px] h-[296px] z-[4] shadow-[0_28px_70px_rgba(70,44,128,0.18)]" },
-              { i: 2, style: "left-[334px] top-[52px] w-[164px] h-[164px] z-[2] shadow-[0_24px_58px_rgba(70,44,128,0.2)]" },
-              { i: 3, style: "left-[374px] top-[286px] w-[72px] h-[72px] z-[5] shadow-[0_14px_30px_rgba(70,44,128,0.2)]" },
+              { i: 1, style: "left-[20px] top-[6px] w-[72px] h-[72px] md:w-[78px] md:h-[78px] z-[3] shadow-[0_14px_36px_rgba(224,84,31,0.22)]" },
+              { i: 0, style: "left-[118px] top-[96px] w-[296px] h-[296px] z-[4] shadow-[0_28px_70px_rgba(224,84,31,0.22)]" },
+              { i: 2, style: "left-[334px] top-[52px] w-[164px] h-[164px] z-[2] shadow-[0_24px_58px_rgba(224,84,31,0.24)]" },
+              { i: 3, style: "left-[374px] top-[286px] w-[72px] h-[72px] z-[5] shadow-[0_14px_30px_rgba(224,84,31,0.24)]" },
             ].map(({ i, style }) => {
               const t = testimonials[i];
               const isActive = activeT === i;
@@ -301,7 +301,7 @@ function HomePage() {
                   onClick={() => setActiveT(i)}
                   onMouseEnter={() => setActiveT(i)}
                   aria-label={`Ver depoimento de ${t.name}`}
-                  className={`absolute ${style} rounded-full overflow-hidden transition-all duration-300 hover:scale-[1.04] focus:outline-none ${isActive ? "ring-[4px] ring-[#6d4cff] ring-offset-2 ring-offset-[#f4f1fb]" : "ring-2 ring-white"}`}
+                  className={`absolute ${style} rounded-full overflow-hidden transition-all duration-300 hover:scale-[1.04] focus:outline-none ${isActive ? "ring-[4px] ring-[#FF6933] ring-offset-2 ring-offset-[#fff4ee]" : "ring-2 ring-white"}`}
                 >
                   <img src={t.photo} alt={t.name} className="w-full h-full object-cover" />
                 </button>
@@ -314,16 +314,6 @@ function HomePage() {
 
       {/* SERVICES GRID 3x2 */}
       <section className="section-y bg-section relative overflow-hidden">
-        <div
-          aria-hidden
-          className="absolute inset-0 opacity-[0.25] pointer-events-none"
-          style={{
-            backgroundImage: "radial-gradient(circle at 1px 1px, rgba(106,38,218,0.35) 1px, transparent 1.5px)",
-            backgroundSize: "26px 26px",
-            maskImage: "radial-gradient(ellipse at center, transparent 30%, black 80%)",
-            WebkitMaskImage: "radial-gradient(ellipse at center, transparent 30%, black 80%)",
-          }}
-        />
         <div className="container-x relative text-center reveal max-w-5xl mx-auto">
           <div className="eyebrow mb-4 justify-center">O que oferecemos aos nossos clientes</div>
           <h2 className="text-3xl md:text-4xl lg:text-[38px] font-black leading-[1.2]">Atendimento em tempo real em todas as soluções<br /> e serviços profissionais de TI</h2>
