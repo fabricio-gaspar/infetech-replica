@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { SiteShell } from "@/components/site/SiteShell";
 import {
   ArrowRight, Cpu, Code2, Sparkles, Globe, Mail, Server, Wifi, ClipboardCheck, Clock,
@@ -87,6 +87,14 @@ const posts = [
 function HomePage() {
   const [activeT, setActiveT] = useState(0);
   const active = testimonials[activeT];
+  const servicesScrollRef = useRef<HTMLDivElement>(null);
+  const scrollServices = (dir: 1 | -1) => {
+    const el = servicesScrollRef.current;
+    if (!el) return;
+    const card = el.querySelector<HTMLElement>("[data-svc-card]");
+    const step = card ? card.offsetWidth + 24 : el.clientWidth * 0.8;
+    el.scrollBy({ left: step * dir, behavior: "smooth" });
+  };
   return (
     <SiteShell>
       {/* HERO */}
@@ -313,26 +321,51 @@ function HomePage() {
           <div className="eyebrow mb-4 justify-center">O que oferecemos aos nossos clientes</div>
           <h2 className="text-3xl md:text-4xl lg:text-[38px] font-black leading-[1.2]">Atendimento em tempo real em todas as soluções<br /> e serviços profissionais de TI</h2>
         </div>
-        <div className="container-x relative mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
-          {services.map((s, i) => (
-            <div
-              key={s.t}
-              className="card-tech p-10 min-h-[280px] reveal group flex flex-col"
-              style={{ transitionDelay: `${i*70}ms`}}
-            >
-              <span className="card-tech-index">— 0{i+1}</span>
-              <h3 className="card-tech-title font-black text-[22px] tracking-tight">{s.t}</h3>
-              <p className="mt-5 text-[14px] text-muted-foreground leading-relaxed max-w-[260px]">{s.d}</p>
-              <span className="card-tech-cta mt-6">
-                Saiba mais <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2} />
-              </span>
-              <div className="absolute right-8 bottom-8">
-                <div className="card-tech-icon">
-                  <s.icon className="w-7 h-7" strokeWidth={1.5} />
+        <div className="relative mt-14">
+          <div
+            ref={servicesScrollRef}
+            className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth px-6 md:px-10 lg:px-16 pb-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden reveal-stagger"
+          >
+            {services.map((s, i) => (
+              <div
+                key={s.t}
+                data-svc-card
+                className="card-tech p-10 min-h-[280px] reveal group flex flex-col shrink-0 snap-start w-[82%] sm:w-[380px]"
+                style={{ transitionDelay: `${i*70}ms`}}
+              >
+                <span className="card-tech-index">— 0{i+1}</span>
+                <h3 className="card-tech-title font-black text-[22px] tracking-tight">{s.t}</h3>
+                <p className="mt-5 text-[14px] text-muted-foreground leading-relaxed max-w-[260px]">{s.d}</p>
+                <span className="card-tech-cta mt-6">
+                  Saiba mais <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2} />
+                </span>
+                <div className="absolute right-8 bottom-8">
+                  <div className="card-tech-icon">
+                    <s.icon className="w-7 h-7" strokeWidth={1.5} />
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          <div className="container-x mt-6 flex items-center justify-end gap-3">
+            <button
+              type="button"
+              onClick={() => scrollServices(-1)}
+              aria-label="Anterior"
+              className="w-12 h-12 grid place-items-center border border-primary/25 text-primary hover:bg-primary hover:text-white transition-colors"
+            >
+              <ChevronLeft className="w-5 h-5" strokeWidth={2} />
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollServices(1)}
+              aria-label="Próximo"
+              className="w-12 h-12 grid place-items-center border border-primary/25 text-primary hover:bg-primary hover:text-white transition-colors"
+            >
+              <ChevronRight className="w-5 h-5" strokeWidth={2} />
+            </button>
+          </div>
         </div>
       </section>
 
