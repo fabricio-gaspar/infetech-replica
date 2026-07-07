@@ -5,34 +5,36 @@ export function Footer() {
   return (
     <footer className="relative bg-[#05070d] text-white/75">
       {/* Top CTA banner — overlaps footer top */}
-      <div className="container-x -mt-20 relative z-10">
-        <div className="relative overflow-hidden rounded-2xl px-8 md:px-14 py-10 md:py-14" style={{
-          background: "linear-gradient(90deg, #3E8BFF 0%, #6E5BF0 60%, #7A4BD6 100%)",
-        }}>
-          {/* Dotted wave pattern */}
-          <div aria-hidden className="absolute inset-0 pointer-events-none opacity-30" style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.55) 1px, transparent 1.6px)",
-            backgroundSize: "14px 14px",
-            maskImage: "radial-gradient(ellipse 90% 120% at 50% 50%, black 30%, transparent 80%)",
-            WebkitMaskImage: "radial-gradient(ellipse 90% 120% at 50% 50%, black 30%, transparent 80%)",
-          }} />
-
-          {/* Headset badge */}
-          <div className="absolute -top-8 left-8 w-16 h-16 rounded-full bg-[#0a0e1a] grid place-items-center shadow-lg">
+      <div className="container-x pt-16 md:pt-20 relative z-10">
+        <div className="relative">
+          {/* Headset badge (outside overflow to avoid clipping) */}
+          <div className="absolute -top-8 left-8 z-20 w-16 h-16 rounded-full bg-[#0a0e1a] grid place-items-center shadow-lg">
             <Headphones className="w-7 h-7 text-white" strokeWidth={1.8} />
           </div>
 
-          <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-6 pl-0 md:pl-24">
-            <h3 className="text-white font-black text-2xl md:text-[28px] leading-tight max-w-xl">
-              Entregando a melhor experiência para o cliente
-            </h3>
-            <a
-              href="tel:+551197441875"
-              className="inline-flex items-center justify-center bg-white text-[#0a0e1a] font-black text-lg px-8 py-4 rounded shrink-0"
-            >
-              +55 (11) 9 9744-1875
-            </a>
+          <div className="relative overflow-hidden rounded-2xl px-8 md:px-14 py-10 md:py-14" style={{
+            background: "linear-gradient(90deg, #3E8BFF 0%, #6E5BF0 60%, #7A4BD6 100%)",
+          }}>
+            {/* Dotted wave pattern */}
+            <div aria-hidden className="absolute inset-0 pointer-events-none opacity-30" style={{
+              backgroundImage:
+                "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.55) 1px, transparent 1.6px)",
+              backgroundSize: "14px 14px",
+              maskImage: "radial-gradient(ellipse 90% 120% at 50% 50%, black 30%, transparent 80%)",
+              WebkitMaskImage: "radial-gradient(ellipse 90% 120% at 50% 50%, black 30%, transparent 80%)",
+            }} />
+
+            <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-6 pl-0 md:pl-24">
+              <h3 className="text-white font-black text-2xl md:text-[28px] leading-tight max-w-xl">
+                Entregando a melhor experiência para o cliente
+              </h3>
+              <a
+                href="tel:+551197441875"
+                className="inline-flex items-center justify-center bg-white text-[#0a0e1a] font-black text-lg px-8 py-4 rounded shrink-0"
+              >
+                +55 (11) 9 9744-1875
+              </a>
+            </div>
           </div>
         </div>
       </div>
