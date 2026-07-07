@@ -332,12 +332,12 @@ function HomePage() {
           <div className="eyebrow mb-4 justify-center">O que oferecemos aos nossos clientes</div>
           <h2 className="text-3xl md:text-4xl lg:text-[38px] font-black leading-[1.2]">Atendimento em tempo real em todas as soluções<br /> e serviços profissionais de TI</h2>
         </div>
-        <div className="relative mt-14">
+        <div className="container-x relative mt-14">
           <div
             ref={servicesScrollRef}
             onMouseEnter={() => { servicesPausedRef.current = true; }}
             onMouseLeave={() => { servicesPausedRef.current = false; }}
-            className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth px-6 md:px-10 lg:px-16 pb-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden reveal-stagger"
+            className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden reveal-stagger"
           >
             {services.map((s, i) => (
               <div
