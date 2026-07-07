@@ -317,11 +317,15 @@ function HomePage() {
           {services.map((s, i) => (
             <div
               key={s.t}
-              className="card-tech p-10 min-h-[260px] reveal group"
+              className="card-tech p-10 min-h-[280px] reveal group flex flex-col"
               style={{ transitionDelay: `${i*70}ms`}}
             >
-              <h3 className="font-black text-[22px] tracking-tight">{s.t}</h3>
-              <p className="mt-6 text-[14px] text-muted-foreground leading-relaxed max-w-[260px]">{s.d}</p>
+              <span className="card-tech-index">— 0{i+1}</span>
+              <h3 className="card-tech-title font-black text-[22px] tracking-tight">{s.t}</h3>
+              <p className="mt-5 text-[14px] text-muted-foreground leading-relaxed max-w-[260px]">{s.d}</p>
+              <span className="card-tech-cta mt-6">
+                Saiba mais <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2} />
+              </span>
               <div className="absolute right-8 bottom-8">
                 <div className="card-tech-icon">
                   <s.icon className="w-7 h-7" strokeWidth={1.5} />
