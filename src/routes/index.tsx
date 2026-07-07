@@ -171,11 +171,11 @@ function HomePage() {
               <span className="w-3 h-[2px] bg-[#6d4cff]" />
               Client Testimonials
             </div>
-            <h2 className="text-[34px] md:text-[40px] font-black leading-[1.18] text-[#211b31]">
+            <h2 className="text-[32px] md:text-[36px] font-black leading-[1.16] text-[#211b31] max-w-[360px]">
               Check What They’re<br />Talking About
             </h2>
 
-            <div className="mt-1 flex items-center gap-4">
+            <div className="mt-3 flex items-center gap-4">
               <div className="w-[92px] h-[92px] rounded-full p-[5px] bg-[#734cff] shadow-[0_12px_28px_rgba(90,59,214,0.2)]">
                 <div className="w-full h-full rounded-full overflow-hidden border-[4px] border-white">
                   <img
@@ -251,7 +251,7 @@ function HomePage() {
               />
             </div>
 
-            <div className="absolute left-[322px] top-[52px] w-[198px] h-[198px] rounded-full overflow-hidden shadow-[0_24px_58px_rgba(70,44,128,0.2)] z-[2]">
+            <div className="absolute left-[334px] top-[52px] w-[164px] h-[164px] rounded-full overflow-hidden shadow-[0_24px_58px_rgba(70,44,128,0.2)] z-[2]">
               <img
                 src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=460&q=80"
                 alt="Cliente"
