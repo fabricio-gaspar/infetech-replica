@@ -356,7 +356,7 @@ function HomePage() {
       <section className="section-y bg-section">
         <div className="container-x text-center reveal max-w-3xl mx-auto">
           <div className="eyebrow mb-3 justify-center">Caminho da Tecnologia</div>
-          <h2 className="text-3xl md:text-5xl font-black leading-tight">A agência de soluções e serviços de TI<br />em que você pode confiar</h2>
+          <h2 className="text-3xl md:text-5xl font-black leading-tight"><span className="block whitespace-nowrap">A agência de soluções e serviços de TI</span><span className="block whitespace-nowrap">em que você pode confiar</span></h2>
         </div>
         <div className="container-x mt-12 grid md:grid-cols-3 gap-6 reveal-stagger">
           {pillars.map((p) => (
