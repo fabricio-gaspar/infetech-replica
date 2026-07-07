@@ -1,50 +1,53 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteShell } from "@/components/site/SiteShell";
 import {
-  ShieldCheck, Cloud, HardDrive, ArrowRight, Cpu, Code2, BarChart3, Database, Settings2,
-  Briefcase, Award, Users, Trophy, MessageCircle, User, ChevronLeft, ChevronRight,
+  ArrowRight, Cpu, Code2, Sparkles, Globe, Mail, Server, Wifi, ClipboardCheck, Clock,
+  Award, Users, Trophy, MessageCircle, User, ChevronLeft, ChevronRight,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
-    { title: "WF Digital — O futuro pertence à tecnologia" },
-    { name: "description", content: "A WF Digital entrega soluções de TI de classe mundial, cibersegurança, serviços em nuvem e desenvolvimento de software para empresas inovadoras." },
-    { property: "og:title", content: "WF Digital — O futuro pertence à tecnologia" },
+    { title: "WF Digital — Tecnologia sob medida para sua empresa" },
+    { name: "description", content: "Sistemas personalizados, automação com IA, sites, hospedagem, servidores, redes e consultoria em TI. Soluções completas para modernizar sua empresa." },
+    { property: "og:title", content: "WF Digital — Tecnologia sob medida para sua empresa" },
   ]}),
   component: HomePage,
 });
 
 const heroCards = [
-  { n: "01", t: "Backup e Recuperação", d: "Ajuda a proteger sua organização contra perda de dados", icon: HardDrive },
-  { n: "02", t: "Internet e Cibersegurança", d: "Táticas de segurança para proteger usuários de ameaças", icon: ShieldCheck },
-  { n: "03", t: "Serviços em Nuvem", d: "Aplicações, servidores, armazenamento e desktops virtuais", icon: Cloud },
+  { n: "01", t: "Sistemas Personalizados", d: "Software sob medida para automatizar processos e organizar sua operação.", icon: Code2 },
+  { n: "02", t: "Automação com IA", d: "Inteligência artificial aplicada ao atendimento, dados e rotinas.", icon: Sparkles },
+  { n: "03", t: "Servidores e Nuvem", d: "Implantação de servidores locais e em nuvem com segurança e backup.", icon: Server },
 ];
 
 const services = [
-  { t: "Software Automatizado", d: "Usado na gestão de processos de negócio para aumentar produtividade e eficiência.", icon: Cpu },
-  { t: "Consultoria em TI", d: "Aumento da produtividade do time, redução de custos, vantagem competitiva e muito mais.", icon: Briefcase },
-  { t: "Estratégia de Mercado", d: "Oferecemos as melhores estratégias de marketing para fazer seu negócio crescer.", icon: BarChart3 },
-  { t: "Estruturação de Dados", d: "Analisamos a natureza dos dados e sua importância dentro do panorama do seu negócio.", icon: Database },
-  { t: "Serviços Gerenciados de TI", d: "Inclui monitoramento de rede, segurança e virtualização sob gestão completa.", icon: Settings2 },
-  { t: "Desenvolvimento de Software", d: "Processo completo de criação, design, implantação e suporte de software.", icon: Code2 },
+  { t: "Sistemas Personalizados", d: "Sistemas sob medida para automatizar processos e substituir planilhas.", icon: Code2 },
+  { t: "Automação com IA", d: "IA aplicada em atendimento, dados e tarefas repetitivas.", icon: Sparkles },
+  { t: "Sites e Hospedagem", d: "Sites profissionais responsivos, com hospedagem e domínio.", icon: Globe },
+  { t: "E-mails Empresariais", d: "Contas com o domínio da empresa e suporte de configuração.", icon: Mail },
+  { t: "Servidores em Nuvem e Local", d: "Estrutura segura para arquivos, sistemas e acessos.", icon: Server },
+  { t: "Redes Cabeadas e Wi-Fi", d: "Projeto e instalação de rede empresarial estável e segura.", icon: Wifi },
+  { t: "Consultoria e Auditoria em TI", d: "Diagnóstico da estrutura e recomendações para evoluir com segurança.", icon: ClipboardCheck },
+  { t: "Sistemas em Plano Mensal", d: "Ponto e lavanderia sob assinatura, com suporte contínuo.", icon: Clock },
+  { t: "Tecnologia Sob Medida", d: "Analisamos seu cenário e entregamos a solução certa para o negócio.", icon: Cpu },
 ];
 
 const industries = [
-  { letter: "G", t: "Games e Entretenimento", d: "Plataformas imersivas, operações em tempo real e experiências de entretenimento de alta escala." },
-  { letter: "N", t: "Negócios e Finanças", d: "Sistemas financeiros seguros, relatórios inteligentes e plataformas corporativas modernas." },
-  { letter: "T", t: "Tecnologia da Informação", d: "Arquiteturas cloud-native, excelência em DevOps e engenharia para times de TI." },
+  { letter: "S", t: "Sistemas Sob Medida", d: "Software desenvolvido conforme o processo real da sua empresa, com evolução contínua." },
+  { letter: "I", t: "IA e Automação", d: "Automações inteligentes para atendimento, dados e rotinas administrativas." },
+  { letter: "N", t: "Nuvem e Infraestrutura", d: "Servidores, redes e hospedagem para uma operação estável, segura e escalável." },
 ];
 
 const pillars = [
-  { i: Users, t: "Experiência", d: "Anos de comprovada entrega de projetos corporativos de TI." },
-  { i: Award, t: "Conveniência", d: "Tornamos a parceria com tecnologia simples e fluida." },
-  { i: Trophy, t: "Profissionalismo", d: "Uma equipe sênior dedicada ao sucesso do seu projeto." },
+  { i: Users, t: "Experiência", d: "Entrega comprovada de projetos de tecnologia para empresas de diferentes portes." },
+  { i: Award, t: "Sob Medida", d: "Cada solução é pensada a partir da realidade e necessidade do seu negócio." },
+  { i: Trophy, t: "Profissionalismo", d: "Suporte próximo e equipe dedicada ao sucesso da sua operação." },
 ];
 
 const posts = [
-  { t: "Os diferentes tipos de backup de dados", d: "01", m: "MAR", img: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80" },
-  { t: "Soluções rápidas para o seu problema", d: "14", m: "MAR", img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80" },
-  { t: "O que é Staff Augmentation?", d: "22", m: "MAR", img: "https://images.unsplash.com/photo-1573164574572-cb89e39749b4?w=800&q=80" },
+  { t: "Sistemas personalizados: quando vale a pena investir", d: "01", m: "MAR", img: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80" },
+  { t: "Automação com IA no dia a dia da empresa", d: "14", m: "MAR", img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80" },
+  { t: "Servidor local ou em nuvem: qual escolher?", d: "22", m: "MAR", img: "https://images.unsplash.com/photo-1573164574572-cb89e39749b4?w=800&q=80" },
 ];
 
 function HomePage() {

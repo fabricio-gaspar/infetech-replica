@@ -1,84 +1,292 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteShell } from "@/components/site/SiteShell";
 import { InternalHero } from "@/components/site/InternalHero";
 import { LogoStrip } from "@/components/site/LogoStrip";
 import { Counters } from "@/components/site/Counters";
 import { PurpleCTA } from "@/components/site/CTAs";
-import { ArrowRight, Play, Lightbulb, Cpu } from "lucide-react";
+import {
+  ArrowRight, Check, Code2, Sparkles, Globe, Mail, Server, Wifi,
+  ClipboardCheck, Clock, Cpu,
+} from "lucide-react";
 
 export const Route = createFileRoute("/services")({
   head: () => ({ meta: [
     { title: "Serviços — WF Digital Soluções de TI" },
-    { name: "description", content: "Conheça o catálogo completo de serviços de TI da WF Digital: consultoria, desenvolvimento de software, nuvem e operações gerenciadas." },
+    { name: "description", content: "Sistemas personalizados, automação com IA, sites, hospedagem, e-mails empresariais, servidores em nuvem, redes e consultoria em TI." },
   ]}),
   component: ServicesPage,
 });
+
+type ServiceBlock = {
+  id: string;
+  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  title: string;
+  intro: string[];
+  bulletsTitle: string;
+  bullets: string[];
+};
+
+const blocks: ServiceBlock[] = [
+  {
+    id: "sistemas",
+    icon: Code2,
+    title: "Desenvolvimento de Sistemas Personalizados",
+    intro: [
+      "Criamos sistemas sob medida para atender exatamente às necessidades da sua empresa. Desenvolvemos soluções para automatizar processos, organizar informações, controlar operações e facilitar a gestão do dia a dia.",
+      "Com um sistema personalizado, sua empresa deixa de depender de planilhas, controles manuais e processos repetitivos, passando a contar com uma ferramenta desenvolvida de acordo com sua realidade.",
+      "Ideal para empresas que precisam de controle interno, gestão de clientes, emissão de relatórios, integração entre setores, acompanhamento de serviços, financeiro, estoque, atendimento ou qualquer outro processo específico.",
+    ],
+    bulletsTitle: "Benefícios",
+    bullets: [
+      "Sistema desenvolvido conforme a necessidade da empresa",
+      "Mais organização e controle das informações",
+      "Redução de erros manuais",
+      "Economia de tempo nas tarefas do dia a dia",
+      "Relatórios e dados mais fáceis de acompanhar",
+      "Possibilidade de evolução conforme o crescimento do negócio",
+    ],
+  },
+  {
+    id: "ia",
+    icon: Sparkles,
+    title: "Automação com Inteligência Artificial",
+    intro: [
+      "Implementamos automações com inteligência artificial para tornar sua empresa mais produtiva, ágil e inteligente. A IA pode ajudar em atendimentos, análise de dados, geração de relatórios, organização de informações, respostas automáticas, triagem de solicitações e diversas tarefas repetitivas.",
+      "A automação com IA permite que sua equipe foque no que realmente importa, enquanto processos manuais são executados de forma mais rápida e eficiente.",
+    ],
+    bulletsTitle: "Aplicações possíveis",
+    bullets: [
+      "Atendimento automatizado",
+      "Geração de respostas e mensagens",
+      "Leitura e organização de documentos",
+      "Automatização de tarefas administrativas",
+      "Análise de dados e relatórios",
+      "Integrações com sistemas, planilhas e ferramentas internas",
+      "Criação de fluxos inteligentes para reduzir trabalho manual",
+    ],
+  },
+  {
+    id: "sites",
+    icon: Globe,
+    title: "Desenvolvimento de Sites e Hospedagem",
+    intro: [
+      "Desenvolvemos sites profissionais, modernos e responsivos para empresas que desejam fortalecer sua presença digital e transmitir mais confiança aos clientes.",
+      "Criamos sites institucionais, páginas de apresentação de serviços, landing pages, sites comerciais e soluções personalizadas para divulgar sua empresa de forma clara, bonita e estratégica.",
+      "Além do desenvolvimento, também oferecemos a hospedagem do site, garantindo que sua página esteja disponível na internet com estabilidade e suporte técnico.",
+    ],
+    bulletsTitle: "O que oferecemos",
+    bullets: [
+      "Criação de sites profissionais",
+      "Layout moderno e adaptado para celular, tablet e computador",
+      "Organização dos conteúdos e serviços da empresa",
+      "Hospedagem do site",
+      "Configuração de domínio",
+      "Suporte para manutenção e melhorias",
+      "Estrutura pensada para gerar mais credibilidade e atrair clientes",
+    ],
+  },
+  {
+    id: "emails",
+    icon: Mail,
+    title: "Hospedagem de E-mails Empresariais",
+    intro: [
+      "Oferecemos hospedagem de e-mails profissionais para empresas que desejam usar contas com o próprio domínio, como contato@suaempresa.com.br.",
+      "Ter um e-mail empresarial transmite mais profissionalismo, segurança e confiança na comunicação com clientes, fornecedores e parceiros.",
+      "Configuramos e-mails corporativos, caixas de entrada, acessos em computadores e celulares, além de auxiliar na organização e funcionamento das contas.",
+    ],
+    bulletsTitle: "Vantagens",
+    bullets: [
+      "E-mails com o domínio da empresa",
+      "Mais credibilidade na comunicação",
+      "Configuração em celular, computador e webmail",
+      "Organização de contas por setor ou colaborador",
+      "Suporte técnico para configuração e manutenção",
+      "Solução ideal para empresas que querem uma comunicação mais profissional",
+    ],
+  },
+  {
+    id: "servidores",
+    icon: Server,
+    title: "Implantação de Servidores em Nuvem e Local",
+    intro: [
+      "Realizamos implantação e configuração de servidores em nuvem ou servidores locais, de acordo com a necessidade da empresa.",
+      "Ajudamos sua empresa a ter uma estrutura mais organizada, segura e eficiente para armazenar arquivos, rodar sistemas, controlar acessos, hospedar aplicações e centralizar informações importantes.",
+      "A solução pode ser feita em ambiente local, dentro da empresa, ou em nuvem, permitindo maior flexibilidade, acesso remoto e escalabilidade.",
+    ],
+    bulletsTitle: "Serviços inclusos",
+    bullets: [
+      "Configuração de servidores locais",
+      "Implantação de servidores em nuvem",
+      "Organização de arquivos e permissões",
+      "Configuração de usuários e acessos",
+      "Backup e segurança",
+      "Hospedagem de sistemas internos",
+      "Suporte e manutenção da estrutura",
+    ],
+  },
+  {
+    id: "plano-mensal",
+    icon: Clock,
+    title: "Sistema de Ponto e Lavanderia com Plano Mensal",
+    intro: [
+      "Disponibilizamos sistemas em modelo de plano mensal para empresas que precisam controlar melhor seus processos, como controle de ponto e gestão de lavanderia.",
+      "O sistema de ponto ajuda no acompanhamento da jornada dos colaboradores, registros de entrada e saída, controle de horários e geração de informações para gestão.",
+      "Já o sistema para lavanderia auxilia no controle de pedidos, clientes, peças, status dos serviços, entregas, valores e organização operacional.",
+    ],
+    bulletsTitle: "Ideal para empresas que desejam",
+    bullets: [
+      "Controlar processos de forma simples",
+      "Reduzir controles manuais",
+      "Ter acesso às informações com mais facilidade",
+      "Utilizar um sistema com baixo custo inicial",
+      "Contar com suporte e evolução contínua",
+      "Trabalhar com plano mensal sem necessidade de grande investimento inicial",
+    ],
+  },
+  {
+    id: "redes",
+    icon: Wifi,
+    title: "Implantação de Rede Cabeada e Wi-Fi",
+    intro: [
+      "Projetamos e implantamos redes cabeadas e Wi-Fi para empresas que precisam de uma conexão mais estável, segura e organizada.",
+      "Uma rede bem estruturada melhora o desempenho da internet, evita quedas, organiza os pontos de acesso e garante melhor funcionamento dos computadores, sistemas, impressoras, câmeras e demais equipamentos conectados.",
+      "Atendemos desde pequenos escritórios até empresas que precisam de uma estrutura mais completa.",
+    ],
+    bulletsTitle: "O que fazemos",
+    bullets: [
+      "Instalação de rede cabeada",
+      "Organização de pontos de rede",
+      "Configuração de roteadores e switches",
+      "Implantação de Wi-Fi empresarial",
+      "Melhoria de sinal e cobertura",
+      "Separação de rede para visitantes",
+      "Configuração de segurança e controle de acesso",
+      "Manutenção e suporte técnico",
+    ],
+  },
+  {
+    id: "consultoria",
+    icon: ClipboardCheck,
+    title: "Consultoria e Auditoria em TI",
+    intro: [
+      "Realizamos consultoria e auditoria em TI para identificar problemas, melhorar processos, aumentar a segurança e orientar a empresa nas melhores decisões tecnológicas.",
+      "Analisamos a estrutura atual, equipamentos, rede, sistemas, servidores, segurança, backups, acessos e rotinas internas. Após a avaliação, apresentamos melhorias e soluções adequadas para tornar o ambiente de TI mais eficiente e confiável.",
+    ],
+    bulletsTitle: "A consultoria ajuda sua empresa a",
+    bullets: [
+      "Identificar falhas na estrutura atual",
+      "Melhorar a segurança das informações",
+      "Reduzir riscos de perda de dados",
+      "Organizar processos internos",
+      "Planejar investimentos em tecnologia",
+      "Evitar gastos desnecessários",
+      "Melhorar o desempenho dos sistemas e equipamentos",
+    ],
+  },
+];
 
 function ServicesPage() {
   return (
     <SiteShell>
       <InternalHero title="Serviços" crumb="Serviços" />
 
+      {/* Intro */}
       <section className="section-y bg-white">
-        <div className="container-x text-center reveal mb-12">
-          <div className="eyebrow mb-3">O que oferecemos aos nossos clientes</div>
-          <h2 className="text-3xl md:text-5xl font-black leading-tight">Atuação em tempo real em todas as<br />soluções e serviços profissionais de TI</h2>
+        <div className="container-x text-center reveal max-w-3xl mx-auto mb-14">
+          <div className="eyebrow mb-3 justify-center">Nossos Serviços de Tecnologia</div>
+          <h2 className="text-3xl md:text-5xl font-black leading-tight">
+            Soluções completas em tecnologia para<br />modernizar a sua empresa
+          </h2>
+          <p className="mt-6 text-muted-foreground leading-relaxed">
+            Oferecemos soluções completas em tecnologia para empresas que desejam modernizar processos, aumentar a produtividade, reduzir custos e contar com uma estrutura mais segura e eficiente. Atuamos desde o desenvolvimento de sistemas personalizados até consultoria, infraestrutura, automação com inteligência artificial, hospedagem e implantação de redes.
+          </p>
+          <p className="mt-4 text-muted-foreground leading-relaxed">
+            Nosso objetivo é entender a necessidade de cada empresa e entregar soluções práticas, profissionais e sob medida.
+          </p>
         </div>
-        <div className="container-x grid md:grid-cols-2 gap-8">
-          {[
-            { t: "Fornecemos soluções de TI para clientes em todo o mundo", img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=80" },
-            { t: "Nossos clientes adoram nossa tecnologia e atendimento", img: "https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=900&q=80" },
-          ].map((s) => (
-            <div key={s.t} className="relative reveal">
-              <img src={s.img} className="w-full h-80 object-cover grayscale" alt="" />
-              <div className="absolute top-0 right-0 w-1/4 h-full bg-gradient-to-l from-primary/45 to-transparent skew-x-[-12deg] translate-x-6 pointer-events-none" />
-              <div className="corner-accent absolute -bottom-6 left-6 right-12 bg-white shadow-xl p-5 flex items-center justify-between gap-4">
-                <p className="font-bold text-sm">{s.t}</p>
-                <button className="w-10 h-10 rounded-full purple-gradient text-white grid place-items-center shrink-0 hover:rotate-12 transition-transform"><ArrowRight className="w-4 h-4" /></button>
+
+        {/* Quick nav */}
+        <div className="container-x grid sm:grid-cols-2 lg:grid-cols-4 gap-4 reveal-stagger">
+          {blocks.map((b) => (
+            <a
+              key={b.id}
+              href={`#${b.id}`}
+              className="card-tech p-5 flex items-center gap-3 reveal group"
+            >
+              <div className="card-tech-icon shrink-0">
+                <b.icon className="w-5 h-5" strokeWidth={1.6} />
               </div>
-            </div>
+              <span className="text-sm font-bold leading-tight">{b.title}</span>
+            </a>
           ))}
         </div>
       </section>
 
       <LogoStrip />
 
-      {/* Mission/Vision */}
-      <section className="section-y bg-section relative overflow-hidden">
-        <div className="container-x grid lg:grid-cols-2 gap-14 items-center">
-          <div className="relative reveal">
-            <div className="absolute left-0 top-1/4 -rotate-90 origin-left text-xs tracking-[0.5em] text-foreground/30 font-bold">MISSÃO</div>
-            <div className="absolute right-0 top-1/4 rotate-90 origin-right text-xs tracking-[0.5em] text-foreground/30 font-bold">VISÃO</div>
-            <div className="grid grid-cols-2 gap-4 px-12">
-              <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=600&q=80" className="w-full h-60 object-cover" alt="" />
-              <div className="relative">
-                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&q=80" className="w-full h-44 object-cover mt-16" alt="" />
-                <div className="absolute -top-2 -left-2 w-14 h-14 grid place-items-center bg-primary text-white shadow-lg"><Lightbulb className="w-6 h-6" /></div>
+      {/* Detailed service blocks */}
+      <section className="section-y bg-section">
+        <div className="container-x flex flex-col gap-10">
+          {blocks.map((b, i) => (
+            <article
+              key={b.id}
+              id={b.id}
+              className="card-tech p-8 md:p-12 reveal scroll-mt-24"
+              style={{ transitionDelay: `${i * 60}ms` }}
+            >
+              <div className="flex items-start gap-5 mb-6">
+                <div className="card-tech-icon shrink-0">
+                  <b.icon className="w-7 h-7" strokeWidth={1.5} />
+                </div>
+                <div>
+                  <div className="eyebrow mb-2">Serviço {String(i + 1).padStart(2, "0")}</div>
+                  <h3 className="text-2xl md:text-3xl font-black leading-tight">{b.title}</h3>
+                </div>
               </div>
-              <div className="relative col-span-2 mt-2 flex items-end gap-4">
-                <div className="w-14 h-14 grid place-items-center bg-primary text-white shadow-lg"><Cpu className="w-6 h-6" /></div>
-                <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&q=80" className="flex-1 h-44 object-cover" alt="" />
+
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                {b.intro.map((p, idx) => (
+                  <p key={idx}>{p}</p>
+                ))}
               </div>
-            </div>
+
+              <div className="mt-8">
+                <h4 className="font-black uppercase tracking-wider text-sm mb-4">{b.bulletsTitle}</h4>
+                <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5">
+                  {b.bullets.map((li) => (
+                    <li key={li} className="flex items-start gap-2.5 text-sm">
+                      <span className="mt-0.5 w-5 h-5 rounded-full bg-accent text-primary grid place-items-center shrink-0">
+                        <Check className="w-3 h-3" />
+                      </span>
+                      <span>{li}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Closing block */}
+      <section className="section-y bg-white">
+        <div className="container-x max-w-4xl mx-auto text-center reveal">
+          <div className="w-16 h-16 mx-auto grid place-items-center purple-gradient text-white mb-6">
+            <Cpu className="w-7 h-7" />
           </div>
-          <div className="reveal">
-            <div className="eyebrow mb-3">Conheça a WF Digital</div>
-            <h2 className="text-4xl md:text-5xl font-black leading-tight">WF Digital: liderança no<br />mercado de tecnologia</h2>
-            <p className="mt-4 text-primary font-semibold">As melhores soluções de TI para suas ideias inovadoras.</p>
-            <p className="mt-4 text-muted-foreground">
-              A WF Digital é especialista em consultoria de TI e desenvolvimento de software, ajudando organizações e empresas a melhorar a performance do negócio.
-            </p>
-            <blockquote className="mt-6 bg-white border-l-4 border-primary px-5 py-4 text-sm font-semibold shadow-sm">
-              Criamos soluções de tecnologia excelentes e sustentáveis, baseadas em profundo domínio da área de TI.
-            </blockquote>
-            <div className="mt-7 flex items-center gap-5">
-              <a href="/contact" className="btn-primary">Saiba mais <ArrowRight className="w-4 h-4" /></a>
-              <button className="flex items-center gap-3 group">
-                <span className="w-12 h-12 rounded-full purple-gradient grid place-items-center text-white group-hover:scale-110 transition-transform"><Play className="w-4 h-4 fill-current" /></span>
-                <span className="text-sm font-semibold">Assista nosso vídeo<br />de poucos minutos</span>
-              </button>
-            </div>
-          </div>
+          <div className="eyebrow mb-3 justify-center">Tecnologia Sob Medida para Sua Empresa</div>
+          <h2 className="text-3xl md:text-4xl font-black leading-tight">
+            Cada empresa é única. A tecnologia certa também deve ser.
+          </h2>
+          <p className="mt-6 text-muted-foreground leading-relaxed">
+            Cada empresa possui necessidades diferentes. Por isso, nosso trabalho é entender seu cenário, avaliar os desafios e oferecer soluções de tecnologia que realmente façam sentido para o seu negócio.
+          </p>
+          <p className="mt-4 text-muted-foreground leading-relaxed">
+            Seja para criar um sistema, automatizar processos com IA, melhorar a rede, implantar servidores, hospedar e-mails, desenvolver um site ou organizar a estrutura de TI, estamos prontos para ajudar sua empresa a evoluir com segurança, eficiência e profissionalismo.
+          </p>
+          <Link to="/contact" className="btn-primary mt-8 inline-flex">
+            Entre em contato <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </section>
 
