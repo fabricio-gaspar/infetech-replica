@@ -3,7 +3,7 @@ import { useState } from "react";
 import { SiteShell } from "@/components/site/SiteShell";
 import {
   ArrowRight, Cpu, Code2, Sparkles, Globe, Mail, Server, Wifi, ClipboardCheck, Clock,
-  Award, Users, Trophy, MessageCircle, User, ChevronLeft, ChevronRight,
+  Award, Users, Trophy, MessageCircle, User, ChevronLeft, ChevronRight, ArrowUpRight,
 } from "lucide-react";
 
 type Testimonial = {
