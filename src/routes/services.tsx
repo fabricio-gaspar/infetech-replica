@@ -195,7 +195,7 @@ function ServicesPage() {
         <div className="container-x text-center reveal max-w-3xl mx-auto mb-14">
           <div className="eyebrow mb-3 justify-center">Nossos Serviços de Tecnologia</div>
           <h2 className="text-3xl md:text-5xl font-black leading-tight">
-            Soluções completas em tecnologia para<br />modernizar a sua empresa
+            Soluções completas em tecnologia<br />para modernizar a sua empresa
           </h2>
           <p className="mt-6 text-muted-foreground leading-relaxed">
             Oferecemos soluções completas em tecnologia para empresas que desejam modernizar processos, aumentar a produtividade, reduzir custos e contar com uma estrutura mais segura e eficiente. Atuamos desde o desenvolvimento de sistemas personalizados até consultoria, infraestrutura, automação com inteligência artificial, hospedagem e implantação de redes.
