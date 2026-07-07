@@ -171,30 +171,78 @@ function HomePage() {
           className="absolute -top-10 -right-10 lg:top-[-140px] lg:right-[-120px] w-[360px] h-[360px] lg:w-[520px] lg:h-[520px] rounded-full bg-primary/[0.05] pointer-events-none"
         />
         <div className="container-x relative grid lg:grid-cols-2 gap-14 items-center">
-          {/* Left visual composition */}
-          <div className="relative reveal order-2 lg:order-1">
-            <div
+          {/* Left visual composition — circular photo cutouts + triangle confetti */}
+          <div className="relative reveal order-2 lg:order-1 h-[480px] md:h-[560px]">
+            {/* Triangle confetti (scattered geometric shapes) */}
+            <svg
               aria-hidden
-              className="absolute -left-10 lg:-left-16 top-1/2 -translate-y-1/2 w-[320px] h-[320px] md:w-[400px] md:h-[400px] lg:w-[460px] lg:h-[460px] rounded-full border-[36px] border-primary/[0.10] pointer-events-none"
-            />
-            <div
-              aria-hidden
-              className="absolute top-4 right-10 lg:right-16 w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-primary/20 pointer-events-none"
-            />
-            <div className="relative z-10 ml-8 lg:ml-12">
+              className="absolute inset-0 w-full h-full pointer-events-none"
+              viewBox="0 0 600 560"
+              fill="none"
+              preserveAspectRatio="xMidYMid slice"
+            >
+              <g fill="#FF6933" fillOpacity="0.18" stroke="#FF6933" strokeOpacity="0.35" strokeWidth="1">
+                {[
+                  { p: "M120,60 L138,52 L132,76 Z", r: 0 },
+                  { p: "M180,110 L204,100 L196,128 Z", r: 15 },
+                  { p: "M90,140 L108,132 L100,158 Z", r: -20 },
+                  { p: "M240,40 L258,32 L250,58 Z", r: 8 },
+                  { p: "M300,90 L322,80 L314,108 Z", r: -10 },
+                  { p: "M160,180 L182,170 L172,198 Z", r: 25 },
+                  { p: "M60,220 L82,210 L72,238 Z", r: -5 },
+                  { p: "M220,220 L240,212 L232,236 Z", r: 12 },
+                  { p: "M360,150 L382,140 L372,168 Z", r: -18 },
+                  { p: "M420,60 L440,52 L432,78 Z", r: 22 },
+                  { p: "M480,180 L502,170 L492,200 Z", r: -8 },
+                  { p: "M540,120 L560,112 L552,138 Z", r: 14 },
+                  { p: "M500,280 L522,270 L512,300 Z", r: -12 },
+                  { p: "M560,340 L582,330 L572,358 Z", r: 18 },
+                  { p: "M40,320 L60,310 L52,338 Z", r: 6 },
+                  { p: "M100,400 L122,390 L112,418 Z", r: -15 },
+                  { p: "M40,460 L60,452 L52,478 Z", r: 10 },
+                  { p: "M180,480 L202,470 L192,498 Z", r: -22 },
+                  { p: "M540,460 L562,450 L552,478 Z", r: 16 },
+                  { p: "M280,510 L300,502 L292,528 Z", r: -6 },
+                ].map((t, i) => (
+                  <path key={i} d={t.p} transform={`rotate(${t.r} ${120 + i * 5} ${60 + i * 5})`} />
+                ))}
+              </g>
+            </svg>
+
+            {/* Small top-left circle */}
+            <div className="absolute left-4 top-6 w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-4 ring-white shadow-[0_10px_30px_rgba(0,0,0,0.15)] z-[2]">
               <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=80"
-                alt="Profissional de tecnologia"
-                className="w-full max-w-[480px] h-[360px] md:h-[420px] object-cover"
-              />
-            </div>
-            <div className="absolute -bottom-8 -left-2 lg:-left-6 z-20 w-44 h-36 lg:w-52 lg:h-40 shadow-[0_20px_60px_rgba(0,0,0,0.18)]">
-              <img
-                src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&q=80"
-                alt="Equipe trabalhando"
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&q=80"
+                alt=""
                 className="w-full h-full object-cover"
               />
-              <div className="absolute top-0 right-0 w-3 h-3 bg-primary" />
+            </div>
+
+            {/* Large main circle */}
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[380px] md:h-[380px] lg:w-[420px] lg:h-[420px] rounded-full overflow-hidden ring-4 ring-white shadow-[0_30px_80px_rgba(0,0,0,0.22)] z-[3]">
+              <img
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=80"
+                alt="Profissional de tecnologia sorrindo"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Medium top-right circle */}
+            <div className="absolute right-2 top-16 w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden ring-4 ring-white shadow-[0_20px_50px_rgba(0,0,0,0.2)] z-[4]">
+              <img
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&q=80"
+                alt=""
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Small bottom-right circle */}
+            <div className="absolute right-10 bottom-16 w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden ring-4 ring-white shadow-[0_10px_28px_rgba(0,0,0,0.18)] z-[5]">
+              <img
+                src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=300&q=80"
+                alt=""
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 
