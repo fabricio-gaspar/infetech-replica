@@ -21,26 +21,26 @@ export function InternalHero({ title, crumb }: { title: string; crumb?: string }
         }}
       />
 
-      {/* Purple diagonal wedge on the right — clean solid triangle like the reference */}
+      {/* Orange diagonal wedge — from top edge down to the bottom-right corner, meeting the strokes */}
       <div
         aria-hidden
-        className="absolute inset-y-0 right-0 w-[38%] md:w-[30%] pointer-events-none"
+        className="absolute inset-0 pointer-events-none"
         style={{
-          clipPath: "polygon(100% 0, 100% 100%, 0 100%)",
+          clipPath: "polygon(70% 0, 100% 0, 100% 100%, 100% 100%)",
           background:
-            "linear-gradient(135deg, #7a4bd6 0%, #5b2eb0 55%, #3a1a86 100%)",
-          opacity: 0.92,
+            "linear-gradient(135deg, #FF7A4A 0%, #FF6933 45%, #C7431A 100%)",
+          opacity: 0.95,
         }}
       />
 
-      {/* Fine diagonal strokes in the lower-right corner */}
+      {/* Fine diagonal strokes in the lower-right corner (kept in same position) */}
       <svg
         aria-hidden
         viewBox="0 0 200 200"
         preserveAspectRatio="none"
         className="absolute bottom-0 right-0 h-[70%] w-[26%] md:w-[18%] pointer-events-none"
       >
-        <g stroke="rgba(180,150,240,0.55)" strokeWidth="1" fill="none">
+        <g stroke="rgba(255,200,170,0.6)" strokeWidth="1" fill="none">
           <path d="M20 220 L220 20" />
           <path d="M40 220 L240 20" />
           <path d="M60 220 L260 20" />
@@ -57,7 +57,7 @@ export function InternalHero({ title, crumb }: { title: string; crumb?: string }
         <div className="mt-3 flex items-center gap-2 text-[11px] md:text-xs uppercase tracking-[0.28em] text-white/85">
           <Link to="/" className="hover:text-white transition-colors">Início</Link>
           <ChevronRight className="w-3 h-3 opacity-70" />
-          <span className="text-[#c9b3ff]">{crumb ?? title}</span>
+          <span className="text-[#ffd0b8]">{crumb ?? title}</span>
         </div>
       </div>
     </section>
