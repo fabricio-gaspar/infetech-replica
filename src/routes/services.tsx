@@ -205,21 +205,6 @@ function ServicesPage() {
           </p>
         </div>
 
-        {/* Quick nav */}
-        <div className="container-x grid sm:grid-cols-2 lg:grid-cols-4 gap-4 reveal-stagger">
-          {blocks.map((b) => (
-            <a
-              key={b.id}
-              href={`#${b.id}`}
-              className="card-tech p-5 flex items-center gap-3 reveal group"
-            >
-              <div className="card-tech-icon shrink-0">
-                <b.icon className="w-5 h-5" strokeWidth={1.6} />
-              </div>
-              <span className="text-sm font-bold leading-tight">{b.title}</span>
-            </a>
-          ))}
-        </div>
       </section>
 
       
