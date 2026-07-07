@@ -20,8 +20,17 @@ export function DarkCTA({ title = "Melhores soluções e serviços de TI", line2
   return (
     <section className="relative overflow-hidden diag-overlay circuit-panel h-[360px] grid place-items-center">
       <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1800&auto=format&fit=crop&q=80" className="absolute inset-0 w-full h-full object-cover grayscale" alt="" />
-      <div className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r from-primary/55 to-transparent skew-x-[-15deg] -translate-x-16 pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-1/4 h-2/3 bg-gradient-to-l from-primary/55 to-transparent skew-x-[-15deg] translate-x-12 pointer-events-none" />
+      <div
+        aria-hidden
+        className="absolute inset-y-0 right-0 w-[58%] md:w-[52%] pointer-events-none z-[2]"
+        style={{
+          clipPath: "polygon(0 0, 100% 0, 100% 100%, 44% 100%)",
+          background:
+            "linear-gradient(135deg, rgba(151,118,234,0.62) 0%, rgba(91,45,180,0.44) 48%, rgba(53,22,120,0.68) 100%)",
+          mixBlendMode: "screen",
+          opacity: 0.66,
+        }}
+      />
       <div className="relative text-center text-white px-4">
         <h2 className="text-3xl md:text-5xl font-black leading-tight">{title}<br />{line2}</h2>
         <a href="/contact" className="btn-light mt-7">Saiba mais</a>
