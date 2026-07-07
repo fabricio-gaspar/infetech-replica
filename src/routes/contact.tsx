@@ -55,8 +55,17 @@ function ContactPage() {
         <div className="container-x">
           <div className="relative overflow-hidden h-44 diag-overlay">
             <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&q=80" className="absolute inset-0 w-full h-full object-cover grayscale" alt="" />
-            <div className="absolute left-0 top-0 bottom-0 w-2 bg-primary" />
-            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-primary/40 to-transparent skew-x-[-12deg] -translate-x-8" />
+            <div
+              aria-hidden
+              className="absolute inset-y-0 right-0 w-[58%] pointer-events-none z-[2]"
+              style={{
+                clipPath: "polygon(0 0, 100% 0, 100% 100%, 44% 100%)",
+                background:
+                  "linear-gradient(135deg, rgba(151,118,234,0.62) 0%, rgba(91,45,180,0.44) 48%, rgba(53,22,120,0.68) 100%)",
+                mixBlendMode: "screen",
+                opacity: 0.66,
+              }}
+            />
             <div className="relative h-full flex items-center justify-between gap-6 px-8 text-white">
               <div>
                 <div className="text-xs uppercase tracking-widest text-primary">Vamos começar</div>
