@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { SiteShell } from "@/components/site/SiteShell";
 import {
   ArrowRight, Cpu, Code2, Sparkles, Globe, Mail, Server, Wifi, ClipboardCheck, Clock,
@@ -88,13 +88,24 @@ function HomePage() {
   const [activeT, setActiveT] = useState(0);
   const active = testimonials[activeT];
   const servicesScrollRef = useRef<HTMLDivElement>(null);
+  const servicesPausedRef = useRef(false);
   const scrollServices = (dir: 1 | -1) => {
     const el = servicesScrollRef.current;
     if (!el) return;
     const card = el.querySelector<HTMLElement>("[data-svc-card]");
-    const step = card ? card.offsetWidth + 24 : el.clientWidth * 0.8;
-    el.scrollBy({ left: step * dir, behavior: "smooth" });
+    const step = card ? card.offsetWidth + 24 : el.clientWidth / 3;
+    const maxScroll = el.scrollWidth - el.clientWidth - 4;
+    let target = el.scrollLeft + step * dir;
+    if (dir === 1 && el.scrollLeft >= maxScroll) target = 0;
+    if (dir === -1 && el.scrollLeft <= 4) target = maxScroll;
+    el.scrollTo({ left: target, behavior: "smooth" });
   };
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      if (!servicesPausedRef.current) scrollServices(1);
+    }, 3500);
+    return () => window.clearInterval(id);
+  }, []);
   return (
     <SiteShell>
       {/* HERO */}
@@ -324,13 +335,15 @@ function HomePage() {
         <div className="relative mt-14">
           <div
             ref={servicesScrollRef}
+            onMouseEnter={() => { servicesPausedRef.current = true; }}
+            onMouseLeave={() => { servicesPausedRef.current = false; }}
             className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth px-6 md:px-10 lg:px-16 pb-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden reveal-stagger"
           >
             {services.map((s, i) => (
               <div
                 key={s.t}
                 data-svc-card
-                className="card-tech p-10 min-h-[280px] reveal group flex flex-col shrink-0 snap-start w-[82%] sm:w-[380px]"
+                className="card-tech p-10 min-h-[280px] reveal group flex flex-col shrink-0 snap-start basis-[82%] sm:basis-[calc((100%-3rem)/2)] lg:basis-[calc((100%-3rem)/3)]"
                 style={{ transitionDelay: `${i*70}ms`}}
               >
                 <span className="card-tech-index">— 0{i+1}</span>
