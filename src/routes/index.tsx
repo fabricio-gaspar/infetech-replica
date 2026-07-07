@@ -158,7 +158,7 @@ function HomePage() {
               style={{ transitionDelay: `${i * 100}ms` }}
             >
               <span className="absolute right-6 bottom-4 text-[70px] font-black leading-none text-foreground/[0.07] select-none">{c.n}</span>
-              <h3 className="relative text-[18px] font-black uppercase tracking-wide leading-tight max-w-[180px]">{c.t}</h3>
+              <h3 className="relative text-[18px] font-black uppercase tracking-wide leading-tight whitespace-nowrap">{c.t}</h3>
               <p className="relative mt-5 text-[13px] text-muted-foreground leading-relaxed max-w-[220px]">{c.d}</p>
             </div>
           ))}
