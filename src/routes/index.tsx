@@ -324,9 +324,9 @@ function HomePage() {
             WebkitMaskImage: "radial-gradient(ellipse at center, transparent 30%, black 80%)",
           }}
         />
-        <div className="container-x relative text-center reveal max-w-3xl mx-auto">
+        <div className="container-x relative text-center reveal max-w-6xl mx-auto">
           <div className="eyebrow mb-4 justify-center">O que oferecemos aos nossos clientes</div>
-          <h2 className="text-3xl md:text-5xl font-black leading-[1.15]">Atendimento em tempo real em todas as<br />soluções e serviços profissionais de TI</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black leading-[1.15] whitespace-nowrap">Atendimento em tempo real em todas as soluções e serviços profissionais de TI</h2>
         </div>
         <div className="container-x relative mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
           {services.map((s, i) => (
