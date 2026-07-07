@@ -13,12 +13,12 @@ export function Footer() {
           </div>
 
           <div className="relative overflow-hidden rounded-2xl px-8 md:px-14 py-10 md:py-14" style={{
-            background: "linear-gradient(90deg, #3E8BFF 0%, #6E5BF0 60%, #7A4BD6 100%)",
+            background: "linear-gradient(90deg, #FF8A5C 0%, #FF6933 55%, #E0541F 100%)",
           }}>
             {/* Dotted wave pattern */}
-            <div aria-hidden className="absolute inset-0 pointer-events-none opacity-30" style={{
+            <div aria-hidden className="absolute inset-0 pointer-events-none opacity-20" style={{
               backgroundImage:
-                "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.55) 1px, transparent 1.6px)",
+                "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.5) 1px, transparent 1.6px)",
               backgroundSize: "14px 14px",
               maskImage: "radial-gradient(ellipse 90% 120% at 50% 50%, black 30%, transparent 80%)",
               WebkitMaskImage: "radial-gradient(ellipse 90% 120% at 50% 50%, black 30%, transparent 80%)",
