@@ -45,35 +45,31 @@ export function Footer() {
               }}
             />
 
-            {/* Fine diagonal streaks — subtle */}
+            {/* Wavy dotted pattern (dots displaced along a sine wave) */}
             <svg
               aria-hidden
-              viewBox="0 0 400 200"
+              viewBox="0 0 1200 260"
               preserveAspectRatio="none"
-              className="absolute inset-0 w-full h-full opacity-25 pointer-events-none"
+              className="absolute inset-0 w-full h-full pointer-events-none opacity-60"
             >
-              <g stroke="rgba(255,255,255,0.35)" strokeWidth="0.6" fill="none">
-                <path d="M-40 220 L220 -40" />
-                <path d="M20 220 L280 -40" />
-                <path d="M80 220 L340 -40" />
-                <path d="M140 220 L400 -40" />
-              </g>
+              {Array.from({ length: 14 }).flatMap((_, row) =>
+                Array.from({ length: 80 }).map((_, col) => {
+                  const x = col * 15 + 10;
+                  const baseY = row * 18 + 10;
+                  const y = baseY + Math.sin((col / 80) * Math.PI * 2.4 + row * 0.35) * 10;
+                  const r = 1.3;
+                  return (
+                    <circle
+                      key={`${row}-${col}`}
+                      cx={x}
+                      cy={y}
+                      r={r}
+                      fill="rgba(255,255,255,0.55)"
+                    />
+                  );
+                })
+              )}
             </svg>
-
-            {/* Dotted wave pattern */}
-            <div
-              aria-hidden
-              className="absolute inset-0 pointer-events-none opacity-20"
-              style={{
-                backgroundImage:
-                  "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.5) 1px, transparent 1.6px)",
-                backgroundSize: "14px 14px",
-                maskImage:
-                  "radial-gradient(ellipse 90% 120% at 50% 50%, black 30%, transparent 80%)",
-                WebkitMaskImage:
-                  "radial-gradient(ellipse 90% 120% at 50% 50%, black 30%, transparent 80%)",
-              }}
-            />
 
             <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-6 pl-0 md:pl-24">
               <div className="max-w-xl">
