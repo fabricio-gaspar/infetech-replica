@@ -32,8 +32,8 @@
   --color-dark: var(--dark);
   --color-dark-foreground: var(--dark-foreground);
   --color-section: var(--section);
-  --font-display: "Rubik", "Inter", sans-serif;
-  --font-sans: "Rubik", "Inter", sans-serif;
+  --font-display: "Catamaran", "Inter", sans-serif;
+  --font-sans: "Roboto", "Inter", sans-serif;
 }
 
 :root {
