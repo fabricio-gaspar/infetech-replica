@@ -88,13 +88,24 @@ function HomePage() {
   const [activeT, setActiveT] = useState(0);
   const active = testimonials[activeT];
   const servicesScrollRef = useRef<HTMLDivElement>(null);
+  const servicesPausedRef = useRef(false);
   const scrollServices = (dir: 1 | -1) => {
     const el = servicesScrollRef.current;
     if (!el) return;
     const card = el.querySelector<HTMLElement>("[data-svc-card]");
-    const step = card ? card.offsetWidth + 24 : el.clientWidth * 0.8;
-    el.scrollBy({ left: step * dir, behavior: "smooth" });
+    const step = card ? card.offsetWidth + 24 : el.clientWidth / 3;
+    const maxScroll = el.scrollWidth - el.clientWidth - 4;
+    let target = el.scrollLeft + step * dir;
+    if (dir === 1 && el.scrollLeft >= maxScroll) target = 0;
+    if (dir === -1 && el.scrollLeft <= 4) target = maxScroll;
+    el.scrollTo({ left: target, behavior: "smooth" });
   };
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      if (!servicesPausedRef.current) scrollServices(1);
+    }, 3500);
+    return () => window.clearInterval(id);
+  }, []);
   return (
     <SiteShell>
       {/* HERO */}
