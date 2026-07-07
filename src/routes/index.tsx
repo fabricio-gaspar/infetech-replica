@@ -355,7 +355,7 @@ function HomePage() {
             ))}
           </div>
 
-          <div className="container-x mt-6 flex items-center justify-end gap-3">
+          <div className="mt-6 flex items-center justify-end gap-3">
             <button
               type="button"
               onClick={() => scrollServices(-1)}
