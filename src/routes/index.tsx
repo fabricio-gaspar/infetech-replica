@@ -356,21 +356,6 @@ function HomePage() {
         </div>
       </section>
 
-      {/* INDUSTRIES */}
-      <section className="section-y bg-white">
-        <div className="container-x grid md:grid-cols-3 gap-6 reveal-stagger">
-          {industries.map((i) => (
-            <div key={i.letter} className="card-tech group p-8 reveal">
-              <div className="w-20 h-20 purple-gradient text-white font-black text-5xl grid place-items-center mb-6 leading-none">{i.letter}</div>
-              <h3 className="text-xl font-bold">{i.t}</h3>
-              <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{i.d}</p>
-              <div className="mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-primary">
-                Leia mais <ArrowRight className="w-3 h-3" />
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* TECHNOLOGY PATH */}
       <section className="section-y bg-section">
