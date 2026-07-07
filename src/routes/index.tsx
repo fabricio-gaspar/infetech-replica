@@ -337,13 +337,6 @@ function HomePage() {
         </div>
       </section>
 
-      {/* INTERMEDIATE DARK CTA */}
-      <section className="circuit-bg text-white">
-        <div className="container-x py-14 flex flex-col md:flex-row items-center justify-between gap-6">
-          <h3 className="text-2xl md:text-3xl font-black text-white">Precisa de consultoria em soluções e serviços de TI?</h3>
-          <Link to="/contact" className="btn-primary">Envie um orçamento gratuito <ArrowRight className="w-4 h-4" /></Link>
-        </div>
-      </section>
 
 
       {/* BETTER IT SOLUTIONS BLOCK */}
