@@ -210,7 +210,7 @@ function HomePage() {
             </svg>
 
             {/* Small top-left circle */}
-            <div className="absolute left-4 top-6 w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-4 ring-white shadow-[0_10px_30px_rgba(0,0,0,0.15)] z-[2]">
+            <div className="absolute left-2 top-4 w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-[6px] ring-white shadow-[0_10px_30px_rgba(0,0,0,0.18)] z-[2]">
               <img
                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&q=80"
                 alt=""
@@ -219,7 +219,7 @@ function HomePage() {
             </div>
 
             {/* Large main circle */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[380px] md:h-[380px] lg:w-[420px] lg:h-[420px] rounded-full overflow-hidden ring-4 ring-white shadow-[0_30px_80px_rgba(0,0,0,0.22)] z-[3]">
+            <div className="absolute left-1/2 top-1/2 -translate-x-[42%] -translate-y-[46%] w-[340px] h-[340px] md:w-[420px] md:h-[420px] lg:w-[460px] lg:h-[460px] rounded-full overflow-hidden ring-[6px] ring-white shadow-[0_30px_80px_rgba(0,0,0,0.22)] z-[3]">
               <img
                 src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=80"
                 alt="Profissional de tecnologia sorrindo"
@@ -227,8 +227,8 @@ function HomePage() {
               />
             </div>
 
-            {/* Medium top-right circle */}
-            <div className="absolute right-2 top-16 w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden ring-4 ring-white shadow-[0_20px_50px_rgba(0,0,0,0.2)] z-[4]">
+            {/* Medium top-right circle — overlaps main upper-right */}
+            <div className="absolute right-0 top-10 md:top-16 w-44 h-44 md:w-56 md:h-56 lg:w-60 lg:h-60 rounded-full overflow-hidden ring-[6px] ring-white shadow-[0_20px_50px_rgba(0,0,0,0.22)] z-[4]">
               <img
                 src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&q=80"
                 alt=""
@@ -237,7 +237,7 @@ function HomePage() {
             </div>
 
             {/* Small bottom-right circle */}
-            <div className="absolute right-10 bottom-16 w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden ring-4 ring-white shadow-[0_10px_28px_rgba(0,0,0,0.18)] z-[5]">
+            <div className="absolute right-6 bottom-24 md:right-10 md:bottom-20 w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden ring-[6px] ring-white shadow-[0_10px_28px_rgba(0,0,0,0.18)] z-[5]">
               <img
                 src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=300&q=80"
                 alt=""
