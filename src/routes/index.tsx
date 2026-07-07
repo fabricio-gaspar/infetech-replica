@@ -164,10 +164,10 @@ function HomePage() {
 
 
       {/* TESTIMONIAL DETAIL — same circular-photo scale/placement as reference */}
-      <section className="section-y bg-[#f4f1fb] relative overflow-hidden">
-        <div className="container-x relative grid lg:grid-cols-[0.88fr_1.12fr] gap-10 lg:gap-16 items-center">
+      <section className="py-[72px] bg-[#f4f1fb] relative overflow-hidden">
+        <div className="w-[calc(100%-40px)] max-w-[956px] mx-auto relative grid lg:grid-cols-[390px_526px] gap-10 items-start">
           <div className="reveal max-w-[450px]">
-            <div className="inline-flex items-center gap-3 text-[#6d4cff] text-xs font-bold mb-4">
+            <div className="inline-flex items-center gap-3 text-[#6d4cff] text-xs font-bold mb-2">
               <span className="w-3 h-[2px] bg-[#6d4cff]" />
               Client Testimonials
             </div>
@@ -175,7 +175,7 @@ function HomePage() {
               Check What They’re<br />Talking About
             </h2>
 
-            <div className="mt-4 flex items-center gap-4">
+            <div className="mt-1 flex items-center gap-4">
               <div className="w-[92px] h-[92px] rounded-full p-[5px] bg-[#734cff] shadow-[0_12px_28px_rgba(90,59,214,0.2)]">
                 <div className="w-full h-full rounded-full overflow-hidden border-[4px] border-white">
                   <img
@@ -205,10 +205,10 @@ function HomePage() {
             </div>
           </div>
 
-          <div className="relative reveal h-[430px] md:h-[460px] lg:h-[430px] max-w-[590px] w-full justify-self-center lg:justify-self-end">
+          <div className="relative reveal h-[392px] max-w-[526px] w-full justify-self-center lg:justify-self-end">
             <svg
               aria-hidden
-              className="absolute left-[42px] top-0 w-[520px] h-[420px] pointer-events-none"
+              className="absolute left-[20px] top-0 w-[506px] h-[390px] pointer-events-none"
               viewBox="0 0 520 420"
               fill="none"
               preserveAspectRatio="none"
@@ -235,7 +235,7 @@ function HomePage() {
               </g>
             </svg>
 
-            <div className="absolute left-0 top-[6px] w-[78px] h-[78px] rounded-full overflow-hidden shadow-[0_14px_36px_rgba(70,44,128,0.18)] z-[3]">
+            <div className="absolute left-[20px] top-[6px] w-[72px] h-[72px] md:w-[78px] md:h-[78px] rounded-full overflow-hidden shadow-[0_14px_36px_rgba(70,44,128,0.18)] z-[3]">
               <img
                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=220&q=80"
                 alt="Cliente"
@@ -243,7 +243,7 @@ function HomePage() {
               />
             </div>
 
-            <div className="absolute left-[98px] top-[96px] w-[296px] h-[296px] rounded-full overflow-hidden shadow-[0_28px_70px_rgba(70,44,128,0.18)] z-[4]">
+            <div className="absolute left-[118px] top-[96px] w-[296px] h-[296px] rounded-full overflow-hidden shadow-[0_28px_70px_rgba(70,44,128,0.18)] z-[4]">
               <img
                 src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=720&q=80"
                 alt="Cliente sorrindo com tablet"
@@ -251,7 +251,7 @@ function HomePage() {
               />
             </div>
 
-            <div className="absolute left-[278px] top-[52px] w-[198px] h-[198px] rounded-full overflow-hidden shadow-[0_24px_58px_rgba(70,44,128,0.2)] z-[2]">
+            <div className="absolute left-[322px] top-[52px] w-[198px] h-[198px] rounded-full overflow-hidden shadow-[0_24px_58px_rgba(70,44,128,0.2)] z-[2]">
               <img
                 src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=460&q=80"
                 alt="Cliente"
@@ -259,7 +259,7 @@ function HomePage() {
               />
             </div>
 
-            <div className="absolute left-[354px] top-[286px] w-[72px] h-[72px] rounded-full overflow-hidden shadow-[0_14px_30px_rgba(70,44,128,0.2)] z-[5]">
+            <div className="absolute left-[374px] top-[286px] w-[72px] h-[72px] rounded-full overflow-hidden shadow-[0_14px_30px_rgba(70,44,128,0.2)] z-[5]">
               <img
                 src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=220&q=80"
                 alt="Cliente"
