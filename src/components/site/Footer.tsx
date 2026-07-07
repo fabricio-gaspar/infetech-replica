@@ -3,9 +3,9 @@ import { Facebook, Twitter, Linkedin, Phone, Mail, MapPin, Headphones, ArrowUp }
 
 export function Footer() {
   return (
-    <footer className="relative bg-[#05070d] text-white/75">
+    <footer className="relative bg-[#05070d] text-white/75 mt-32">
       {/* Top CTA banner — overlaps footer top */}
-      <div className="container-x pt-16 md:pt-20 relative z-10">
+      <div className="container-x -mt-20 relative z-10">
         <div className="relative">
           {/* Headset badge (outside overflow to avoid clipping) */}
           <div className="absolute -top-8 left-8 z-20 w-16 h-16 rounded-full bg-[#0a0e1a] grid place-items-center shadow-lg">
