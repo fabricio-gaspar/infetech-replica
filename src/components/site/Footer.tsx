@@ -47,7 +47,7 @@ export function Footer() {
         <div>
           <h4 className="text-white font-bold text-lg mb-5 relative pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-10 after:h-0.5 after:bg-primary">Contato</h4>
           <ul className="space-y-3 text-sm">
-            <li className="flex items-start gap-3"><Phone className="w-4 h-4 mt-0.5 text-primary shrink-0" />+55 (11) 9 8800-6802</li>
+            <li className="flex items-start gap-3"><Phone className="w-4 h-4 mt-0.5 text-primary shrink-0" />+55 (11) 9 9744-1875</li>
             <li className="flex items-start gap-3"><Mail className="w-4 h-4 mt-0.5 text-primary shrink-0" />contato@WF Digital.com</li>
             <li className="flex items-start gap-3"><MapPin className="w-4 h-4 mt-0.5 text-primary shrink-0" />Av. Paulista, 1000 — São Paulo, SP — Brasil</li>
           </ul>

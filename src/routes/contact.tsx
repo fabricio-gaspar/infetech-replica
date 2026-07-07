@@ -23,7 +23,7 @@ function ContactPage() {
             <h2 className="text-4xl md:text-5xl font-black leading-tight">Sinta-se à vontade<br />para entrar em contato</h2>
             <div className="mt-10 space-y-6">
               {[
-                { i: Phone, l: "Ligue a qualquer hora", v: "+55 (11) 9 8800-6802" },
+                { i: Phone, l: "Ligue a qualquer hora", v: "+55 (11) 9 9744-1875" },
                 { i: Mail, l: "Envie um e-mail", v: "contato@WF Digital.com" },
                 { i: MapPin, l: "Venha nos visitar", v: "Av. Paulista, 1000 — São Paulo, SP" },
               ].map((c) => (
