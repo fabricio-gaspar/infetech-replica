@@ -7,31 +7,89 @@ export function Footer() {
       {/* Top CTA banner — overlaps footer top */}
       <div className="container-x -mt-20 relative z-10">
         <div className="relative">
-          {/* Headset badge (outside overflow to avoid clipping) */}
-          <div className="absolute -top-8 left-8 z-20 w-16 h-16 rounded-full bg-[#0a0e1a] grid place-items-center shadow-lg">
-            <Headphones className="w-7 h-7 text-white" strokeWidth={1.8} />
+          {/* Headset badge with subtle glow rings */}
+          <div className="absolute -top-8 left-8 z-20">
+            <span aria-hidden className="absolute inset-0 -m-3 rounded-full border border-primary/20" />
+            <span aria-hidden className="absolute inset-0 -m-1.5 rounded-full border border-primary/30" />
+            <div className="relative w-16 h-16 rounded-full bg-[#0a0e1a] grid place-items-center shadow-[0_10px_30px_-8px_rgba(255,105,51,0.55)] ring-1 ring-white/10">
+              <Headphones className="w-7 h-7 text-white" strokeWidth={1.8} />
+            </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-2xl px-8 md:px-14 py-10 md:py-14" style={{
-            background: "linear-gradient(90deg, #FF8A5C 0%, #FF6933 55%, #E0541F 100%)",
-          }}>
+          <div
+            className="relative overflow-hidden rounded-2xl px-8 md:px-14 py-10 md:py-14 ring-1 ring-white/10"
+            style={{
+              background:
+                "linear-gradient(90deg, #FF8A5C 0%, #FF6933 55%, #E0541F 100%)",
+              boxShadow:
+                "0 30px 60px -30px rgba(255,105,51,0.55), inset 0 1px 0 rgba(255,255,255,0.25)",
+            }}
+          >
+            {/* Soft top highlight */}
+            <div
+              aria-hidden
+              className="absolute inset-x-0 top-0 h-1/2 pointer-events-none"
+              style={{
+                background:
+                  "linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 100%)",
+              }}
+            />
+
+            {/* Warm right-side glow */}
+            <div
+              aria-hidden
+              className="absolute -right-24 -top-24 w-[380px] h-[380px] rounded-full pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(circle, rgba(255,220,190,0.35) 0%, rgba(255,220,190,0) 65%)",
+              }}
+            />
+
+            {/* Fine diagonal streaks — subtle */}
+            <svg
+              aria-hidden
+              viewBox="0 0 400 200"
+              preserveAspectRatio="none"
+              className="absolute inset-0 w-full h-full opacity-25 pointer-events-none"
+            >
+              <g stroke="rgba(255,255,255,0.35)" strokeWidth="0.6" fill="none">
+                <path d="M-40 220 L220 -40" />
+                <path d="M20 220 L280 -40" />
+                <path d="M80 220 L340 -40" />
+                <path d="M140 220 L400 -40" />
+              </g>
+            </svg>
+
             {/* Dotted wave pattern */}
-            <div aria-hidden className="absolute inset-0 pointer-events-none opacity-20" style={{
-              backgroundImage:
-                "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.5) 1px, transparent 1.6px)",
-              backgroundSize: "14px 14px",
-              maskImage: "radial-gradient(ellipse 90% 120% at 50% 50%, black 30%, transparent 80%)",
-              WebkitMaskImage: "radial-gradient(ellipse 90% 120% at 50% 50%, black 30%, transparent 80%)",
-            }} />
+            <div
+              aria-hidden
+              className="absolute inset-0 pointer-events-none opacity-20"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.5) 1px, transparent 1.6px)",
+                backgroundSize: "14px 14px",
+                maskImage:
+                  "radial-gradient(ellipse 90% 120% at 50% 50%, black 30%, transparent 80%)",
+                WebkitMaskImage:
+                  "radial-gradient(ellipse 90% 120% at 50% 50%, black 30%, transparent 80%)",
+              }}
+            />
 
             <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-6 pl-0 md:pl-24">
-              <h3 className="text-white font-black text-2xl md:text-[28px] leading-tight max-w-xl">
-                Entregando a melhor experiência para o cliente
-              </h3>
+              <div className="max-w-xl">
+                <div className="inline-flex items-center gap-2 mb-3 text-[11px] uppercase tracking-[0.28em] text-white/85">
+                  <span className="w-6 h-px bg-white/70" />
+                  Suporte dedicado
+                </div>
+                <h3 className="text-white font-black text-2xl md:text-[28px] leading-tight drop-shadow-[0_1px_10px_rgba(0,0,0,0.15)]">
+                  Entregando a melhor experiência para o cliente
+                </h3>
+              </div>
               <a
                 href="tel:+551197441875"
-                className="inline-flex items-center justify-center bg-white text-[#0a0e1a] font-black text-lg px-8 py-4 rounded shrink-0"
+                className="group inline-flex items-center justify-center gap-2 bg-white text-[#0a0e1a] font-black text-lg px-8 py-4 rounded shadow-[0_18px_40px_-18px_rgba(0,0,0,0.45)] hover:shadow-[0_20px_50px_-16px_rgba(0,0,0,0.6)] transition-shadow shrink-0"
               >
+                <Phone className="w-4 h-4 text-primary group-hover:scale-110 transition-transform" />
                 +55 (11) 9 9744-1875
               </a>
             </div>
