@@ -21,23 +21,23 @@ export function InternalHero({ title, crumb }: { title: string; crumb?: string }
         }}
       />
 
-      {/* Reference-style purple veil: large diagonal triangle, not a heavy side block */}
+      {/* Reference-style purple veil: compact diagonal shape with a steeper cut */}
       <div
         aria-hidden
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-y-0 right-0 w-[58%] md:w-[52%] pointer-events-none"
         style={{
-          clipPath: "polygon(5% 0, 100% 0, 100% 63%)",
+          clipPath: "polygon(0 0, 100% 0, 100% 100%, 44% 100%)",
           background:
-            "linear-gradient(135deg, rgba(139,105,226,0.55) 0%, rgba(93,45,178,0.42) 42%, rgba(61,22,130,0.66) 100%)",
+            "linear-gradient(135deg, rgba(151,118,234,0.62) 0%, rgba(91,45,180,0.44) 48%, rgba(53,22,120,0.68) 100%)",
           mixBlendMode: "screen",
-          opacity: 0.72,
+          opacity: 0.66,
         }}
       />
 
       {/* Soft purple depth on the right edge, matching the reference tone */}
       <div
         aria-hidden
-        className="absolute inset-y-0 right-0 w-[48%] pointer-events-none"
+        className="absolute inset-y-0 right-0 w-[44%] pointer-events-none"
         style={{
           background:
             "linear-gradient(90deg, transparent 0%, rgba(77,39,158,0.18) 48%, rgba(50,24,115,0.38) 100%)",
@@ -49,19 +49,19 @@ export function InternalHero({ title, crumb }: { title: string; crumb?: string }
         aria-hidden
         viewBox="0 0 320 320"
         preserveAspectRatio="none"
-        className="absolute bottom-0 right-0 h-[48%] w-[34%] md:w-[28%] pointer-events-none"
+        className="absolute bottom-0 right-0 h-[62%] w-[30%] md:w-[22%] pointer-events-none"
       >
-        <g stroke="rgba(120,77,214,0.58)" strokeWidth="3" fill="none" strokeLinecap="square">
-          <path d="M66 342 L304 0" />
-          <path d="M102 348 L340 6" />
-          <path d="M138 354 L376 12" />
-          <path d="M174 360 L412 18" />
+        <g stroke="rgba(119,78,214,0.52)" strokeWidth="4" fill="none" strokeLinecap="square">
+          <path d="M36 342 L304 -18" />
+          <path d="M78 348 L346 -12" />
+          <path d="M120 354 L388 -6" />
+          <path d="M162 360 L430 0" />
         </g>
       </svg>
 
       {/* Content */}
       <div className="relative h-full container-x flex flex-col items-center justify-center text-center text-white">
-        <h1 className="text-3xl md:text-[42px] font-black tracking-[0.04em] uppercase">
+        <h1 className="text-3xl md:text-[42px] font-black tracking-[0.04em] uppercase !text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.35)]">
           {title}
         </h1>
         <div className="mt-3 flex items-center gap-2 text-[10px] md:text-[11px] uppercase tracking-[0.32em] text-white/70">
