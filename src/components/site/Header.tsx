@@ -6,6 +6,7 @@ const nav = [
   { label: "Início", to: "/" },
   { label: "Sobre", to: "/about" },
   { label: "Serviços", to: "/services", dropdown: true },
+  { label: "Planos", to: "/plans" },
   { label: "Blog", to: "/blog" },
   { label: "Contato", to: "/contact" },
 ];
