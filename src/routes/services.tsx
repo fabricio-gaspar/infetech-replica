@@ -192,7 +192,7 @@ function ServicesPage() {
 
       {/* Intro */}
       <section className="section-y bg-white">
-        <div className="container-x text-center reveal max-w-5xl mx-auto mb-14">
+        <div className="container-x text-center reveal max-w-7xl mx-auto mb-14">
           <div className="eyebrow mb-3 justify-center">Nossos Serviços de Tecnologia</div>
           <h2 className="text-3xl md:text-5xl font-black leading-tight">
             Soluções completas em tecnologia<br />para modernizar a sua empresa
