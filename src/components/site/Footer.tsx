@@ -16,9 +16,9 @@ export function Footer() {
             background: "linear-gradient(90deg, #FF8A5C 0%, #FF6933 55%, #E0541F 100%)",
           }}>
             {/* Dotted wave pattern */}
-            <div aria-hidden className="absolute inset-0 pointer-events-none opacity-30" style={{
+            <div aria-hidden className="absolute inset-0 pointer-events-none opacity-20" style={{
               backgroundImage:
-                "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.55) 1px, transparent 1.6px)",
+                "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.5) 1px, transparent 1.6px)",
               backgroundSize: "14px 14px",
               maskImage: "radial-gradient(ellipse 90% 120% at 50% 50%, black 30%, transparent 80%)",
               WebkitMaskImage: "radial-gradient(ellipse 90% 120% at 50% 50%, black 30%, transparent 80%)",
