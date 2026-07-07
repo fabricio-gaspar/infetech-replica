@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteShell } from "@/components/site/SiteShell";
 import {
   ShieldCheck, Cloud, HardDrive, ArrowRight, Cpu, Code2, BarChart3, Database, Settings2,
-  Briefcase, Award, Users, Trophy, MessageCircle, User,
+  Briefcase, Award, Users, Trophy, MessageCircle, User, ChevronLeft, ChevronRight,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -63,21 +63,55 @@ function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#f3f1f7] via-[#f3f1f7]/40 to-transparent lg:via-transparent" />
         </div>
 
-        {/* Circuit decoration on the left */}
+        {/* Circuit board traces decoration on the left */}
         <div
           aria-hidden
-          className="hidden md:block absolute left-0 top-0 bottom-0 w-1/3 opacity-[0.35] pointer-events-none"
+          className="hidden md:block absolute left-0 bottom-0 w-[55%] h-[70%] pointer-events-none z-[1]"
           style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(106,38,218,0.55) 1px, transparent 1.5px)",
-            backgroundSize: "22px 22px",
-            maskImage: "linear-gradient(to right, black, transparent)",
-            WebkitMaskImage: "linear-gradient(to right, black, transparent)",
+            maskImage: "linear-gradient(to right, black 55%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to right, black 55%, transparent 100%)",
           }}
-        />
+        >
+          <svg viewBox="0 0 800 560" className="w-full h-full" fill="none" preserveAspectRatio="xMinYMax slice">
+            <g stroke="#FF6933" strokeWidth="1.2" strokeLinecap="round" opacity="0.55">
+              {/* horizontal + right-angle traces */}
+              <path d="M0 80 H120 L160 120 H260 L300 80 H420" />
+              <path d="M0 140 H80 L120 180 H240" />
+              <path d="M0 220 H180 L220 260 H360 L400 220 H520" />
+              <path d="M0 300 H140 L180 340 H320" />
+              <path d="M0 380 H100 L140 340 H240 L280 380 H420 L460 420 H600" />
+              <path d="M0 460 H160 L200 500 H340" />
+              <path d="M0 520 H240 L280 480 H460" />
+              <path d="M60 0 V60 L100 100 V180" />
+              <path d="M200 0 V40 L240 80 V160" />
+              <path d="M340 0 V100 L380 140 V240" />
+              <path d="M480 40 V160 L520 200 V300" />
+              <path d="M560 200 V320 L600 360 V460" />
+              <path d="M380 300 V400 L420 440 V560" />
+              <path d="M120 320 V420 L160 460 V560" />
+            </g>
+            {/* node dots */}
+            <g fill="#FF6933" opacity="0.75">
+              {[
+                [120, 80], [160, 120], [260, 120], [300, 80], [420, 80],
+                [80, 140], [120, 180], [240, 180],
+                [180, 220], [220, 260], [360, 260], [400, 220], [520, 220],
+                [140, 300], [180, 340], [320, 340],
+                [100, 380], [140, 340], [280, 380], [420, 380], [460, 420], [600, 420],
+                [160, 460], [200, 500], [340, 500],
+                [240, 520], [280, 480], [460, 480],
+                [60, 60], [100, 100], [200, 40], [240, 80], [340, 100], [380, 140],
+                [480, 160], [520, 200], [560, 320], [600, 360], [380, 400], [420, 440],
+                [120, 420], [160, 460],
+              ].map(([cx, cy], i) => (
+                <circle key={i} cx={cx} cy={cy} r="2.6" />
+              ))}
+            </g>
+          </svg>
+        </div>
 
         <div className="container-x relative pt-24 lg:pt-32 pb-44 lg:pb-56 grid lg:grid-cols-2 gap-10">
-          <div className="reveal">
+          <div className="reveal relative z-[2]">
             <div className="inline-flex items-center gap-3 text-primary text-xs font-semibold uppercase tracking-[0.2em] mb-7">
               Bem-vindo à WF Digital
             </div>
@@ -93,14 +127,22 @@ function HomePage() {
             <Link to="/about" className="btn-primary mt-10">Saiba mais</Link>
           </div>
 
-          {/* slider controls on right */}
+          {/* slider prev/next controls on right */}
           <div className="hidden lg:flex absolute right-6 top-1/2 -translate-y-1/2 flex-col items-center gap-3 z-10">
-            {[0, 1, 2].map((i) => (
-              <span
-                key={i}
-                className={`block rounded-full transition-all ${i === 0 ? "w-2.5 h-2.5 bg-primary" : "w-2 h-2 bg-foreground/25"}`}
-              />
-            ))}
+            <button
+              type="button"
+              aria-label="Anterior"
+              className="w-11 h-11 rounded-full border border-foreground/25 text-foreground/60 grid place-items-center transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white hover:-translate-y-0.5"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <button
+              type="button"
+              aria-label="Próximo"
+              className="w-11 h-11 rounded-full border border-foreground/25 text-foreground/60 grid place-items-center transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white hover:-translate-y-0.5"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
           </div>
         </div>
 
