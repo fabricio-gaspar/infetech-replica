@@ -22,21 +22,34 @@ export function useAuth() {
   return { session, user: session?.user ?? null, loading };
 }
 
-export function useIsAdmin(user: User | null | undefined) {
-  return useQuery({
-    queryKey: ["is-admin", user?.id ?? "anon"],
+export type AdminRole = "admin" | "editor" | null;
+
+export function useUserRole(user: User | null | undefined) {
+  return useQuery<AdminRole>({
+    queryKey: ["user-role", user?.id ?? "anon"],
     queryFn: async () => {
-      if (!user) return false;
+      if (!user) return null;
       const { data, error } = await supabase
         .from("user_roles")
         .select("role")
         .eq("user_id", user.id)
-        .eq("role", "admin")
-        .maybeSingle();
-      if (error) return false;
-      return !!data;
+        .in("role", ["admin", "editor"]);
+      if (error || !data?.length) return null;
+      if (data.some((r) => r.role === "admin")) return "admin";
+      if (data.some((r) => r.role === "editor")) return "editor";
+      return null;
     },
     enabled: !!user,
     staleTime: 60_000,
   });
+}
+
+export function useIsAdmin(user: User | null | undefined) {
+  const { data: role, ...rest } = useUserRole(user);
+  return { ...rest, data: role === "admin" };
+}
+
+export function useHasAdminAccess(user: User | null | undefined) {
+  const { data: role, ...rest } = useUserRole(user);
+  return { ...rest, data: role === "admin" || role === "editor", role };
 }
