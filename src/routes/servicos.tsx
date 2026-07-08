@@ -232,7 +232,7 @@ function ServicesPage() {
             <article
               key={b.id}
               id={b.id}
-              className="card-tech p-8 md:p-12 reveal scroll-mt-24"
+              className="card-tech p-6 md:p-8 reveal scroll-mt-24"
               style={{ transitionDelay: `${i * 60}ms` }}
             >
               <div className="flex items-start gap-5 mb-6">
