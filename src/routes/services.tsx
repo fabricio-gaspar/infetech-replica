@@ -229,17 +229,19 @@ function ServicesPage() {
                 <div className="card-tech-icon shrink-0">
                   <b.icon className="w-7 h-7" strokeWidth={1.5} />
                 </div>
-                <div>
-                  <div className="eyebrow mb-2">Serviço {String(i + 1).padStart(2, "0")}</div>
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-center gap-3 mb-2">
+                    <div className="eyebrow">Serviço {String(i + 1).padStart(2, "0")}</div>
+                    {b.featured && (
+                      <span className="inline-flex items-center gap-1 text-[11px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-primary text-white">
+                        <Star className="w-3 h-3" strokeWidth={2.5} /> Em alta
+                      </span>
+                    )}
+                  </div>
                   <h3 className="text-2xl md:text-3xl font-black leading-tight">{b.title}</h3>
                 </div>
               </div>
 
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
-                {b.intro.map((p, idx) => (
-                  <p key={idx}>{p}</p>
-                ))}
-              </div>
 
               <div className="mt-8">
                 <h4 className="font-black uppercase tracking-wider text-sm mb-4">{b.bulletsTitle}</h4>
