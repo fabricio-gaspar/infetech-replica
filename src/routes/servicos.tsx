@@ -9,6 +9,15 @@ import {
   Cloud, ScrollText, BarChart3, Workflow, GraduationCap, Star,
 } from "lucide-react";
 
+export const Route = createFileRoute("/servicos")({
+  head: () => ({ meta: [
+    { title: "Serviços — WF Digital Soluções de TI" },
+    { name: "description", content: "Cibersegurança, automação com IA, TI gerenciada, nuvem, governança de IA, dashboards, integrações, modernização de sistemas, redes e treinamentos." },
+  ]}),
+  component: ServicesPage,
+});
+
+
 type ServiceBlock = {
   id: string;
   icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
