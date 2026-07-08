@@ -125,10 +125,10 @@ export function Footer() {
         <div>
           <h4 className="text-white font-bold text-lg mb-6">Nossos Serviços</h4>
           <ul className="space-y-3.5 text-sm text-white/70">
-            <li><Link to="/services" className="hover:text-primary transition-colors">Segurança de Dados</Link></li>
-            <li><Link to="/services" className="hover:text-primary transition-colors">Gestão de TI</Link></li>
-            <li><Link to="/services" className="hover:text-primary transition-colors">Outsourcing</Link></li>
-            <li><Link to="/services" className="hover:text-primary transition-colors">Redes</Link></li>
+            <li><Link to="/servicos" className="hover:text-primary transition-colors">Segurança de Dados</Link></li>
+            <li><Link to="/servicos" className="hover:text-primary transition-colors">Gestão de TI</Link></li>
+            <li><Link to="/servicos" className="hover:text-primary transition-colors">Outsourcing</Link></li>
+            <li><Link to="/servicos" className="hover:text-primary transition-colors">Redes</Link></li>
           </ul>
         </div>
 

@@ -5,7 +5,7 @@ import { Phone, ChevronDown, Twitter, Facebook, Instagram } from "lucide-react";
 const nav = [
   { label: "Início", to: "/" },
   { label: "Sobre", to: "/about" },
-  { label: "Serviços", to: "/services", dropdown: true },
+  { label: "Serviços", to: "/servicos", dropdown: true },
   { label: "Planos", to: "/plans" },
   { label: "Blog", to: "/blog" },
   { label: "Contato", to: "/contact" },

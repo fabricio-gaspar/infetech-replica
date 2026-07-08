@@ -387,7 +387,7 @@ function HomePage() {
             <p className="mt-5 text-muted-foreground max-w-lg">
               Entregamos soluções corporativas completas — de infraestrutura a aplicações — projetadas para impulsionar seu negócio em todas as fases de crescimento.
             </p>
-            <Link to="/services" className="btn-primary mt-7">Saiba mais <ArrowRight className="w-4 h-4" /></Link>
+            <Link to="/servicos" className="btn-primary mt-7">Saiba mais <ArrowRight className="w-4 h-4" /></Link>
           </div>
           <div className="relative reveal">
             <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=900&q=80" className="w-full h-[380px] object-cover" alt="" />
