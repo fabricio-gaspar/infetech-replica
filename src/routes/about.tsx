@@ -28,7 +28,7 @@ function AboutPage() {
       <section className="section-y bg-white">
         <div className="container-x grid lg:grid-cols-2 gap-16 items-center">
           <div className="relative reveal">
-            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=900&q=80" className="w-full h-[460px] object-cover" alt="" />
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=900&q=80" className="w-full h-[460px] object-cover" alt="" />
             <div className="absolute -right-10 top-1/2 -translate-y-1/2 w-36 h-36">
               <svg viewBox="0 0 200 200" className="w-full h-full animate-[spin_18s_linear_infinite]">
                 <defs>
@@ -71,7 +71,7 @@ function AboutPage() {
             <div className="eyebrow mb-3">Depoimentos de Clientes</div>
             <h2 className="text-4xl font-black leading-tight">Veja o que estão<br />falando sobre nós</h2>
             <div className="mt-8 flex items-center gap-4">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80" className="w-16 h-16 rounded-full object-cover border-4 border-primary/30" alt="" />
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80" className="w-16 h-16 rounded-full object-cover border-4 border-primary/30" alt="" />
               <div>
                 <div className="font-bold">Mike Hardson</div>
                 <div className="text-xs text-muted-foreground">Designer Sênior</div>
@@ -88,10 +88,10 @@ function AboutPage() {
             </div>
           </div>
           <div className="relative h-[480px] reveal">
-            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80" className="absolute right-10 top-12 w-56 h-56 rounded-full object-cover border-4 border-white shadow-2xl" alt="" />
-            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&q=80" className="absolute left-4 top-0 w-24 h-24 rounded-full object-cover border-4 border-white shadow-xl" alt="" />
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=80" className="absolute right-0 top-2 w-24 h-24 rounded-full object-cover border-4 border-white shadow-xl" alt="" />
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&q=80" className="absolute left-0 bottom-8 w-28 h-28 rounded-full object-cover border-4 border-white shadow-xl" alt="" />
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80" className="absolute right-10 top-12 w-56 h-56 rounded-full object-cover border-4 border-white shadow-2xl" alt="" />
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&q=80" className="absolute left-4 top-0 w-24 h-24 rounded-full object-cover border-4 border-white shadow-xl" alt="" />
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=80" className="absolute right-0 top-2 w-24 h-24 rounded-full object-cover border-4 border-white shadow-xl" alt="" />
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&q=80" className="absolute left-0 bottom-8 w-28 h-28 rounded-full object-cover border-4 border-white shadow-xl" alt="" />
             <div className="absolute right-8 bottom-4 w-3 h-3 bg-primary rotate-45" />
             <div className="absolute left-32 top-32 w-2 h-2 bg-primary/50 rotate-45" />
             <div className="absolute right-32 top-4 w-2 h-2 bg-primary/50 rotate-45" />
@@ -117,7 +117,7 @@ function AboutPage() {
           {team.map((t) => (
             <div key={t.name} className="group reveal">
               <div className="relative overflow-hidden">
-                <img src={t.img} className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105" alt={t.name} />
+                <img loading="lazy" decoding="async" src={t.img} className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105" alt={t.name} />
                 <div className="absolute top-2 left-1/2 -translate-x-1/2 w-px h-6 bg-primary" />
                 <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rotate-45" />
               </div>

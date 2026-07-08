@@ -39,7 +39,7 @@ function BlogPage() {
             {posts.map((p) => (
               <article key={p.t} className="card-tech p-5 reveal">
                 <div className="relative overflow-hidden -m-5 mb-0">
-                  <img src={p.img} className="w-full h-56 object-cover transition-transform duration-700 hover:scale-110" alt={p.t} />
+                  <img loading="lazy" decoding="async" src={p.img} className="w-full h-56 object-cover transition-transform duration-700 hover:scale-110" alt={p.t} />
                 </div>
                 <h3 className="mt-5 font-bold leading-snug">{p.t}</h3>
                 <div className="flex flex-wrap gap-x-4 gap-y-1 mt-3 text-xs text-muted-foreground">
