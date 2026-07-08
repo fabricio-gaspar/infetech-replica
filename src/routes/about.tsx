@@ -100,7 +100,7 @@ function AboutPage() {
       </section>
 
       <DarkCTA />
-      <LogoStrip />
+      
 
       {/* TEAM */}
       <section className="section-y bg-white">
