@@ -318,6 +318,25 @@
   &:hover .text-primary { color: #fff; }
 }
 
+.card-tech.card-tech--plain:hover {
+  background: #fff;
+  color: inherit;
+  border-color: color-mix(in oklab, var(--color-primary) 25%, transparent);
+  box-shadow: 0 24px 60px -24px rgba(32, 25, 74, 0.22);
+}
+.card-tech.card-tech--plain:hover h1,
+.card-tech.card-tech--plain:hover h2,
+.card-tech.card-tech--plain:hover h3,
+.card-tech.card-tech--plain:hover h4,
+.card-tech.card-tech--plain:hover h5,
+.card-tech.card-tech--plain:hover p,
+.card-tech.card-tech--plain:hover span,
+.card-tech.card-tech--plain:hover a,
+.card-tech.card-tech--plain:hover svg { color: inherit; }
+.card-tech.card-tech--plain:hover .text-muted-foreground { color: var(--color-muted-foreground); }
+.card-tech.card-tech--plain:hover .text-primary { color: var(--color-primary); }
+.card-tech.card-tech--plain:hover::after { background: var(--color-primary); }
+
 @utility card-tech-index {
   position: absolute;
   top: 18px;

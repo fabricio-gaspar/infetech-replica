@@ -84,7 +84,7 @@ function PlansPage() {
             {plans.map((p) => (
               <article
                 key={p.name}
-                className={`reveal card-tech p-10 md:p-12 flex flex-col ${p.featured ? "md:-translate-y-4" : ""}`}
+                className={`reveal card-tech card-tech--plain p-10 md:p-12 flex flex-col ${p.featured ? "md:-translate-y-4" : ""}`}
               >
                 <div className="text-center pb-8 border-b border-border">
                   <h3 className="text-2xl md:text-3xl font-black">{p.name}</h3>
