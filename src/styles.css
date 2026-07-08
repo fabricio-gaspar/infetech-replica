@@ -209,8 +209,6 @@
 
 @utility purple-gradient {
   background: linear-gradient(120deg, #FF6933 0%, #E0541F 50%, #FF7A4A 100%);
-@utility purple-gradient {
-  background: linear-gradient(120deg, #FF6933 0%, #E0541F 50%, #FF7A4A 100%);
 }
 
 /* Modern Ember section — dark charcoal band with ember radial glow */
