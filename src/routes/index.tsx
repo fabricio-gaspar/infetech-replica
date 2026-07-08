@@ -115,6 +115,9 @@ function HomePage() {
           <img
             src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=70&auto=format"
             alt="Profissional de tecnologia"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover grayscale opacity-90 lg:opacity-100"
           />
           {/* fade overlay on the left edge of the image to blend into bg */}
