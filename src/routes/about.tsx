@@ -4,7 +4,7 @@ import { InternalHero } from "@/components/site/InternalHero";
 import { LogoStrip } from "@/components/site/LogoStrip";
 import { Counters } from "@/components/site/Counters";
 import { DarkCTA } from "@/components/site/CTAs";
-import { Check, Star, Share2, ArrowRight } from "lucide-react";
+import { Check, Star, Share2, ArrowRight, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   head: () => ({ meta: [
@@ -126,7 +126,34 @@ function AboutPage() {
                   <h4 className="font-bold">{t.name}</h4>
                   <p className="text-xs text-muted-foreground">{t.role}</p>
                 </div>
-                <button className="w-9 h-9 grid place-items-center purple-gradient text-white rounded-sm hover:rotate-12 transition-transform"><Share2 className="w-4 h-4" /></button>
+                <div className="relative">
+                  <button
+                    type="button"
+                    aria-label="Redes sociais"
+                    className="peer w-9 h-9 grid place-items-center purple-gradient text-white rounded-sm transition-transform hover:rotate-12"
+                  >
+                    <Share2 className="w-4 h-4" />
+                  </button>
+                  <div
+                    className="pointer-events-none absolute right-0 bottom-full mb-2 flex flex-col gap-1.5 opacity-0 translate-y-1 transition-all duration-300 peer-hover:opacity-100 peer-hover:translate-y-0 peer-hover:pointer-events-auto peer-focus-visible:opacity-100 peer-focus-visible:translate-y-0 peer-focus-visible:pointer-events-auto hover:opacity-100 hover:translate-y-0 hover:pointer-events-auto"
+                  >
+                    {[
+                      { Icon: Facebook, label: "Facebook", href: "#" },
+                      { Icon: Twitter, label: "Twitter", href: "#" },
+                      { Icon: Instagram, label: "Instagram", href: "#" },
+                      { Icon: Linkedin, label: "LinkedIn", href: "#" },
+                    ].map(({ Icon, label, href }) => (
+                      <a
+                        key={label}
+                        href={href}
+                        aria-label={label}
+                        className="w-9 h-9 grid place-items-center bg-white text-primary border border-primary/25 rounded-sm shadow-[0_6px_16px_-8px_rgba(255,105,51,0.5)] hover:bg-primary hover:text-white transition-colors"
+                      >
+                        <Icon className="w-4 h-4" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           ))}
