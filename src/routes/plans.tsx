@@ -107,12 +107,18 @@ function PlansPage() {
                   ))}
                 </ul>
 
-                <Link
-                  to="/contact"
-                  className="btn-primary w-full justify-center"
-                >
-                  Contratar plano
-                </Link>
+                <div className="flex flex-col gap-3">
+                  <Link to="/contact" className="btn-primary w-full">
+                    Começar teste grátis
+                  </Link>
+                  <Link to="/contact" className="btn-secondary w-full">
+                    Falar com especialista
+                  </Link>
+                  <p className="text-center text-xs text-muted-foreground mt-1">
+                    7 dias grátis · sem cartão de crédito
+                  </p>
+                </div>
+
               </article>
             ))}
           </div>
