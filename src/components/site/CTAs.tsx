@@ -19,7 +19,7 @@ export function PurpleCTA({ text = "Procurando as melhores soluções de TI para
 export function DarkCTA({ title = "Melhores soluções e serviços de TI", line2 = "ao seu alcance" }) {
   return (
     <section className="relative overflow-hidden diag-overlay circuit-panel h-[360px] grid place-items-center">
-      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1800&auto=format&fit=crop&q=80" className="absolute inset-0 w-full h-full object-cover grayscale" alt="" />
+      <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1800&auto=format&fit=crop&q=80" className="absolute inset-0 w-full h-full object-cover grayscale" alt="" />
       <div
         aria-hidden
         className="absolute inset-y-0 right-0 w-[58%] md:w-[52%] pointer-events-none z-[2]"

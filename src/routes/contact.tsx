@@ -54,7 +54,7 @@ function ContactPage() {
       <section className="bg-white pb-12">
         <div className="container-x">
           <div className="relative overflow-hidden h-44 diag-overlay">
-            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&q=80" className="absolute inset-0 w-full h-full object-cover grayscale" alt="" />
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&q=80" className="absolute inset-0 w-full h-full object-cover grayscale" alt="" />
             <div
               aria-hidden
               className="absolute inset-y-0 right-0 w-[58%] pointer-events-none z-[2]"
