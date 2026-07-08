@@ -1,11 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Phone, ChevronDown, Twitter, Facebook, Instagram } from "lucide-react";
+import { Phone, Twitter, Facebook, Instagram } from "lucide-react";
 
 const nav = [
   { label: "Início", to: "/" },
   { label: "Sobre", to: "/about" },
-  { label: "Serviços", to: "/servicos", dropdown: true },
+  { label: "Serviços", to: "/servicos" },
   { label: "Planos", to: "/plans" },
   { label: "Blog", to: "/blog" },
   { label: "Contato", to: "/contact" },
@@ -55,8 +55,8 @@ export function Header() {
                 activeOptions={{ exact: n.to === "/" }}
               >
                 {n.label}
-                {n.dropdown && <ChevronDown className="w-3 h-3 opacity-70" />}
                 <span className="absolute left-0 right-0 -bottom-0.5 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+
               </Link>
             ))}
           </nav>
