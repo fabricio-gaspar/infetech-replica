@@ -48,7 +48,7 @@ export function ServiceCard({
           group-hover:bg-primary group-hover:text-primary-foreground"
         aria-hidden="true"
       >
-        <Icon className="w-5.5 h-5.5" strokeWidth={1.75} />
+        <Icon className="w-6 h-6" strokeWidth={1.75} />
       </div>
 
       {typeof index === "number" && (
