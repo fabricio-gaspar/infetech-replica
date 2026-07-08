@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteShell } from "@/components/site/SiteShell";
-import { Check, ChevronRight } from "lucide-react";
+import { InternalHero } from "@/components/site/InternalHero";
+
+import { Check } from "lucide-react";
 
 export const Route = createFileRoute("/plans")({
   head: () => ({
@@ -31,7 +33,6 @@ const plans: Plan[] = [
     price: "149",
     period: "/mês",
     description: "Controle de jornada digital para a sua equipe",
-    featured: true,
     features: [
       "Registro de entrada, saída e intervalos",
       "Acesso online por computador e celular",
@@ -58,109 +59,72 @@ const plans: Plan[] = [
       "Relatórios operacionais e de faturamento",
       "Suporte técnico e atualizações inclusos",
     ],
+    featured: true,
   },
 ];
 
 function PlansPage() {
   return (
     <SiteShell>
-      <section className="bg-[#121212] py-24 md:py-28">
+      <InternalHero title="Planos" crumb="Planos" />
+
+      <section className="section-y bg-white">
         <div className="container-x">
-          {/* Hero */}
-          <div className="text-center max-w-3xl mx-auto mb-16 reveal">
-            <nav className="flex justify-center items-center gap-2 text-sm text-zinc-500 mb-6">
-              <Link to="/" className="hover:text-zinc-300 transition-colors">Início</Link>
-              <ChevronRight className="w-3 h-3" />
-              <span className="text-primary">Planos</span>
-            </nav>
-            <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
-              A solução certa para sua <span className="text-primary">operação</span>
-            </h1>
-            <p className="mt-5 text-zinc-400 text-lg">
-              Escolha o plano que melhor se adapta às necessidades da sua empresa. Gestão simplificada e resultados exponenciais.
+          <div className="text-center reveal max-w-2xl mx-auto mb-14">
+            <div className="eyebrow mb-3 justify-center">Nossos Planos</div>
+            <h2 className="text-3xl md:text-5xl font-black leading-tight">
+              Escolha o melhor plano
+            </h2>
+            <p className="mt-5 text-muted-foreground leading-relaxed">
+              Planos mensais com suporte técnico incluso, sem grande investimento inicial. Comece rápido e conte com evolução contínua do sistema.
             </p>
           </div>
 
-          {/* Pricing grid */}
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto reveal-stagger">
             {plans.map((p) => (
               <article
                 key={p.name}
-                className={`reveal relative rounded-3xl p-8 md:p-10 flex flex-col transition-transform duration-500 hover:-translate-y-2 ${
-                  p.featured
-                    ? "bg-zinc-900 border-2 border-primary shadow-[0_30px_60px_-30px_color-mix(in_oklab,var(--color-primary)_55%,transparent)]"
-                    : "bg-zinc-900/50 border border-zinc-800"
-                }`}
+                className={`reveal card-tech p-10 md:p-12 flex flex-col ${p.featured ? "md:-translate-y-4" : ""}`}
               >
-                {p.featured && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full whitespace-nowrap">
-                    Mais Procurado
-                  </div>
-                )}
-
-                <div className="mb-8">
-                  <h3 className="text-2xl font-bold text-white mb-2">{p.name}</h3>
-                  <p className="text-sm text-zinc-500 mb-6">{p.description}</p>
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-3xl font-bold text-primary">R$</span>
-                    <span className="text-6xl font-bold text-white tracking-tighter leading-none">{p.price}</span>
-                    <span className="text-zinc-500 font-medium ml-1">{p.period}</span>
+                <div className="text-center pb-8 border-b border-border">
+                  <h3 className="text-2xl md:text-3xl font-black">{p.name}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{p.description}</p>
+                  <div className="mt-8 flex items-start justify-center gap-1">
+                    <span className="text-2xl font-black mt-3">R$</span>
+                    <span className="text-6xl md:text-7xl font-black leading-none tracking-tight">{p.price}</span>
+                    <span className="text-lg font-semibold text-muted-foreground mt-6">{p.period}</span>
                   </div>
                 </div>
 
-                <ul className="space-y-4 mb-10 flex-1">
+                <ul className="py-8 space-y-3 flex-1">
                   {p.features.map((f) => (
-                    <li
-                      key={f}
-                      className={`flex items-start gap-3 text-sm ${p.featured ? "text-zinc-300" : "text-zinc-400"}`}
-                    >
-                      <Check
-                        className={`w-5 h-5 shrink-0 mt-0.5 ${p.featured ? "text-primary" : "text-zinc-600"}`}
-                        strokeWidth={3}
-                      />
+                    <li key={f} className="flex items-start gap-3 text-sm">
+                      <span className="mt-0.5 w-5 h-5 rounded-full bg-accent text-primary grid place-items-center shrink-0">
+                        <Check className="w-3 h-3" />
+                      </span>
                       <span>{f}</span>
                     </li>
                   ))}
                 </ul>
 
                 <div className="flex flex-col gap-3">
-                  <Link
-                    to="/contact"
-                    className={`w-full py-4 text-center font-bold rounded-xl transition-colors ${
-                      p.featured
-                        ? "bg-primary hover:bg-[#e85a2c] text-white"
-                        : "bg-zinc-100 hover:bg-white text-zinc-900"
-                    }`}
-                  >
+                  <Link to="/contact" className="btn-primary w-full">
                     Começar teste grátis
                   </Link>
-                  <Link
-                    to="/contact"
-                    className={`w-full py-4 text-center font-semibold rounded-xl border transition-all ${
-                      p.featured
-                        ? "border-zinc-700 hover:border-zinc-500 text-zinc-400 hover:text-white"
-                        : "border-zinc-800 hover:border-zinc-700 text-zinc-500 hover:text-zinc-300"
-                    }`}
-                  >
+                  <Link to="/contact" className="btn-secondary w-full">
                     Falar com especialista
                   </Link>
-                  <p className="text-center text-xs text-zinc-600 mt-1">
+                  <p className="text-center text-xs text-muted-foreground mt-1">
                     7 dias grátis · sem cartão de crédito
                   </p>
                 </div>
+
               </article>
             ))}
           </div>
-
-          <p className="mt-14 text-center text-zinc-600 text-sm reveal">
-            Precisa de um plano personalizado?{" "}
-            <Link to="/contact" className="text-primary hover:underline font-semibold">
-              Entre em contato conosco
-            </Link>
-            .
-          </p>
         </div>
       </section>
+
     </SiteShell>
   );
 }
