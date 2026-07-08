@@ -211,6 +211,40 @@
   background: linear-gradient(120deg, #FF6933 0%, #E0541F 50%, #FF7A4A 100%);
 }
 
+/* Modern Ember section — dark charcoal band with ember radial glow */
+@utility ember-section {
+  background-color: #121212;
+  color: #ffffff;
+  position: relative;
+  isolation: isolate;
+}
+
+/* Modern Ember card — charcoal card with subtle border, orange accent on featured */
+@utility card-ember {
+  background: rgba(24, 24, 27, 0.6);
+  border: 1px solid rgb(39, 39, 42);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  color: rgb(228, 228, 231);
+  transition: transform .5s cubic-bezier(0.22, 1, 0.36, 1), border-color .3s ease, box-shadow .4s ease;
+  &:hover {
+    transform: translateY(-6px);
+    border-color: color-mix(in oklab, var(--color-primary) 40%, transparent);
+    box-shadow: 0 30px 60px -30px color-mix(in oklab, var(--color-primary) 40%, transparent);
+  }
+}
+@utility card-ember-featured {
+  background: rgb(24, 24, 27);
+  border: 2px solid var(--color-primary);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  color: #ffffff;
+  box-shadow: 0 30px 60px -30px color-mix(in oklab, var(--color-primary) 55%, transparent);
+  transition: transform .5s cubic-bezier(0.22, 1, 0.36, 1);
+  &:hover { transform: translateY(-6px); }
+}
+
+
 @utility diag-overlay {
   position: relative;
   isolation: isolate;
