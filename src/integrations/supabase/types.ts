@@ -14,16 +14,213 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      nav_items: {
+        Row: {
+          created_at: string
+          enabled: boolean
+          id: string
+          label: string
+          sort_order: number
+          updated_at: string
+          url: string
+        }
+        Insert: {
+          created_at?: string
+          enabled?: boolean
+          id?: string
+          label: string
+          sort_order?: number
+          updated_at?: string
+          url: string
+        }
+        Update: {
+          created_at?: string
+          enabled?: boolean
+          id?: string
+          label?: string
+          sort_order?: number
+          updated_at?: string
+          url?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          full_name: string | null
+          id: string
+          updated_at: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          full_name?: string | null
+          id: string
+          updated_at?: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      site_settings: {
+        Row: {
+          address: string | null
+          business_hours: string | null
+          color_background: string
+          color_dark: string
+          color_foreground: string
+          color_primary: string
+          color_primary_dark: string
+          color_secondary: string
+          email: string | null
+          favicon_url: string | null
+          font_body: string
+          font_display: string
+          footer_about: string | null
+          id: number
+          logo_url: string | null
+          map_embed_url: string | null
+          phone: string | null
+          seo_description: string | null
+          seo_keywords: string | null
+          seo_title: string | null
+          site_name: string
+          topbar_text: string | null
+          updated_at: string
+          whatsapp: string | null
+          whatsapp_enabled: boolean
+          whatsapp_greeting: string | null
+        }
+        Insert: {
+          address?: string | null
+          business_hours?: string | null
+          color_background?: string
+          color_dark?: string
+          color_foreground?: string
+          color_primary?: string
+          color_primary_dark?: string
+          color_secondary?: string
+          email?: string | null
+          favicon_url?: string | null
+          font_body?: string
+          font_display?: string
+          footer_about?: string | null
+          id?: number
+          logo_url?: string | null
+          map_embed_url?: string | null
+          phone?: string | null
+          seo_description?: string | null
+          seo_keywords?: string | null
+          seo_title?: string | null
+          site_name?: string
+          topbar_text?: string | null
+          updated_at?: string
+          whatsapp?: string | null
+          whatsapp_enabled?: boolean
+          whatsapp_greeting?: string | null
+        }
+        Update: {
+          address?: string | null
+          business_hours?: string | null
+          color_background?: string
+          color_dark?: string
+          color_foreground?: string
+          color_primary?: string
+          color_primary_dark?: string
+          color_secondary?: string
+          email?: string | null
+          favicon_url?: string | null
+          font_body?: string
+          font_display?: string
+          footer_about?: string | null
+          id?: number
+          logo_url?: string | null
+          map_embed_url?: string | null
+          phone?: string | null
+          seo_description?: string | null
+          seo_keywords?: string | null
+          seo_title?: string | null
+          site_name?: string
+          topbar_text?: string | null
+          updated_at?: string
+          whatsapp?: string | null
+          whatsapp_enabled?: boolean
+          whatsapp_greeting?: string | null
+        }
+        Relationships: []
+      }
+      social_links: {
+        Row: {
+          created_at: string
+          enabled: boolean
+          id: string
+          platform: string
+          sort_order: number
+          updated_at: string
+          url: string
+        }
+        Insert: {
+          created_at?: string
+          enabled?: boolean
+          id?: string
+          platform: string
+          sort_order?: number
+          updated_at?: string
+          url: string
+        }
+        Update: {
+          created_at?: string
+          enabled?: boolean
+          id?: string
+          platform?: string
+          sort_order?: number
+          updated_at?: string
+          url?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "editor"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +347,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "editor"],
+    },
   },
 } as const
