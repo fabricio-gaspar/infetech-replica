@@ -255,7 +255,7 @@ function ServicesPage() {
 
               <div className="mt-8">
                 <h4 className="font-black uppercase tracking-wider text-sm mb-4">{b.bulletsTitle}</h4>
-                <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5">
+                <ul className="grid gap-x-6 gap-y-2.5">
                   {b.bullets.map((li) => (
                     <li key={li} className="flex items-start gap-2.5 text-sm">
                       <span className="mt-0.5 w-5 h-5 rounded-full bg-accent text-primary grid place-items-center shrink-0">
