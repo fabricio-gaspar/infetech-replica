@@ -224,18 +224,7 @@
       linear-gradient(180deg, rgba(16, 15, 24, 0.2) 0%, rgba(16, 15, 24, 0.58) 100%);
     pointer-events: none;
   }
-  &::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: min(32%, 360px);
-    height: 62%;
-    z-index: 3;
-    pointer-events: none;
-    background: repeating-linear-gradient(126deg, transparent 0 28px, color-mix(in oklab, var(--detail-purple-mid) 56%, transparent) 28px 32px, transparent 32px 46px);
-    opacity: 0.72;
-  }
+  /* diagonal purple stripes removed per design request */
   & > img { z-index: 0; opacity: 0.54; }
   & > :not(img) { position: relative; z-index: 4; }
 }
