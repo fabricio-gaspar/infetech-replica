@@ -102,8 +102,9 @@ function HomePage() {
   };
   useEffect(() => {
     const id = window.setInterval(() => {
-      if (!servicesPausedRef.current) scrollServices(1);
-    }, 3500);
+      if (document.hidden || servicesPausedRef.current) return;
+      scrollServices(1);
+    }, 4500);
     return () => window.clearInterval(id);
   }, []);
   return (
