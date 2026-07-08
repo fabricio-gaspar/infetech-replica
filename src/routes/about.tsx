@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteShell } from "@/components/site/SiteShell";
 import { InternalHero } from "@/components/site/InternalHero";
-import { LogoStrip } from "@/components/site/LogoStrip";
+
 import { Counters } from "@/components/site/Counters";
 import { DarkCTA } from "@/components/site/CTAs";
 import { Check, Star, Share2, ArrowRight, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
