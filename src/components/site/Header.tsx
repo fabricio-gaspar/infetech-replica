@@ -71,9 +71,6 @@ export function Header() {
                 <div className="text-sm font-bold">+55 (11) 9 9744-1875</div>
               </div>
             </div>
-            <Link to="/plans" className="hidden md:inline-flex btn-primary !py-2.5 !px-5 !text-sm">
-              Teste grátis
-            </Link>
             <button onClick={() => setOpen(!open)} className="lg:hidden p-2">
               <div className="w-5 h-0.5 bg-foreground mb-1" />
               <div className="w-5 h-0.5 bg-foreground mb-1" />
