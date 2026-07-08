@@ -4,7 +4,7 @@ import { InternalHero } from "@/components/site/InternalHero";
 import { LogoStrip } from "@/components/site/LogoStrip";
 import { Counters } from "@/components/site/Counters";
 import { DarkCTA } from "@/components/site/CTAs";
-import { Check, Star, Share2, ArrowRight } from "lucide-react";
+import { Check, Star, Share2, ArrowRight, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   head: () => ({ meta: [
