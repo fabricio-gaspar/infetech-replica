@@ -12,6 +12,19 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const nome = String(data.get("nome") || "");
+    const email = String(data.get("email") || "");
+    const telefone = String(data.get("telefone") || "");
+    const assunto = String(data.get("assunto") || "Contato pelo site");
+    const mensagem = String(data.get("mensagem") || "");
+    const body = `Nome: ${nome}%0D%0AE-mail: ${email}%0D%0ATelefone: ${telefone}%0D%0A%0D%0AMensagem:%0D%0A${mensagem}`;
+    window.location.href = `mailto:contato@wfdigital.com.br?subject=${encodeURIComponent(assunto)}&body=${body}`;
+  };
+
   return (
     <SiteShell>
       <InternalHero title="Contato" />
@@ -24,8 +37,8 @@ function ContactPage() {
             <div className="mt-10 space-y-6">
               {[
                 { i: Phone, l: "Ligue a qualquer hora", v: "+55 (11) 9 9744-1875" },
-                { i: Mail, l: "Envie um e-mail", v: "contato@WF Digital.com" },
-                { i: MapPin, l: "Venha nos visitar", v: "Av. Paulista, 1000 — São Paulo, SP" },
+                { i: Mail, l: "Envie um e-mail", v: "contato@wfdigital.com.br" },
+                { i: MapPin, l: "Venha nos visitar", v: "Rua Ignes Mendes de Moraes, 10 — Bairro Esplanada Mendes, São Roque - SP" },
               ].map((c) => (
                 <div key={c.l} className="flex items-center gap-5">
                   <div className="w-14 h-14 rounded-full border-2 border-primary grid place-items-center text-primary"><c.i className="w-5 h-5" /></div>
@@ -38,14 +51,15 @@ function ContactPage() {
             </div>
           </div>
 
-          <form className="bg-section p-8 md:p-10 reveal" onSubmit={(e)=>e.preventDefault()}>
+          <form className="bg-section p-8 md:p-10 reveal" onSubmit={handleSubmit}>
             <div className="grid sm:grid-cols-2 gap-5">
-              {["Seu nome", "E-mail", "Telefone", "Assunto"].map((p) => (
-                <input key={p} placeholder={p} className="bg-white px-4 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
-              ))}
+              <input name="nome" required placeholder="Seu nome" className="bg-white px-4 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
+              <input name="email" type="email" required placeholder="E-mail" className="bg-white px-4 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
+              <input name="telefone" placeholder="Telefone" className="bg-white px-4 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
+              <input name="assunto" placeholder="Assunto" className="bg-white px-4 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
             </div>
-            <textarea placeholder="Escreva sua mensagem" rows={6} className="w-full mt-5 bg-white px-4 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
-            <button className="btn-primary w-full mt-6 !py-4">Enviar mensagem <ArrowRight className="w-4 h-4" /></button>
+            <textarea name="mensagem" required placeholder="Escreva sua mensagem" rows={6} className="w-full mt-5 bg-white px-4 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
+            <button type="submit" className="btn-primary w-full mt-6 !py-4">Enviar mensagem <ArrowRight className="w-4 h-4" /></button>
           </form>
         </div>
       </section>
