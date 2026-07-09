@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteShell } from "@/components/site/SiteShell";
 import { InternalHero } from "@/components/site/InternalHero";
-
+import { usePublicPlans } from "@/hooks/usePublicContent";
+import { usePageSeoInject } from "@/hooks/usePageSeoInject";
 import { Check } from "lucide-react";
 
 export const Route = createFileRoute("/plans")({
@@ -64,6 +65,18 @@ const plans: Plan[] = [
 ];
 
 function PlansPage() {
+  usePageSeoInject("/plans");
+  const { data: dbPlans } = usePublicPlans();
+  const list: Plan[] = (dbPlans && dbPlans.length > 0)
+    ? dbPlans.map((p: any) => ({
+        name: p.name,
+        price: String(p.price ?? "0"),
+        period: p.period || "/mês",
+        description: p.description || "",
+        features: Array.isArray(p.features) ? p.features : [],
+        featured: p.is_featured,
+      }))
+    : plans;
   return (
     <SiteShell>
       <InternalHero title="Planos" crumb="Planos" />
@@ -81,7 +94,7 @@ function PlansPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto reveal-stagger">
-            {plans.map((p) => (
+            {list.map((p) => (
               <article
                 key={p.name}
                 className={`reveal card-tech card-tech--plain p-10 md:p-12 flex flex-col ${p.featured ? "md:-translate-y-4" : ""}`}

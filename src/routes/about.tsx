@@ -1,3 +1,4 @@
+import { usePageSeoInject } from "@/hooks/usePageSeoInject";
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteShell } from "@/components/site/SiteShell";
 import { InternalHero } from "@/components/site/InternalHero";
@@ -21,6 +22,7 @@ const team = [
 ];
 
 function AboutPage() {
+  usePageSeoInject("/about");
   return (
     <SiteShell>
       <InternalHero title="Sobre" />

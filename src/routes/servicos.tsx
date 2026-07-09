@@ -3,7 +3,9 @@ import { SiteShell } from "@/components/site/SiteShell";
 import { InternalHero } from "@/components/site/InternalHero";
 import { Counters } from "@/components/site/Counters";
 import { ServiceCard } from "@/components/site/ServiceCard";
-
+import { usePublicServices } from "@/hooks/usePublicContent";
+import { usePageSeoInject } from "@/hooks/usePageSeoInject";
+import * as Icons from "lucide-react";
 import {
   ArrowRight, Code2, Wifi, Cpu, Shield, Bot, LifeBuoy,
   Cloud, ScrollText, BarChart3, Workflow, GraduationCap,
@@ -103,6 +105,14 @@ const services: Service[] = [
 ];
 
 function ServicesPage() {
+  usePageSeoInject("/servicos");
+  const { data: dbServices } = usePublicServices();
+  const list: Service[] = (dbServices && dbServices.length > 0)
+    ? dbServices.map((s: any) => {
+        const IconComp = (s.icon_name && (Icons as any)[s.icon_name]) || Shield;
+        return { id: s.slug || s.id, icon: IconComp, title: s.title, description: s.description || "", featured: s.featured_on_home };
+      })
+    : services;
   return (
     <SiteShell>
       <InternalHero title="Serviços" crumb="Serviços" />
@@ -122,7 +132,7 @@ function ServicesPage() {
         {/* Services grid */}
         <div className="container-x">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7 reveal-stagger">
-            {services.map((s, i) => (
+            {list.map((s, i) => (
               <div key={s.id} className="reveal">
                 <ServiceCard
                   icon={s.icon}
