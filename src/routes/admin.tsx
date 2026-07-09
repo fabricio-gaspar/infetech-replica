@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useAuth, useHasAdminAccess } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
-import { Loader2, Settings, Menu as MenuIcon, Share2, Users, LogOut, Home, ExternalLink, Palette, LayoutGrid, Image as ImageIcon, Briefcase, MessageSquare, HelpCircle, User as UserIcon, DollarSign, Star, FileText, Mail, MessageCircle, Bot, Search, Layout as LayoutIcon, Building2, Sparkles } from "lucide-react";
+import { Loader2, Settings, Menu as MenuIcon, Share2, Users, LogOut, Home, ExternalLink, Palette, LayoutGrid, Image as ImageIcon, Briefcase, MessageSquare, HelpCircle, User as UserIcon, DollarSign, Star, FileText, Mail, MessageCircle, Bot, Search, Layout as LayoutIcon, Building2, Sparkles, Award } from "lucide-react";
 import { toast } from "sonner";
 import { useQueryClient } from "@tanstack/react-query";
 
@@ -24,6 +24,9 @@ const menuSections: MenuSection[] = [
     section: "Conteúdo",
     items: [
       { to: "/admin/hero", label: "Banners (Hero)", icon: Sparkles },
+      { to: "/admin/hero-cards", label: "Cartões do Hero", icon: LayoutGrid },
+      { to: "/admin/pillars", label: "Pilares (Home)", icon: Award },
+
       { to: "/admin/services", label: "Serviços", icon: Briefcase },
       { to: "/admin/plans", label: "Planos", icon: DollarSign },
       { to: "/admin/testimonials", label: "Depoimentos", icon: Star },

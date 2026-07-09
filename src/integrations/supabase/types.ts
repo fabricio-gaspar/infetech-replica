@@ -346,6 +346,42 @@ export type Database = {
         }
         Relationships: []
       }
+      hero_cards: {
+        Row: {
+          created_at: string
+          description: string | null
+          icon_name: string | null
+          id: string
+          is_published: boolean
+          number: string
+          order_index: number
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          icon_name?: string | null
+          id?: string
+          is_published?: boolean
+          number?: string
+          order_index?: number
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          icon_name?: string | null
+          id?: string
+          is_published?: boolean
+          number?: string
+          order_index?: number
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       media_library: {
         Row: {
           alt_text: string | null
@@ -694,8 +730,48 @@ export type Database = {
         }
         Relationships: []
       }
+      site_pillars: {
+        Row: {
+          created_at: string
+          description: string | null
+          icon_name: string | null
+          id: string
+          is_published: boolean
+          order_index: number
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          icon_name?: string | null
+          id?: string
+          is_published?: boolean
+          order_index?: number
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          icon_name?: string | null
+          id?: string
+          is_published?: boolean
+          order_index?: number
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       site_settings: {
         Row: {
+          about_checklist: Json | null
+          about_cta_label: string | null
+          about_cta_url: string | null
+          about_description: string | null
+          about_eyebrow: string | null
+          about_image_url: string | null
+          about_title: string | null
           address: string | null
           address_city: string | null
           address_district: string | null
@@ -719,6 +795,20 @@ export type Database = {
           footer_text: string | null
           google_analytics_id: string | null
           head_snippet: string | null
+          home_blog_eyebrow: string | null
+          home_blog_title: string | null
+          home_pillars_eyebrow: string | null
+          home_pillars_title: string | null
+          home_services_eyebrow: string | null
+          home_services_title: string | null
+          home_solutions_cta_label: string | null
+          home_solutions_cta_url: string | null
+          home_solutions_description: string | null
+          home_solutions_eyebrow: string | null
+          home_solutions_image_url: string | null
+          home_solutions_title: string | null
+          home_testimonials_eyebrow: string | null
+          home_testimonials_title: string | null
           id: number
           logo_dark_url: string | null
           logo_url: string | null
@@ -737,6 +827,13 @@ export type Database = {
           whatsapp_greeting: string | null
         }
         Insert: {
+          about_checklist?: Json | null
+          about_cta_label?: string | null
+          about_cta_url?: string | null
+          about_description?: string | null
+          about_eyebrow?: string | null
+          about_image_url?: string | null
+          about_title?: string | null
           address?: string | null
           address_city?: string | null
           address_district?: string | null
@@ -760,6 +857,20 @@ export type Database = {
           footer_text?: string | null
           google_analytics_id?: string | null
           head_snippet?: string | null
+          home_blog_eyebrow?: string | null
+          home_blog_title?: string | null
+          home_pillars_eyebrow?: string | null
+          home_pillars_title?: string | null
+          home_services_eyebrow?: string | null
+          home_services_title?: string | null
+          home_solutions_cta_label?: string | null
+          home_solutions_cta_url?: string | null
+          home_solutions_description?: string | null
+          home_solutions_eyebrow?: string | null
+          home_solutions_image_url?: string | null
+          home_solutions_title?: string | null
+          home_testimonials_eyebrow?: string | null
+          home_testimonials_title?: string | null
           id?: number
           logo_dark_url?: string | null
           logo_url?: string | null
@@ -778,6 +889,13 @@ export type Database = {
           whatsapp_greeting?: string | null
         }
         Update: {
+          about_checklist?: Json | null
+          about_cta_label?: string | null
+          about_cta_url?: string | null
+          about_description?: string | null
+          about_eyebrow?: string | null
+          about_image_url?: string | null
+          about_title?: string | null
           address?: string | null
           address_city?: string | null
           address_district?: string | null
@@ -801,6 +919,20 @@ export type Database = {
           footer_text?: string | null
           google_analytics_id?: string | null
           head_snippet?: string | null
+          home_blog_eyebrow?: string | null
+          home_blog_title?: string | null
+          home_pillars_eyebrow?: string | null
+          home_pillars_title?: string | null
+          home_services_eyebrow?: string | null
+          home_services_title?: string | null
+          home_solutions_cta_label?: string | null
+          home_solutions_cta_url?: string | null
+          home_solutions_description?: string | null
+          home_solutions_eyebrow?: string | null
+          home_solutions_image_url?: string | null
+          home_solutions_title?: string | null
+          home_testimonials_eyebrow?: string | null
+          home_testimonials_title?: string | null
           id?: number
           logo_dark_url?: string | null
           logo_url?: string | null

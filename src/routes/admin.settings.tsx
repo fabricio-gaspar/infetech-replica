@@ -43,14 +43,16 @@ function SettingsPage() {
       <AdminHeader title="Identidade & Contato" description="Edite logo, cores, fontes, dados de contato e SEO."
         actions={<Button onClick={save} disabled={saving}>{saving ? <Loader2 className="w-4 h-4 mr-2 animate-spin"/> : <Save className="w-4 h-4 mr-2"/>}Salvar</Button>}/>
       <Tabs defaultValue="identity">
-        <TabsList className="grid grid-cols-6 w-full mb-4">
+        <TabsList className="grid grid-cols-7 w-full mb-4">
           <TabsTrigger value="identity">Identidade</TabsTrigger>
           <TabsTrigger value="colors">Cores</TabsTrigger>
           <TabsTrigger value="fonts">Fontes</TabsTrigger>
           <TabsTrigger value="contact">Contato</TabsTrigger>
+          <TabsTrigger value="home">Home & Sobre</TabsTrigger>
           <TabsTrigger value="seo">SEO</TabsTrigger>
           <TabsTrigger value="analytics">Analytics</TabsTrigger>
         </TabsList>
+
 
         <TabsContent value="identity">
           <Card><CardHeader><CardTitle>Identidade</CardTitle><CardDescription>Nome, logo, favicon e mensagens gerais</CardDescription></CardHeader>
@@ -129,7 +131,59 @@ function SettingsPage() {
           </Card>
         </TabsContent>
 
+        <TabsContent value="home">
+          <div className="space-y-4">
+            <Card><CardHeader><CardTitle>Bloco "Sobre a empresa" (página Sobre)</CardTitle><CardDescription>Editor do conteúdo do primeiro bloco da página Sobre</CardDescription></CardHeader>
+              <CardContent className="space-y-3">
+                <div className="grid md:grid-cols-2 gap-3">
+                  <div><Label>Eyebrow</Label><Input value={(form as any).about_eyebrow ?? ""} onChange={(e) => set("about_eyebrow" as any, e.target.value as any)} /></div>
+                  <div><Label>Título</Label><Input value={(form as any).about_title ?? ""} onChange={(e) => set("about_title" as any, e.target.value as any)} /></div>
+                </div>
+                <div><Label>Descrição</Label><Textarea rows={3} value={(form as any).about_description ?? ""} onChange={(e) => set("about_description" as any, e.target.value as any)} /></div>
+                <ImageUpload label="Imagem" folder="about" value={(form as any).about_image_url ?? null} onChange={(url) => set("about_image_url" as any, url as any)} />
+                <div><Label>Checklist (um item por linha)</Label>
+                  <Textarea rows={4} value={Array.isArray((form as any).about_checklist) ? (form as any).about_checklist.join("\n") : ""}
+                    onChange={(e) => set("about_checklist" as any, e.target.value.split("\n").map((x) => x.trim()).filter(Boolean) as any)} />
+                </div>
+                <div className="grid md:grid-cols-2 gap-3">
+                  <div><Label>Texto do botão</Label><Input value={(form as any).about_cta_label ?? ""} onChange={(e) => set("about_cta_label" as any, e.target.value as any)} /></div>
+                  <div><Label>Link do botão</Label><Input value={(form as any).about_cta_url ?? ""} onChange={(e) => set("about_cta_url" as any, e.target.value as any)} /></div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card><CardHeader><CardTitle>Bloco "Melhores soluções de TI" (home)</CardTitle></CardHeader>
+              <CardContent className="space-y-3">
+                <div className="grid md:grid-cols-2 gap-3">
+                  <div><Label>Eyebrow</Label><Input value={(form as any).home_solutions_eyebrow ?? ""} onChange={(e) => set("home_solutions_eyebrow" as any, e.target.value as any)} /></div>
+                  <div><Label>Título</Label><Input value={(form as any).home_solutions_title ?? ""} onChange={(e) => set("home_solutions_title" as any, e.target.value as any)} /></div>
+                </div>
+                <div><Label>Descrição</Label><Textarea rows={3} value={(form as any).home_solutions_description ?? ""} onChange={(e) => set("home_solutions_description" as any, e.target.value as any)} /></div>
+                <ImageUpload label="Imagem" folder="home" value={(form as any).home_solutions_image_url ?? null} onChange={(url) => set("home_solutions_image_url" as any, url as any)} />
+                <div className="grid md:grid-cols-2 gap-3">
+                  <div><Label>Texto do botão</Label><Input value={(form as any).home_solutions_cta_label ?? ""} onChange={(e) => set("home_solutions_cta_label" as any, e.target.value as any)} /></div>
+                  <div><Label>Link do botão</Label><Input value={(form as any).home_solutions_cta_url ?? ""} onChange={(e) => set("home_solutions_cta_url" as any, e.target.value as any)} /></div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card><CardHeader><CardTitle>Títulos das seções da home</CardTitle></CardHeader>
+              <CardContent className="grid md:grid-cols-2 gap-3">
+                <div><Label>Serviços — eyebrow</Label><Input value={(form as any).home_services_eyebrow ?? ""} onChange={(e) => set("home_services_eyebrow" as any, e.target.value as any)} /></div>
+                <div><Label>Serviços — título</Label><Input value={(form as any).home_services_title ?? ""} onChange={(e) => set("home_services_title" as any, e.target.value as any)} /></div>
+                <div><Label>Depoimentos — eyebrow</Label><Input value={(form as any).home_testimonials_eyebrow ?? ""} onChange={(e) => set("home_testimonials_eyebrow" as any, e.target.value as any)} /></div>
+                <div><Label>Depoimentos — título</Label><Input value={(form as any).home_testimonials_title ?? ""} onChange={(e) => set("home_testimonials_title" as any, e.target.value as any)} /></div>
+                <div><Label>Pilares — eyebrow</Label><Input value={(form as any).home_pillars_eyebrow ?? ""} onChange={(e) => set("home_pillars_eyebrow" as any, e.target.value as any)} /></div>
+                <div><Label>Pilares — título</Label><Input value={(form as any).home_pillars_title ?? ""} onChange={(e) => set("home_pillars_title" as any, e.target.value as any)} /></div>
+                <div><Label>Blog — eyebrow</Label><Input value={(form as any).home_blog_eyebrow ?? ""} onChange={(e) => set("home_blog_eyebrow" as any, e.target.value as any)} /></div>
+                <div><Label>Blog — título</Label><Input value={(form as any).home_blog_title ?? ""} onChange={(e) => set("home_blog_title" as any, e.target.value as any)} /></div>
+              </CardContent>
+            </Card>
+          </div>
+        </TabsContent>
+
         <TabsContent value="seo">
+
           <Card><CardHeader><CardTitle>SEO Global</CardTitle><CardDescription>Metadados padrão do site</CardDescription></CardHeader>
             <CardContent className="space-y-4">
               <div><Label>Título (title)</Label><Input value={form.seo_title ?? ""} onChange={(e) => set("seo_title", e.target.value)} /></div>
