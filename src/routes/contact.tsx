@@ -1,7 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteShell } from "@/components/site/SiteShell";
 import { InternalHero } from "@/components/site/InternalHero";
-import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowRight, Loader2 } from "lucide-react";
+import { useState } from "react";
+import { z } from "zod";
+import { supabase } from "@/integrations/supabase/client";
+import { useSiteSettings } from "@/hooks/useSiteSettings";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({ meta: [
@@ -11,18 +16,36 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
 });
 
+const schema = z.object({
+  name: z.string().trim().min(2, "Informe seu nome").max(120),
+  email: z.string().trim().email("E-mail inválido").max(255),
+  phone: z.string().trim().max(30).optional(),
+  subject: z.string().trim().max(160).optional(),
+  message: z.string().trim().min(5, "Mensagem muito curta").max(2000),
+});
+
 function ContactPage() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [submitting, setSubmitting] = useState(false);
+  const { data: settings } = useSiteSettings();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    const nome = String(data.get("nome") || "");
-    const email = String(data.get("email") || "");
-    const telefone = String(data.get("telefone") || "");
-    const assunto = String(data.get("assunto") || "Contato pelo site");
-    const mensagem = String(data.get("mensagem") || "");
-    const body = `Nome: ${nome}%0D%0AE-mail: ${email}%0D%0ATelefone: ${telefone}%0D%0A%0D%0AMensagem:%0D%0A${mensagem}`;
-    window.location.href = `mailto:contato@wfdigital.com.br?subject=${encodeURIComponent(assunto)}&body=${body}`;
+    const payload = {
+      name: String(data.get("nome") || ""),
+      email: String(data.get("email") || ""),
+      phone: String(data.get("telefone") || "") || undefined,
+      subject: String(data.get("assunto") || "") || undefined,
+      message: String(data.get("mensagem") || ""),
+    };
+    const parsed = schema.safeParse(payload);
+    if (!parsed.success) { toast.error(parsed.error.issues[0].message); return; }
+    setSubmitting(true);
+    const { error } = await supabase.from("contact_messages").insert({ ...parsed.data, source: "contact_form" });
+    setSubmitting(false);
+    if (error) { toast.error("Erro ao enviar. Tente novamente."); return; }
+    toast.success("Mensagem enviada! Entraremos em contato em breve.");
+    form.reset();
   };
 
   return (
