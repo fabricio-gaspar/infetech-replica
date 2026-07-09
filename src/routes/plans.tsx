@@ -94,7 +94,7 @@ function PlansPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto reveal-stagger">
-            {plans.map((p) => (
+            {list.map((p) => (
               <article
                 key={p.name}
                 className={`reveal card-tech card-tech--plain p-10 md:p-12 flex flex-col ${p.featured ? "md:-translate-y-4" : ""}`}
