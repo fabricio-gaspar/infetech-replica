@@ -47,7 +47,14 @@ function HomePage() {
   const { data: pillars } = usePublicPillars();
   const { data: blog } = usePublicBlog();
 
-  const hero = (heroBanners && heroBanners.length > 0) ? heroBanners[0] : null;
+  const slides = heroBanners ?? [];
+  const [heroIdx, setHeroIdx] = useState(0);
+  useEffect(() => {
+    if (slides.length <= 1) return;
+    const id = window.setInterval(() => setHeroIdx((i) => (i + 1) % slides.length), 6000);
+    return () => window.clearInterval(id);
+  }, [slides.length]);
+  const hero = slides.length > 0 ? slides[Math.min(heroIdx, slides.length - 1)] : null;
   const s: any = settings || {};
 
   const [activeT, setActiveT] = useState(0);
@@ -111,8 +118,32 @@ function HomePage() {
             {hero?.cta_primary_label && (
               <Link to={hero.cta_primary_url || "/about"} className="btn-primary mt-10">{hero.cta_primary_label}</Link>
             )}
+            {hero?.cta_secondary_label && (
+              <Link to={hero.cta_secondary_url || "/servicos"} className="ml-3 mt-10 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-foreground hover:text-primary transition-colors">
+                {hero.cta_secondary_label} <ArrowRight className="w-4 h-4" />
+              </Link>
+            )}
           </div>
         </div>
+
+        {slides.length > 1 && (
+          <div className="container-x relative -mt-24 lg:-mt-32 flex items-center gap-3 z-20">
+            <button type="button" onClick={() => setHeroIdx((i) => (i - 1 + slides.length) % slides.length)}
+              className="w-10 h-10 rounded-full bg-white shadow-md grid place-items-center hover:bg-primary hover:text-white transition" aria-label="Slide anterior">
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <div className="flex items-center gap-2">
+              {slides.map((sl: any, i: number) => (
+                <button key={sl.id} type="button" onClick={() => setHeroIdx(i)} aria-label={`Slide ${i + 1}`}
+                  className={`h-1 transition-all ${heroIdx === i ? "w-10 bg-primary" : "w-6 bg-foreground/20 hover:bg-primary/50"}`} />
+              ))}
+            </div>
+            <button type="button" onClick={() => setHeroIdx((i) => (i + 1) % slides.length)}
+              className="w-10 h-10 rounded-full bg-white shadow-md grid place-items-center hover:bg-primary hover:text-white transition" aria-label="Próximo slide">
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+        )}
 
         {/* hero cards */}
         {cards.length > 0 && (
