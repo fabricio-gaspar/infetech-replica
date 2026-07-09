@@ -43,14 +43,16 @@ function SettingsPage() {
       <AdminHeader title="Identidade & Contato" description="Edite logo, cores, fontes, dados de contato e SEO."
         actions={<Button onClick={save} disabled={saving}>{saving ? <Loader2 className="w-4 h-4 mr-2 animate-spin"/> : <Save className="w-4 h-4 mr-2"/>}Salvar</Button>}/>
       <Tabs defaultValue="identity">
-        <TabsList className="grid grid-cols-6 w-full mb-4">
+        <TabsList className="grid grid-cols-7 w-full mb-4">
           <TabsTrigger value="identity">Identidade</TabsTrigger>
           <TabsTrigger value="colors">Cores</TabsTrigger>
           <TabsTrigger value="fonts">Fontes</TabsTrigger>
           <TabsTrigger value="contact">Contato</TabsTrigger>
+          <TabsTrigger value="home">Home & Sobre</TabsTrigger>
           <TabsTrigger value="seo">SEO</TabsTrigger>
           <TabsTrigger value="analytics">Analytics</TabsTrigger>
         </TabsList>
+
 
         <TabsContent value="identity">
           <Card><CardHeader><CardTitle>Identidade</CardTitle><CardDescription>Nome, logo, favicon e mensagens gerais</CardDescription></CardHeader>

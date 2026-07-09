@@ -29,6 +29,7 @@ import { Route as AdminServicesRouteImport } from './routes/admin.services'
 import { Route as AdminSeoRouteImport } from './routes/admin.seo'
 import { Route as AdminQuotesRouteImport } from './routes/admin.quotes'
 import { Route as AdminPlansRouteImport } from './routes/admin.plans'
+import { Route as AdminPillarsRouteImport } from './routes/admin.pillars'
 import { Route as AdminPartnersRouteImport } from './routes/admin.partners'
 import { Route as AdminMessagesRouteImport } from './routes/admin.messages'
 import { Route as AdminMenuRouteImport } from './routes/admin.menu'
@@ -143,6 +144,11 @@ const AdminPlansRoute = AdminPlansRouteImport.update({
   path: '/plans',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminPillarsRoute = AdminPillarsRouteImport.update({
+  id: '/pillars',
+  path: '/pillars',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminPartnersRoute = AdminPartnersRouteImport.update({
   id: '/partners',
   path: '/partners',
@@ -230,6 +236,7 @@ export interface FileRoutesByFullPath {
   '/admin/menu': typeof AdminMenuRoute
   '/admin/messages': typeof AdminMessagesRoute
   '/admin/partners': typeof AdminPartnersRoute
+  '/admin/pillars': typeof AdminPillarsRoute
   '/admin/plans': typeof AdminPlansRoute
   '/admin/quotes': typeof AdminQuotesRoute
   '/admin/seo': typeof AdminSeoRoute
@@ -264,6 +271,7 @@ export interface FileRoutesByTo {
   '/admin/menu': typeof AdminMenuRoute
   '/admin/messages': typeof AdminMessagesRoute
   '/admin/partners': typeof AdminPartnersRoute
+  '/admin/pillars': typeof AdminPillarsRoute
   '/admin/plans': typeof AdminPlansRoute
   '/admin/quotes': typeof AdminQuotesRoute
   '/admin/seo': typeof AdminSeoRoute
@@ -300,6 +308,7 @@ export interface FileRoutesById {
   '/admin/menu': typeof AdminMenuRoute
   '/admin/messages': typeof AdminMessagesRoute
   '/admin/partners': typeof AdminPartnersRoute
+  '/admin/pillars': typeof AdminPillarsRoute
   '/admin/plans': typeof AdminPlansRoute
   '/admin/quotes': typeof AdminQuotesRoute
   '/admin/seo': typeof AdminSeoRoute
@@ -337,6 +346,7 @@ export interface FileRouteTypes {
     | '/admin/menu'
     | '/admin/messages'
     | '/admin/partners'
+    | '/admin/pillars'
     | '/admin/plans'
     | '/admin/quotes'
     | '/admin/seo'
@@ -371,6 +381,7 @@ export interface FileRouteTypes {
     | '/admin/menu'
     | '/admin/messages'
     | '/admin/partners'
+    | '/admin/pillars'
     | '/admin/plans'
     | '/admin/quotes'
     | '/admin/seo'
@@ -406,6 +417,7 @@ export interface FileRouteTypes {
     | '/admin/menu'
     | '/admin/messages'
     | '/admin/partners'
+    | '/admin/pillars'
     | '/admin/plans'
     | '/admin/quotes'
     | '/admin/seo'
@@ -574,6 +586,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminPlansRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/pillars': {
+      id: '/admin/pillars'
+      path: '/pillars'
+      fullPath: '/admin/pillars'
+      preLoaderRoute: typeof AdminPillarsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/partners': {
       id: '/admin/partners'
       path: '/partners'
@@ -693,6 +712,7 @@ interface AdminRouteChildren {
   AdminMenuRoute: typeof AdminMenuRoute
   AdminMessagesRoute: typeof AdminMessagesRoute
   AdminPartnersRoute: typeof AdminPartnersRoute
+  AdminPillarsRoute: typeof AdminPillarsRoute
   AdminPlansRoute: typeof AdminPlansRoute
   AdminQuotesRoute: typeof AdminQuotesRoute
   AdminSeoRoute: typeof AdminSeoRoute
@@ -719,6 +739,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminMenuRoute: AdminMenuRoute,
   AdminMessagesRoute: AdminMessagesRoute,
   AdminPartnersRoute: AdminPartnersRoute,
+  AdminPillarsRoute: AdminPillarsRoute,
   AdminPlansRoute: AdminPlansRoute,
   AdminQuotesRoute: AdminQuotesRoute,
   AdminSeoRoute: AdminSeoRoute,
