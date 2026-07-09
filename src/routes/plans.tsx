@@ -65,6 +65,18 @@ const plans: Plan[] = [
 ];
 
 function PlansPage() {
+  usePageSeoInject("/plans");
+  const { data: dbPlans } = usePublicPlans();
+  const list: Plan[] = (dbPlans && dbPlans.length > 0)
+    ? dbPlans.map((p: any) => ({
+        name: p.name,
+        price: String(p.price ?? "0"),
+        period: p.period || "/mês",
+        description: p.description || "",
+        features: Array.isArray(p.features) ? p.features : [],
+        featured: p.is_featured,
+      }))
+    : plans;
   return (
     <SiteShell>
       <InternalHero title="Planos" crumb="Planos" />
