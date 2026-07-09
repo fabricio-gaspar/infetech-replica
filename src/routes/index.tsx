@@ -1,3 +1,4 @@
+import { usePageSeoInject } from "@/hooks/usePageSeoInject";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useRef, useEffect } from "react";
 import { SiteShell } from "@/components/site/SiteShell";
