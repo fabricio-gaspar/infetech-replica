@@ -47,7 +47,14 @@ function HomePage() {
   const { data: pillars } = usePublicPillars();
   const { data: blog } = usePublicBlog();
 
-  const hero = (heroBanners && heroBanners.length > 0) ? heroBanners[0] : null;
+  const slides = heroBanners ?? [];
+  const [heroIdx, setHeroIdx] = useState(0);
+  useEffect(() => {
+    if (slides.length <= 1) return;
+    const id = window.setInterval(() => setHeroIdx((i) => (i + 1) % slides.length), 6000);
+    return () => window.clearInterval(id);
+  }, [slides.length]);
+  const hero = slides.length > 0 ? slides[Math.min(heroIdx, slides.length - 1)] : null;
   const s: any = settings || {};
 
   const [activeT, setActiveT] = useState(0);
