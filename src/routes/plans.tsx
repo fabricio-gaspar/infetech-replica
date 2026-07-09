@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteShell } from "@/components/site/SiteShell";
 import { InternalHero } from "@/components/site/InternalHero";
-
+import { usePublicPlans } from "@/hooks/usePublicContent";
+import { usePageSeoInject } from "@/hooks/usePageSeoInject";
 import { Check } from "lucide-react";
 
 export const Route = createFileRoute("/plans")({
