@@ -134,10 +134,13 @@ function RootComponent() {
     return () => sub.subscription.unsubscribe();
   }, [queryClient, router]);
 
+  const path = useRouterState({ select: (r) => r.location.pathname });
+  const isAdmin = path.startsWith("/admin");
   return (
     <QueryClientProvider client={queryClient}>
       <DynamicTheme />
       <Outlet />
+      {!isAdmin && <WhatsAppFloatingButton />}
       <Toaster />
     </QueryClientProvider>
   );
