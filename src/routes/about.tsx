@@ -22,6 +22,7 @@ const team = [
 ];
 
 function AboutPage() {
+  usePageSeoInject("/about");
   return (
     <SiteShell>
       <InternalHero title="Sobre" />

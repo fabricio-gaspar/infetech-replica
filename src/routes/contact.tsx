@@ -26,6 +26,7 @@ const schema = z.object({
 });
 
 function ContactPage() {
+  usePageSeoInject("/contact");
   const [submitting, setSubmitting] = useState(false);
   const { data: settings } = useSiteSettings();
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

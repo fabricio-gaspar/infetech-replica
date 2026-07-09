@@ -86,6 +86,7 @@ const posts = [
 ];
 
 function HomePage() {
+  usePageSeoInject("/");
   const [activeT, setActiveT] = useState(0);
   const active = testimonials[activeT];
   const servicesScrollRef = useRef<HTMLDivElement>(null);
