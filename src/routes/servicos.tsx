@@ -132,7 +132,7 @@ function ServicesPage() {
         {/* Services grid */}
         <div className="container-x">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7 reveal-stagger">
-            {services.map((s, i) => (
+            {list.map((s, i) => (
               <div key={s.id} className="reveal">
                 <ServiceCard
                   icon={s.icon}
