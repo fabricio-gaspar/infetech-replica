@@ -34,6 +34,7 @@ import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminHeroRouteImport } from './routes/admin.hero'
 import { Route as AdminGalleryRouteImport } from './routes/admin.gallery'
 import { Route as AdminFaqsRouteImport } from './routes/admin.faqs'
+import { Route as AdminChatbotRouteImport } from './routes/admin.chatbot'
 import { Route as AdminBlogRouteImport } from './routes/admin.blog'
 import { Route as AdminBlogIdRouteImport } from './routes/admin.blog.$id'
 
@@ -162,6 +163,11 @@ const AdminFaqsRoute = AdminFaqsRouteImport.update({
   path: '/faqs',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminChatbotRoute = AdminChatbotRouteImport.update({
+  id: '/chatbot',
+  path: '/chatbot',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminBlogRoute = AdminBlogRouteImport.update({
   id: '/blog',
   path: '/blog',
@@ -183,6 +189,7 @@ export interface FileRoutesByFullPath {
   '/plans': typeof PlansRoute
   '/servicos': typeof ServicosRoute
   '/admin/blog': typeof AdminBlogRouteWithChildren
+  '/admin/chatbot': typeof AdminChatbotRoute
   '/admin/faqs': typeof AdminFaqsRoute
   '/admin/gallery': typeof AdminGalleryRoute
   '/admin/hero': typeof AdminHeroRoute
@@ -211,6 +218,7 @@ export interface FileRoutesByTo {
   '/plans': typeof PlansRoute
   '/servicos': typeof ServicosRoute
   '/admin/blog': typeof AdminBlogRouteWithChildren
+  '/admin/chatbot': typeof AdminChatbotRoute
   '/admin/faqs': typeof AdminFaqsRoute
   '/admin/gallery': typeof AdminGalleryRoute
   '/admin/hero': typeof AdminHeroRoute
@@ -241,6 +249,7 @@ export interface FileRoutesById {
   '/plans': typeof PlansRoute
   '/servicos': typeof ServicosRoute
   '/admin/blog': typeof AdminBlogRouteWithChildren
+  '/admin/chatbot': typeof AdminChatbotRoute
   '/admin/faqs': typeof AdminFaqsRoute
   '/admin/gallery': typeof AdminGalleryRoute
   '/admin/hero': typeof AdminHeroRoute
@@ -272,6 +281,7 @@ export interface FileRouteTypes {
     | '/plans'
     | '/servicos'
     | '/admin/blog'
+    | '/admin/chatbot'
     | '/admin/faqs'
     | '/admin/gallery'
     | '/admin/hero'
@@ -300,6 +310,7 @@ export interface FileRouteTypes {
     | '/plans'
     | '/servicos'
     | '/admin/blog'
+    | '/admin/chatbot'
     | '/admin/faqs'
     | '/admin/gallery'
     | '/admin/hero'
@@ -329,6 +340,7 @@ export interface FileRouteTypes {
     | '/plans'
     | '/servicos'
     | '/admin/blog'
+    | '/admin/chatbot'
     | '/admin/faqs'
     | '/admin/gallery'
     | '/admin/hero'
@@ -537,6 +549,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminFaqsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/chatbot': {
+      id: '/admin/chatbot'
+      path: '/chatbot'
+      fullPath: '/admin/chatbot'
+      preLoaderRoute: typeof AdminChatbotRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/blog': {
       id: '/admin/blog'
       path: '/blog'
@@ -568,6 +587,7 @@ const AdminBlogRouteWithChildren = AdminBlogRoute._addFileChildren(
 
 interface AdminRouteChildren {
   AdminBlogRoute: typeof AdminBlogRouteWithChildren
+  AdminChatbotRoute: typeof AdminChatbotRoute
   AdminFaqsRoute: typeof AdminFaqsRoute
   AdminGalleryRoute: typeof AdminGalleryRoute
   AdminHeroRoute: typeof AdminHeroRoute
@@ -589,6 +609,7 @@ interface AdminRouteChildren {
 
 const AdminRouteChildren: AdminRouteChildren = {
   AdminBlogRoute: AdminBlogRouteWithChildren,
+  AdminChatbotRoute: AdminChatbotRoute,
   AdminFaqsRoute: AdminFaqsRoute,
   AdminGalleryRoute: AdminGalleryRoute,
   AdminHeroRoute: AdminHeroRoute,
