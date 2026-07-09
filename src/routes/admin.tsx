@@ -24,6 +24,9 @@ const menuSections: MenuSection[] = [
     section: "Conteúdo",
     items: [
       { to: "/admin/hero", label: "Banners (Hero)", icon: Sparkles },
+      { to: "/admin/hero-cards", label: "Cartões do Hero", icon: LayoutGrid },
+      { to: "/admin/pillars", label: "Pilares (Home)", icon: Award },
+
       { to: "/admin/services", label: "Serviços", icon: Briefcase },
       { to: "/admin/plans", label: "Planos", icon: DollarSign },
       { to: "/admin/testimonials", label: "Depoimentos", icon: Star },
