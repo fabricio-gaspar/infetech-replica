@@ -3,7 +3,9 @@ import { SiteShell } from "@/components/site/SiteShell";
 import { InternalHero } from "@/components/site/InternalHero";
 import { Counters } from "@/components/site/Counters";
 import { ServiceCard } from "@/components/site/ServiceCard";
-
+import { usePublicServices } from "@/hooks/usePublicContent";
+import { usePageSeoInject } from "@/hooks/usePageSeoInject";
+import * as Icons from "lucide-react";
 import {
   ArrowRight, Code2, Wifi, Cpu, Shield, Bot, LifeBuoy,
   Cloud, ScrollText, BarChart3, Workflow, GraduationCap,
