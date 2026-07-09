@@ -40,15 +40,26 @@ export function Footer() {
           </div>
         </div>
 
-        <div>
-          <h4 className="text-white font-bold text-lg mb-6">Links Úteis</h4>
-          <ul className="space-y-3.5 text-sm text-white/70">
-            <li><Link to="/about" className="hover:text-primary transition-colors">Sobre a Empresa</Link></li>
-            <li><Link to="/plans" className="hover:text-primary transition-colors">Planos</Link></li>
-            <li><Link to="/servicos" className="hover:text-primary transition-colors">Serviços</Link></li>
-            <li><Link to="/contact" className="hover:text-primary transition-colors">Contato</Link></li>
-          </ul>
-        </div>
+        {cols.length > 0 ? cols.map((c: any) => (
+          <div key={c.id}>
+            <h4 className="text-white font-bold text-lg mb-6">{c.title}</h4>
+            <ul className="space-y-3.5 text-sm text-white/70">
+              {(c.links as { label: string; url: string; external?: boolean }[]).map((l, i) => (
+                <li key={i}><a href={l.url} target={l.external ? "_blank" : undefined} rel={l.external ? "noreferrer" : undefined} className="hover:text-primary transition-colors">{l.label}</a></li>
+              ))}
+            </ul>
+          </div>
+        )) : (
+          <div>
+            <h4 className="text-white font-bold text-lg mb-6">Links Úteis</h4>
+            <ul className="space-y-3.5 text-sm text-white/70">
+              <li><Link to="/about" className="hover:text-primary transition-colors">Sobre</Link></li>
+              <li><Link to="/plans" className="hover:text-primary transition-colors">Planos</Link></li>
+              <li><Link to="/servicos" className="hover:text-primary transition-colors">Serviços</Link></li>
+              <li><Link to="/contact" className="hover:text-primary transition-colors">Contato</Link></li>
+            </ul>
+          </div>
+        )}
 
         <div>
           <h4 className="text-white font-bold text-lg mb-6">Contato</h4>
