@@ -29,6 +29,7 @@ import { Route as AdminPartnersRouteImport } from './routes/admin.partners'
 import { Route as AdminMenuRouteImport } from './routes/admin.menu'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminHeroRouteImport } from './routes/admin.hero'
+import { Route as AdminGalleryRouteImport } from './routes/admin.gallery'
 import { Route as AdminFaqsRouteImport } from './routes/admin.faqs'
 
 const ServicosRoute = ServicosRouteImport.update({
@@ -131,6 +132,11 @@ const AdminHeroRoute = AdminHeroRouteImport.update({
   path: '/hero',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminGalleryRoute = AdminGalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminFaqsRoute = AdminFaqsRouteImport.update({
   id: '/faqs',
   path: '/faqs',
@@ -147,6 +153,7 @@ export interface FileRoutesByFullPath {
   '/plans': typeof PlansRoute
   '/servicos': typeof ServicosRoute
   '/admin/faqs': typeof AdminFaqsRoute
+  '/admin/gallery': typeof AdminGalleryRoute
   '/admin/hero': typeof AdminHeroRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/menu': typeof AdminMenuRoute
@@ -169,6 +176,7 @@ export interface FileRoutesByTo {
   '/plans': typeof PlansRoute
   '/servicos': typeof ServicosRoute
   '/admin/faqs': typeof AdminFaqsRoute
+  '/admin/gallery': typeof AdminGalleryRoute
   '/admin/hero': typeof AdminHeroRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/menu': typeof AdminMenuRoute
@@ -193,6 +201,7 @@ export interface FileRoutesById {
   '/plans': typeof PlansRoute
   '/servicos': typeof ServicosRoute
   '/admin/faqs': typeof AdminFaqsRoute
+  '/admin/gallery': typeof AdminGalleryRoute
   '/admin/hero': typeof AdminHeroRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/menu': typeof AdminMenuRoute
@@ -218,6 +227,7 @@ export interface FileRouteTypes {
     | '/plans'
     | '/servicos'
     | '/admin/faqs'
+    | '/admin/gallery'
     | '/admin/hero'
     | '/admin/login'
     | '/admin/menu'
@@ -240,6 +250,7 @@ export interface FileRouteTypes {
     | '/plans'
     | '/servicos'
     | '/admin/faqs'
+    | '/admin/gallery'
     | '/admin/hero'
     | '/admin/login'
     | '/admin/menu'
@@ -263,6 +274,7 @@ export interface FileRouteTypes {
     | '/plans'
     | '/servicos'
     | '/admin/faqs'
+    | '/admin/gallery'
     | '/admin/hero'
     | '/admin/login'
     | '/admin/menu'
@@ -430,6 +442,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminHeroRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/gallery': {
+      id: '/admin/gallery'
+      path: '/gallery'
+      fullPath: '/admin/gallery'
+      preLoaderRoute: typeof AdminGalleryRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/faqs': {
       id: '/admin/faqs'
       path: '/faqs'
@@ -442,6 +461,7 @@ declare module '@tanstack/react-router' {
 
 interface AdminRouteChildren {
   AdminFaqsRoute: typeof AdminFaqsRoute
+  AdminGalleryRoute: typeof AdminGalleryRoute
   AdminHeroRoute: typeof AdminHeroRoute
   AdminLoginRoute: typeof AdminLoginRoute
   AdminMenuRoute: typeof AdminMenuRoute
@@ -458,6 +478,7 @@ interface AdminRouteChildren {
 
 const AdminRouteChildren: AdminRouteChildren = {
   AdminFaqsRoute: AdminFaqsRoute,
+  AdminGalleryRoute: AdminGalleryRoute,
   AdminHeroRoute: AdminHeroRoute,
   AdminLoginRoute: AdminLoginRoute,
   AdminMenuRoute: AdminMenuRoute,
