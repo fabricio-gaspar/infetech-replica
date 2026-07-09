@@ -71,10 +71,10 @@ function PlansPage() {
     ? dbPlans.map((p: any) => ({
         name: p.name,
         price: String(p.price ?? "0"),
-        period: p.period || "/mês",
+        period: p.billing_period ? `/${p.billing_period}` : "/mês",
         description: p.description || "",
         features: Array.isArray(p.features) ? p.features : [],
-        featured: p.is_featured,
+        featured: p.is_popular,
       }))
     : plans;
   return (
