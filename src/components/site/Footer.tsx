@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Facebook, Twitter, Linkedin, Instagram, Youtube, Phone, Mail, MapPin, ArrowUp } from "lucide-react";
 import { useSiteSettings, useSocialLinks } from "@/hooks/useSiteSettings";
+import { useFooterColumns } from "@/hooks/usePublicContent";
 
 const socialIcon: Record<string, React.ComponentType<{ className?: string }>> = {
   facebook: Facebook, twitter: Twitter, instagram: Instagram, linkedin: Linkedin, youtube: Youtube,
@@ -9,8 +10,10 @@ const socialIcon: Record<string, React.ComponentType<{ className?: string }>> = 
 export function Footer() {
   const { data: s } = useSiteSettings();
   const { data: social } = useSocialLinks();
+  const { data: columns } = useFooterColumns();
   const socials = (social ?? []).filter((sl) => sl.enabled);
   const siteName = s?.site_name ?? "WF Digital";
+  const cols = columns ?? [];
 
   return (
     <footer className="relative bg-[color:var(--dark,#05070d)] text-white/75 mt-32">
