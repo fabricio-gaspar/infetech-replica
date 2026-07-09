@@ -82,7 +82,7 @@ function ContactPage() {
               <input name="assunto" placeholder="Assunto" className="bg-white px-4 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
             </div>
             <textarea name="mensagem" required placeholder="Escreva sua mensagem" rows={6} className="w-full mt-5 bg-white px-4 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
-            <button type="submit" className="btn-primary w-full mt-6 !py-4">Enviar mensagem <ArrowRight className="w-4 h-4" /></button>
+            <button type="submit" disabled={submitting} className="btn-primary w-full mt-6 !py-4 disabled:opacity-60">{submitting ? <><Loader2 className="w-4 h-4 animate-spin"/>Enviando…</> : <>Enviar mensagem <ArrowRight className="w-4 h-4" /></>}</button>
           </form>
         </div>
       </section>
