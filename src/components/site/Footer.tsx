@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Facebook, Twitter, Linkedin, Instagram, Youtube, Phone, Mail, MapPin, ArrowUp } from "lucide-react";
 import { useSiteSettings, useSocialLinks } from "@/hooks/useSiteSettings";
+import { useFooterColumns } from "@/hooks/usePublicContent";
 
 const socialIcon: Record<string, React.ComponentType<{ className?: string }>> = {
   facebook: Facebook, twitter: Twitter, instagram: Instagram, linkedin: Linkedin, youtube: Youtube,
@@ -9,8 +10,10 @@ const socialIcon: Record<string, React.ComponentType<{ className?: string }>> = 
 export function Footer() {
   const { data: s } = useSiteSettings();
   const { data: social } = useSocialLinks();
+  const { data: columns } = useFooterColumns();
   const socials = (social ?? []).filter((sl) => sl.enabled);
   const siteName = s?.site_name ?? "WF Digital";
+  const cols = columns ?? [];
 
   return (
     <footer className="relative bg-[color:var(--dark,#05070d)] text-white/75 mt-32">
@@ -37,15 +40,26 @@ export function Footer() {
           </div>
         </div>
 
-        <div>
-          <h4 className="text-white font-bold text-lg mb-6">Links Úteis</h4>
-          <ul className="space-y-3.5 text-sm text-white/70">
-            <li><Link to="/about" className="hover:text-primary transition-colors">Sobre a Empresa</Link></li>
-            <li><Link to="/plans" className="hover:text-primary transition-colors">Planos</Link></li>
-            <li><Link to="/servicos" className="hover:text-primary transition-colors">Serviços</Link></li>
-            <li><Link to="/contact" className="hover:text-primary transition-colors">Contato</Link></li>
-          </ul>
-        </div>
+        {cols.length > 0 ? cols.map((c: any) => (
+          <div key={c.id}>
+            <h4 className="text-white font-bold text-lg mb-6">{c.title}</h4>
+            <ul className="space-y-3.5 text-sm text-white/70">
+              {(c.links as { label: string; url: string; external?: boolean }[]).map((l, i) => (
+                <li key={i}><a href={l.url} target={l.external ? "_blank" : undefined} rel={l.external ? "noreferrer" : undefined} className="hover:text-primary transition-colors">{l.label}</a></li>
+              ))}
+            </ul>
+          </div>
+        )) : (
+          <div>
+            <h4 className="text-white font-bold text-lg mb-6">Links Úteis</h4>
+            <ul className="space-y-3.5 text-sm text-white/70">
+              <li><Link to="/about" className="hover:text-primary transition-colors">Sobre</Link></li>
+              <li><Link to="/plans" className="hover:text-primary transition-colors">Planos</Link></li>
+              <li><Link to="/servicos" className="hover:text-primary transition-colors">Serviços</Link></li>
+              <li><Link to="/contact" className="hover:text-primary transition-colors">Contato</Link></li>
+            </ul>
+          </div>
+        )}
 
         <div>
           <h4 className="text-white font-bold text-lg mb-6">Contato</h4>
@@ -81,7 +95,7 @@ export function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-x py-5 flex items-center justify-center relative">
-          <p className="text-xs text-white/55">© {new Date().getFullYear()} {siteName}. Todos os direitos reservados.</p>
+          <p className="text-xs text-white/55">{s?.footer_text || `© ${new Date().getFullYear()} ${siteName}. Todos os direitos reservados.`}</p>
           <button onClick={() => typeof window !== "undefined" && window.scrollTo({ top: 0, behavior: "smooth" })}
             aria-label="Voltar ao topo" className="absolute right-5 md:right-8 w-10 h-10 rounded-full border-2 border-primary text-primary grid place-items-center hover:bg-primary hover:text-white transition-colors">
             <ArrowUp className="w-4 h-4" />

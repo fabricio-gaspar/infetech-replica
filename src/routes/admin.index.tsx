@@ -1,93 +1,107 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Settings, Menu as MenuIcon, Share2, Users, LayoutGrid, MessageSquare, FileText } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import { useAuth, useHasAdminAccess } from "@/hooks/useAuth";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { AdminHeader } from "@/components/admin/AdminHeader";
+import { Mail, MessageSquare, Briefcase, Star, FileText, Image as ImageIcon, DollarSign, HelpCircle, User, Layers, Sparkles, Building2 } from "lucide-react";
 
-export const Route = createFileRoute("/admin/")({ component: Dashboard });
+export const Route = createFileRoute("/admin/")({ component: DashboardIndex });
 
-function useDashboardStats() {
+function useCounts() {
   return useQuery({
-    queryKey: ["admin-dashboard-stats"],
+    queryKey: ["admin-dashboard"],
     queryFn: async () => {
-      const [menuRes, socialRes, rolesRes] = await Promise.all([
-        supabase.from("nav_items").select("*", { count: "exact", head: true }),
-        supabase.from("social_links").select("*", { count: "exact", head: true }),
-        supabase.from("user_roles").select("*", { count: "exact", head: true }).in("role", ["admin", "editor"]),
-      ]);
-      return {
-        menuItems: menuRes.count ?? 0,
-        socialLinks: socialRes.count ?? 0,
-        adminUsers: rolesRes.count ?? 0,
-      };
+      const tables = ["hero_banners","services","testimonials","faqs","team_members","pricing_plans","partners","gallery_items","blog_posts","contact_messages","quotes","media_library"] as const;
+      const results = await Promise.all(tables.map(async (t) => {
+        const { count } = await supabase.from(t).select("*", { count: "exact", head: true });
+        return [t, count ?? 0] as const;
+      }));
+      const newMsg = await supabase.from("contact_messages").select("*", { count: "exact", head: true }).eq("status", "new");
+      const newQuotes = await supabase.from("quotes").select("*", { count: "exact", head: true }).eq("status", "new");
+      const map: Record<string, number> = {};
+      results.forEach(([k, v]) => { map[k] = v; });
+      map["_new_messages"] = newMsg.count ?? 0;
+      map["_new_quotes"] = newQuotes.count ?? 0;
+      return map;
     },
     staleTime: 30_000,
   });
 }
 
-function Dashboard() {
-  const { user } = useAuth();
-  const { role } = useHasAdminAccess(user);
-  const { data: stats } = useDashboardStats();
-  const isAdmin = role === "admin";
+function useRecentMessages() {
+  return useQuery({
+    queryKey: ["admin-dashboard-messages"],
+    queryFn: async () => { const { data } = await supabase.from("contact_messages").select("*").order("created_at", { ascending: false }).limit(5); return data ?? []; },
+    staleTime: 30_000,
+  });
+}
 
-  const kpis = [
-    { label: "Itens de menu", value: stats?.menuItems ?? "—", icon: MenuIcon, to: "/admin/menu" },
-    { label: "Redes sociais", value: stats?.socialLinks ?? "—", icon: Share2, to: "/admin/social" },
-    { label: "Usuários admin", value: stats?.adminUsers ?? "—", icon: Users, to: "/admin/users" },
-    { label: "Posts publicados", value: "—", icon: FileText, to: "/admin", disabled: true, hint: "Em breve (Fase 4)" },
+function DashboardIndex() {
+  const { data: c } = useCounts();
+  const { data: recent } = useRecentMessages();
+
+  const stats = [
+    { label: "Novas mensagens", value: c?._new_messages ?? 0, icon: Mail, to: "/admin/messages", accent: c?._new_messages ? "bg-blue-50 text-blue-700" : "" },
+    { label: "Orçamentos novos", value: c?._new_quotes ?? 0, icon: MessageSquare, to: "/admin/quotes", accent: c?._new_quotes ? "bg-amber-50 text-amber-700" : "" },
+    { label: "Banners (Hero)", value: c?.hero_banners ?? 0, icon: Sparkles, to: "/admin/hero" },
+    { label: "Serviços", value: c?.services ?? 0, icon: Briefcase, to: "/admin/services" },
+    { label: "Planos", value: c?.pricing_plans ?? 0, icon: DollarSign, to: "/admin/plans" },
+    { label: "Depoimentos", value: c?.testimonials ?? 0, icon: Star, to: "/admin/testimonials" },
+    { label: "FAQs", value: c?.faqs ?? 0, icon: HelpCircle, to: "/admin/faqs" },
+    { label: "Equipe", value: c?.team_members ?? 0, icon: User, to: "/admin/team" },
+    { label: "Parceiros", value: c?.partners ?? 0, icon: Building2, to: "/admin/partners" },
+    { label: "Galeria", value: c?.gallery_items ?? 0, icon: ImageIcon, to: "/admin/gallery" },
+    { label: "Blog posts", value: c?.blog_posts ?? 0, icon: FileText, to: "/admin/blog" },
+    { label: "Mídia", value: c?.media_library ?? 0, icon: Layers, to: "/admin/media" },
   ];
 
   const shortcuts = [
-    { to: "/admin/settings", label: "Identidade & Contato", desc: "Logo, cores, fontes, contato, SEO", icon: Settings, adminOnly: true },
-    { to: "/admin/menu", label: "Menu", desc: "Itens do menu principal, ordem e visibilidade", icon: MenuIcon },
-    { to: "/admin/social", label: "Redes Sociais", desc: "Facebook, Instagram, Twitter, LinkedIn e outras", icon: Share2 },
-    { to: "/admin/users", label: "Administradores", desc: "Conceda ou remova papel de admin/editor", icon: Users, adminOnly: true },
-  ].filter((s) => !s.adminOnly || isAdmin);
+    { label: "Editar Home (Hero)", to: "/admin/hero" },
+    { label: "Editar serviços", to: "/admin/services" },
+    { label: "Editar planos", to: "/admin/plans" },
+    { label: "Ver mensagens novas", to: "/admin/messages" },
+    { label: "Configurações do site", to: "/admin/settings" },
+    { label: "Publicar post do blog", to: "/admin/blog" },
+  ];
 
   return (
     <div className="max-w-6xl">
-      <h1 className="text-3xl font-black mb-1">Painel Administrativo</h1>
-      <p className="text-muted-foreground mb-6">Bem-vindo, {user?.email}. Gerencie o conteúdo do site sem tocar no código.</p>
-
-      <div className="grid gap-3 grid-cols-2 md:grid-cols-4 mb-8">
-        {kpis.map((k) => (
-          <Card key={k.label} className={k.disabled ? "opacity-60" : ""}>
-            <CardContent className="p-4">
-              <div className="flex items-center justify-between mb-2">
-                <k.icon className="w-4 h-4 text-muted-foreground" />
-                {!k.disabled && <Link to={k.to} className="text-[11px] text-primary hover:underline">Abrir →</Link>}
-              </div>
-              <div className="text-2xl font-black">{k.value}</div>
-              <div className="text-xs text-muted-foreground">{k.label}</div>
-              {k.hint && <div className="text-[10px] text-muted-foreground mt-1">{k.hint}</div>}
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-
-      <h2 className="text-lg font-bold mb-3 flex items-center gap-2"><LayoutGrid className="w-4 h-4"/>Atalhos</h2>
-      <div className="grid gap-4 md:grid-cols-2">
-        {shortcuts.map((c) => (
-          <Link key={c.to} to={c.to} className="block">
-            <Card className="hover:shadow-md transition-shadow h-full">
-              <CardHeader className="flex flex-row items-center gap-3 space-y-0">
-                <div className="w-10 h-10 grid place-items-center rounded bg-primary/10 text-primary"><c.icon className="w-5 h-5"/></div>
-                <CardTitle className="text-lg">{c.label}</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-muted-foreground">{c.desc}</CardContent>
-            </Card>
+      <AdminHeader title="Painel" description="Visão geral do sistema"/>
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-6">
+        {stats.map((s) => (
+          <Link key={s.label} to={s.to} className={`p-4 rounded border bg-white hover:border-primary transition ${s.accent ?? ""}`}>
+            <div className="flex items-center justify-between mb-2">
+              <s.icon className="w-4 h-4 opacity-60"/>
+              <span className="text-xs text-muted-foreground">{s.label}</span>
+            </div>
+            <div className="text-2xl font-black">{s.value}</div>
           </Link>
         ))}
       </div>
-
-      <div className="mt-8 rounded-lg border bg-white p-4 text-sm text-muted-foreground flex items-start gap-3">
-        <MessageSquare className="w-4 h-4 mt-0.5 text-primary shrink-0"/>
-        <div>
-          <div className="font-medium text-foreground mb-1">Próximas fases</div>
-          Este painel será expandido com módulos de Conteúdo (Serviços, Blog, Depoimentos, FAQ, Equipe, Galeria), Planos, WhatsApp/Chatbot, Orçamentos e SEO por página. Fase atual: <strong>1 — Fundação</strong>.
-        </div>
+      <div className="grid md:grid-cols-2 gap-4">
+        <Card>
+          <CardHeader className="py-3"><CardTitle className="text-base">Atalhos rápidos</CardTitle></CardHeader>
+          <CardContent className="space-y-1">
+            {shortcuts.map((s) => (
+              <Link key={s.to} to={s.to} className="block p-2 rounded hover:bg-slate-50 text-sm">→ {s.label}</Link>
+            ))}
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="py-3"><CardTitle className="text-base">Últimas mensagens</CardTitle></CardHeader>
+          <CardContent className="space-y-2">
+            {!recent?.length ? <p className="text-sm text-muted-foreground py-4 text-center">Nenhuma mensagem ainda.</p> : recent.map((m) => (
+              <Link key={m.id} to="/admin/messages" className="flex items-center gap-3 p-2 rounded hover:bg-slate-50">
+                <div className="w-8 h-8 rounded-full bg-primary/10 grid place-items-center text-primary font-bold text-xs">{m.name?.[0]?.toUpperCase() ?? "?"}</div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-sm font-medium truncate">{m.name}</div>
+                  <div className="text-xs text-muted-foreground truncate">{m.email}</div>
+                </div>
+                <div className="text-xs text-muted-foreground">{new Date(m.created_at).toLocaleDateString()}</div>
+              </Link>
+            ))}
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

@@ -18,10 +18,28 @@ import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminWhatsappRouteImport } from './routes/admin.whatsapp'
 import { Route as AdminUsersRouteImport } from './routes/admin.users'
+import { Route as AdminTestimonialsRouteImport } from './routes/admin.testimonials'
+import { Route as AdminTeamRouteImport } from './routes/admin.team'
 import { Route as AdminSocialRouteImport } from './routes/admin.social'
 import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
+import { Route as AdminServicesRouteImport } from './routes/admin.services'
+import { Route as AdminSeoRouteImport } from './routes/admin.seo'
+import { Route as AdminQuotesRouteImport } from './routes/admin.quotes'
+import { Route as AdminPlansRouteImport } from './routes/admin.plans'
+import { Route as AdminPartnersRouteImport } from './routes/admin.partners'
+import { Route as AdminMessagesRouteImport } from './routes/admin.messages'
 import { Route as AdminMenuRouteImport } from './routes/admin.menu'
+import { Route as AdminMediaRouteImport } from './routes/admin.media'
+import { Route as AdminLoginRouteImport } from './routes/admin.login'
+import { Route as AdminHeroRouteImport } from './routes/admin.hero'
+import { Route as AdminGalleryRouteImport } from './routes/admin.gallery'
+import { Route as AdminFooterRouteImport } from './routes/admin.footer'
+import { Route as AdminFaqsRouteImport } from './routes/admin.faqs'
+import { Route as AdminChatbotRouteImport } from './routes/admin.chatbot'
+import { Route as AdminBlogRouteImport } from './routes/admin.blog'
+import { Route as AdminBlogIdRouteImport } from './routes/admin.blog.$id'
 
 const ServicosRoute = ServicosRouteImport.update({
   id: '/servicos',
@@ -68,9 +86,24 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminWhatsappRoute = AdminWhatsappRouteImport.update({
+  id: '/whatsapp',
+  path: '/whatsapp',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminUsersRoute = AdminUsersRouteImport.update({
   id: '/users',
   path: '/users',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminTestimonialsRoute = AdminTestimonialsRouteImport.update({
+  id: '/testimonials',
+  path: '/testimonials',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminTeamRoute = AdminTeamRouteImport.update({
+  id: '/team',
+  path: '/team',
   getParentRoute: () => AdminRoute,
 } as any)
 const AdminSocialRoute = AdminSocialRouteImport.update({
@@ -83,10 +116,85 @@ const AdminSettingsRoute = AdminSettingsRouteImport.update({
   path: '/settings',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminServicesRoute = AdminServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSeoRoute = AdminSeoRouteImport.update({
+  id: '/seo',
+  path: '/seo',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminQuotesRoute = AdminQuotesRouteImport.update({
+  id: '/quotes',
+  path: '/quotes',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminPlansRoute = AdminPlansRouteImport.update({
+  id: '/plans',
+  path: '/plans',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminPartnersRoute = AdminPartnersRouteImport.update({
+  id: '/partners',
+  path: '/partners',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminMessagesRoute = AdminMessagesRouteImport.update({
+  id: '/messages',
+  path: '/messages',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminMenuRoute = AdminMenuRouteImport.update({
   id: '/menu',
   path: '/menu',
   getParentRoute: () => AdminRoute,
+} as any)
+const AdminMediaRoute = AdminMediaRouteImport.update({
+  id: '/media',
+  path: '/media',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminHeroRoute = AdminHeroRouteImport.update({
+  id: '/hero',
+  path: '/hero',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminGalleryRoute = AdminGalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminFooterRoute = AdminFooterRouteImport.update({
+  id: '/footer',
+  path: '/footer',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminFaqsRoute = AdminFaqsRouteImport.update({
+  id: '/faqs',
+  path: '/faqs',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminChatbotRoute = AdminChatbotRouteImport.update({
+  id: '/chatbot',
+  path: '/chatbot',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminBlogRoute = AdminBlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminBlogIdRoute = AdminBlogIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => AdminBlogRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -98,11 +206,29 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/plans': typeof PlansRoute
   '/servicos': typeof ServicosRoute
+  '/admin/blog': typeof AdminBlogRouteWithChildren
+  '/admin/chatbot': typeof AdminChatbotRoute
+  '/admin/faqs': typeof AdminFaqsRoute
+  '/admin/footer': typeof AdminFooterRoute
+  '/admin/gallery': typeof AdminGalleryRoute
+  '/admin/hero': typeof AdminHeroRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/media': typeof AdminMediaRoute
   '/admin/menu': typeof AdminMenuRoute
+  '/admin/messages': typeof AdminMessagesRoute
+  '/admin/partners': typeof AdminPartnersRoute
+  '/admin/plans': typeof AdminPlansRoute
+  '/admin/quotes': typeof AdminQuotesRoute
+  '/admin/seo': typeof AdminSeoRoute
+  '/admin/services': typeof AdminServicesRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/social': typeof AdminSocialRoute
+  '/admin/team': typeof AdminTeamRoute
+  '/admin/testimonials': typeof AdminTestimonialsRoute
   '/admin/users': typeof AdminUsersRoute
+  '/admin/whatsapp': typeof AdminWhatsappRoute
   '/admin/': typeof AdminIndexRoute
+  '/admin/blog/$id': typeof AdminBlogIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -112,11 +238,29 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/plans': typeof PlansRoute
   '/servicos': typeof ServicosRoute
+  '/admin/blog': typeof AdminBlogRouteWithChildren
+  '/admin/chatbot': typeof AdminChatbotRoute
+  '/admin/faqs': typeof AdminFaqsRoute
+  '/admin/footer': typeof AdminFooterRoute
+  '/admin/gallery': typeof AdminGalleryRoute
+  '/admin/hero': typeof AdminHeroRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/media': typeof AdminMediaRoute
   '/admin/menu': typeof AdminMenuRoute
+  '/admin/messages': typeof AdminMessagesRoute
+  '/admin/partners': typeof AdminPartnersRoute
+  '/admin/plans': typeof AdminPlansRoute
+  '/admin/quotes': typeof AdminQuotesRoute
+  '/admin/seo': typeof AdminSeoRoute
+  '/admin/services': typeof AdminServicesRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/social': typeof AdminSocialRoute
+  '/admin/team': typeof AdminTeamRoute
+  '/admin/testimonials': typeof AdminTestimonialsRoute
   '/admin/users': typeof AdminUsersRoute
+  '/admin/whatsapp': typeof AdminWhatsappRoute
   '/admin': typeof AdminIndexRoute
+  '/admin/blog/$id': typeof AdminBlogIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -128,11 +272,29 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/plans': typeof PlansRoute
   '/servicos': typeof ServicosRoute
+  '/admin/blog': typeof AdminBlogRouteWithChildren
+  '/admin/chatbot': typeof AdminChatbotRoute
+  '/admin/faqs': typeof AdminFaqsRoute
+  '/admin/footer': typeof AdminFooterRoute
+  '/admin/gallery': typeof AdminGalleryRoute
+  '/admin/hero': typeof AdminHeroRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/media': typeof AdminMediaRoute
   '/admin/menu': typeof AdminMenuRoute
+  '/admin/messages': typeof AdminMessagesRoute
+  '/admin/partners': typeof AdminPartnersRoute
+  '/admin/plans': typeof AdminPlansRoute
+  '/admin/quotes': typeof AdminQuotesRoute
+  '/admin/seo': typeof AdminSeoRoute
+  '/admin/services': typeof AdminServicesRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/social': typeof AdminSocialRoute
+  '/admin/team': typeof AdminTeamRoute
+  '/admin/testimonials': typeof AdminTestimonialsRoute
   '/admin/users': typeof AdminUsersRoute
+  '/admin/whatsapp': typeof AdminWhatsappRoute
   '/admin/': typeof AdminIndexRoute
+  '/admin/blog/$id': typeof AdminBlogIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -145,11 +307,29 @@ export interface FileRouteTypes {
     | '/contact'
     | '/plans'
     | '/servicos'
+    | '/admin/blog'
+    | '/admin/chatbot'
+    | '/admin/faqs'
+    | '/admin/footer'
+    | '/admin/gallery'
+    | '/admin/hero'
+    | '/admin/login'
+    | '/admin/media'
     | '/admin/menu'
+    | '/admin/messages'
+    | '/admin/partners'
+    | '/admin/plans'
+    | '/admin/quotes'
+    | '/admin/seo'
+    | '/admin/services'
     | '/admin/settings'
     | '/admin/social'
+    | '/admin/team'
+    | '/admin/testimonials'
     | '/admin/users'
+    | '/admin/whatsapp'
     | '/admin/'
+    | '/admin/blog/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -159,11 +339,29 @@ export interface FileRouteTypes {
     | '/contact'
     | '/plans'
     | '/servicos'
+    | '/admin/blog'
+    | '/admin/chatbot'
+    | '/admin/faqs'
+    | '/admin/footer'
+    | '/admin/gallery'
+    | '/admin/hero'
+    | '/admin/login'
+    | '/admin/media'
     | '/admin/menu'
+    | '/admin/messages'
+    | '/admin/partners'
+    | '/admin/plans'
+    | '/admin/quotes'
+    | '/admin/seo'
+    | '/admin/services'
     | '/admin/settings'
     | '/admin/social'
+    | '/admin/team'
+    | '/admin/testimonials'
     | '/admin/users'
+    | '/admin/whatsapp'
     | '/admin'
+    | '/admin/blog/$id'
   id:
     | '__root__'
     | '/'
@@ -174,11 +372,29 @@ export interface FileRouteTypes {
     | '/contact'
     | '/plans'
     | '/servicos'
+    | '/admin/blog'
+    | '/admin/chatbot'
+    | '/admin/faqs'
+    | '/admin/footer'
+    | '/admin/gallery'
+    | '/admin/hero'
+    | '/admin/login'
+    | '/admin/media'
     | '/admin/menu'
+    | '/admin/messages'
+    | '/admin/partners'
+    | '/admin/plans'
+    | '/admin/quotes'
+    | '/admin/seo'
+    | '/admin/services'
     | '/admin/settings'
     | '/admin/social'
+    | '/admin/team'
+    | '/admin/testimonials'
     | '/admin/users'
+    | '/admin/whatsapp'
     | '/admin/'
+    | '/admin/blog/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -257,11 +473,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/whatsapp': {
+      id: '/admin/whatsapp'
+      path: '/whatsapp'
+      fullPath: '/admin/whatsapp'
+      preLoaderRoute: typeof AdminWhatsappRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/users': {
       id: '/admin/users'
       path: '/users'
       fullPath: '/admin/users'
       preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/testimonials': {
+      id: '/admin/testimonials'
+      path: '/testimonials'
+      fullPath: '/admin/testimonials'
+      preLoaderRoute: typeof AdminTestimonialsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/team': {
+      id: '/admin/team'
+      path: '/team'
+      fullPath: '/admin/team'
+      preLoaderRoute: typeof AdminTeamRouteImport
       parentRoute: typeof AdminRoute
     }
     '/admin/social': {
@@ -278,6 +515,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminSettingsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/services': {
+      id: '/admin/services'
+      path: '/services'
+      fullPath: '/admin/services'
+      preLoaderRoute: typeof AdminServicesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/seo': {
+      id: '/admin/seo'
+      path: '/seo'
+      fullPath: '/admin/seo'
+      preLoaderRoute: typeof AdminSeoRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/quotes': {
+      id: '/admin/quotes'
+      path: '/quotes'
+      fullPath: '/admin/quotes'
+      preLoaderRoute: typeof AdminQuotesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/plans': {
+      id: '/admin/plans'
+      path: '/plans'
+      fullPath: '/admin/plans'
+      preLoaderRoute: typeof AdminPlansRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/partners': {
+      id: '/admin/partners'
+      path: '/partners'
+      fullPath: '/admin/partners'
+      preLoaderRoute: typeof AdminPartnersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/messages': {
+      id: '/admin/messages'
+      path: '/messages'
+      fullPath: '/admin/messages'
+      preLoaderRoute: typeof AdminMessagesRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/menu': {
       id: '/admin/menu'
       path: '/menu'
@@ -285,22 +564,131 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminMenuRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/media': {
+      id: '/admin/media'
+      path: '/media'
+      fullPath: '/admin/media'
+      preLoaderRoute: typeof AdminMediaRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/hero': {
+      id: '/admin/hero'
+      path: '/hero'
+      fullPath: '/admin/hero'
+      preLoaderRoute: typeof AdminHeroRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/gallery': {
+      id: '/admin/gallery'
+      path: '/gallery'
+      fullPath: '/admin/gallery'
+      preLoaderRoute: typeof AdminGalleryRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/footer': {
+      id: '/admin/footer'
+      path: '/footer'
+      fullPath: '/admin/footer'
+      preLoaderRoute: typeof AdminFooterRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/faqs': {
+      id: '/admin/faqs'
+      path: '/faqs'
+      fullPath: '/admin/faqs'
+      preLoaderRoute: typeof AdminFaqsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/chatbot': {
+      id: '/admin/chatbot'
+      path: '/chatbot'
+      fullPath: '/admin/chatbot'
+      preLoaderRoute: typeof AdminChatbotRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/blog': {
+      id: '/admin/blog'
+      path: '/blog'
+      fullPath: '/admin/blog'
+      preLoaderRoute: typeof AdminBlogRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/blog/$id': {
+      id: '/admin/blog/$id'
+      path: '/$id'
+      fullPath: '/admin/blog/$id'
+      preLoaderRoute: typeof AdminBlogIdRouteImport
+      parentRoute: typeof AdminBlogRoute
+    }
   }
 }
 
+interface AdminBlogRouteChildren {
+  AdminBlogIdRoute: typeof AdminBlogIdRoute
+}
+
+const AdminBlogRouteChildren: AdminBlogRouteChildren = {
+  AdminBlogIdRoute: AdminBlogIdRoute,
+}
+
+const AdminBlogRouteWithChildren = AdminBlogRoute._addFileChildren(
+  AdminBlogRouteChildren,
+)
+
 interface AdminRouteChildren {
+  AdminBlogRoute: typeof AdminBlogRouteWithChildren
+  AdminChatbotRoute: typeof AdminChatbotRoute
+  AdminFaqsRoute: typeof AdminFaqsRoute
+  AdminFooterRoute: typeof AdminFooterRoute
+  AdminGalleryRoute: typeof AdminGalleryRoute
+  AdminHeroRoute: typeof AdminHeroRoute
+  AdminLoginRoute: typeof AdminLoginRoute
+  AdminMediaRoute: typeof AdminMediaRoute
   AdminMenuRoute: typeof AdminMenuRoute
+  AdminMessagesRoute: typeof AdminMessagesRoute
+  AdminPartnersRoute: typeof AdminPartnersRoute
+  AdminPlansRoute: typeof AdminPlansRoute
+  AdminQuotesRoute: typeof AdminQuotesRoute
+  AdminSeoRoute: typeof AdminSeoRoute
+  AdminServicesRoute: typeof AdminServicesRoute
   AdminSettingsRoute: typeof AdminSettingsRoute
   AdminSocialRoute: typeof AdminSocialRoute
+  AdminTeamRoute: typeof AdminTeamRoute
+  AdminTestimonialsRoute: typeof AdminTestimonialsRoute
   AdminUsersRoute: typeof AdminUsersRoute
+  AdminWhatsappRoute: typeof AdminWhatsappRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminBlogRoute: AdminBlogRouteWithChildren,
+  AdminChatbotRoute: AdminChatbotRoute,
+  AdminFaqsRoute: AdminFaqsRoute,
+  AdminFooterRoute: AdminFooterRoute,
+  AdminGalleryRoute: AdminGalleryRoute,
+  AdminHeroRoute: AdminHeroRoute,
+  AdminLoginRoute: AdminLoginRoute,
+  AdminMediaRoute: AdminMediaRoute,
   AdminMenuRoute: AdminMenuRoute,
+  AdminMessagesRoute: AdminMessagesRoute,
+  AdminPartnersRoute: AdminPartnersRoute,
+  AdminPlansRoute: AdminPlansRoute,
+  AdminQuotesRoute: AdminQuotesRoute,
+  AdminSeoRoute: AdminSeoRoute,
+  AdminServicesRoute: AdminServicesRoute,
   AdminSettingsRoute: AdminSettingsRoute,
   AdminSocialRoute: AdminSocialRoute,
+  AdminTeamRoute: AdminTeamRoute,
+  AdminTestimonialsRoute: AdminTestimonialsRoute,
   AdminUsersRoute: AdminUsersRoute,
+  AdminWhatsappRoute: AdminWhatsappRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 

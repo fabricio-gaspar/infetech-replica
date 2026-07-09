@@ -14,6 +14,8 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { supabase } from "@/integrations/supabase/client";
 import { DynamicTheme } from "@/components/site/DynamicTheme";
 import { Toaster } from "@/components/ui/sonner";
+import { WhatsAppFloatingButton } from "@/components/site/WhatsAppFloatingButton";
+import { useRouterState } from "@tanstack/react-router";
 
 function NotFoundComponent() {
   return (
@@ -132,10 +134,13 @@ function RootComponent() {
     return () => sub.subscription.unsubscribe();
   }, [queryClient, router]);
 
+  const path = useRouterState({ select: (r) => r.location.pathname });
+  const isAdmin = path.startsWith("/admin");
   return (
     <QueryClientProvider client={queryClient}>
       <DynamicTheme />
       <Outlet />
+      {!isAdmin && <WhatsAppFloatingButton />}
       <Toaster />
     </QueryClientProvider>
   );
