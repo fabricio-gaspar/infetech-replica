@@ -32,6 +32,7 @@ import { Route as AdminHeroRouteImport } from './routes/admin.hero'
 import { Route as AdminGalleryRouteImport } from './routes/admin.gallery'
 import { Route as AdminFaqsRouteImport } from './routes/admin.faqs'
 import { Route as AdminBlogRouteImport } from './routes/admin.blog'
+import { Route as AdminBlogIdRouteImport } from './routes/admin.blog.$id'
 
 const ServicosRoute = ServicosRouteImport.update({
   id: '/servicos',
@@ -148,6 +149,11 @@ const AdminBlogRoute = AdminBlogRouteImport.update({
   path: '/blog',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminBlogIdRoute = AdminBlogIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => AdminBlogRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -158,7 +164,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/plans': typeof PlansRoute
   '/servicos': typeof ServicosRoute
-  '/admin/blog': typeof AdminBlogRoute
+  '/admin/blog': typeof AdminBlogRouteWithChildren
   '/admin/faqs': typeof AdminFaqsRoute
   '/admin/gallery': typeof AdminGalleryRoute
   '/admin/hero': typeof AdminHeroRoute
@@ -173,6 +179,7 @@ export interface FileRoutesByFullPath {
   '/admin/testimonials': typeof AdminTestimonialsRoute
   '/admin/users': typeof AdminUsersRoute
   '/admin/': typeof AdminIndexRoute
+  '/admin/blog/$id': typeof AdminBlogIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -182,7 +189,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/plans': typeof PlansRoute
   '/servicos': typeof ServicosRoute
-  '/admin/blog': typeof AdminBlogRoute
+  '/admin/blog': typeof AdminBlogRouteWithChildren
   '/admin/faqs': typeof AdminFaqsRoute
   '/admin/gallery': typeof AdminGalleryRoute
   '/admin/hero': typeof AdminHeroRoute
@@ -197,6 +204,7 @@ export interface FileRoutesByTo {
   '/admin/testimonials': typeof AdminTestimonialsRoute
   '/admin/users': typeof AdminUsersRoute
   '/admin': typeof AdminIndexRoute
+  '/admin/blog/$id': typeof AdminBlogIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -208,7 +216,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/plans': typeof PlansRoute
   '/servicos': typeof ServicosRoute
-  '/admin/blog': typeof AdminBlogRoute
+  '/admin/blog': typeof AdminBlogRouteWithChildren
   '/admin/faqs': typeof AdminFaqsRoute
   '/admin/gallery': typeof AdminGalleryRoute
   '/admin/hero': typeof AdminHeroRoute
@@ -223,6 +231,7 @@ export interface FileRoutesById {
   '/admin/testimonials': typeof AdminTestimonialsRoute
   '/admin/users': typeof AdminUsersRoute
   '/admin/': typeof AdminIndexRoute
+  '/admin/blog/$id': typeof AdminBlogIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -250,6 +259,7 @@ export interface FileRouteTypes {
     | '/admin/testimonials'
     | '/admin/users'
     | '/admin/'
+    | '/admin/blog/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -274,6 +284,7 @@ export interface FileRouteTypes {
     | '/admin/testimonials'
     | '/admin/users'
     | '/admin'
+    | '/admin/blog/$id'
   id:
     | '__root__'
     | '/'
@@ -299,6 +310,7 @@ export interface FileRouteTypes {
     | '/admin/testimonials'
     | '/admin/users'
     | '/admin/'
+    | '/admin/blog/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -475,11 +487,30 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminBlogRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/blog/$id': {
+      id: '/admin/blog/$id'
+      path: '/$id'
+      fullPath: '/admin/blog/$id'
+      preLoaderRoute: typeof AdminBlogIdRouteImport
+      parentRoute: typeof AdminBlogRoute
+    }
   }
 }
 
+interface AdminBlogRouteChildren {
+  AdminBlogIdRoute: typeof AdminBlogIdRoute
+}
+
+const AdminBlogRouteChildren: AdminBlogRouteChildren = {
+  AdminBlogIdRoute: AdminBlogIdRoute,
+}
+
+const AdminBlogRouteWithChildren = AdminBlogRoute._addFileChildren(
+  AdminBlogRouteChildren,
+)
+
 interface AdminRouteChildren {
-  AdminBlogRoute: typeof AdminBlogRoute
+  AdminBlogRoute: typeof AdminBlogRouteWithChildren
   AdminFaqsRoute: typeof AdminFaqsRoute
   AdminGalleryRoute: typeof AdminGalleryRoute
   AdminHeroRoute: typeof AdminHeroRoute
@@ -497,7 +528,7 @@ interface AdminRouteChildren {
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
-  AdminBlogRoute: AdminBlogRoute,
+  AdminBlogRoute: AdminBlogRouteWithChildren,
   AdminFaqsRoute: AdminFaqsRoute,
   AdminGalleryRoute: AdminGalleryRoute,
   AdminHeroRoute: AdminHeroRoute,
