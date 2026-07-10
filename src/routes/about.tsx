@@ -66,41 +66,6 @@ function AboutPage() {
 
       <Counters />
 
-      {/* TESTIMONIAL */}
-      <section className="section-y bg-section">
-        <div className="container-x grid lg:grid-cols-2 gap-14 items-center">
-          <div className="reveal">
-            <div className="eyebrow mb-3">Depoimentos de Clientes</div>
-            <h2 className="text-4xl font-black leading-tight">Veja o que estão<br />falando sobre nós</h2>
-            <div className="mt-8 flex items-center gap-4">
-              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80" className="w-16 h-16 rounded-full object-cover border-4 border-primary/30" alt="" />
-              <div>
-                <div className="font-bold">Mike Hardson</div>
-                <div className="text-xs text-muted-foreground">Designer Sênior</div>
-                <div className="flex gap-0.5 mt-1 text-primary">{Array.from({length:5}).map((_,i)=><Star key={i} className="w-3.5 h-3.5 fill-current"/>)}</div>
-              </div>
-            </div>
-            <p className="mt-6 text-muted-foreground max-w-md leading-relaxed">
-              A WF Digital é uma empresa profissional de TI que sempre entrega software de qualidade aos seus clientes. Se você procura uma equipe de desenvolvedores talentosos para encontrar as melhores soluções de TI, a WF Digital é uma empresa que o seu time deve considerar.
-            </p>
-            <div className="flex gap-2 mt-6">
-              <span className="w-10 h-1 bg-primary rounded" />
-              <span className="w-6 h-1 bg-foreground/15 rounded" />
-              <span className="w-6 h-1 bg-foreground/15 rounded" />
-            </div>
-          </div>
-          <div className="relative h-[480px] reveal">
-            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80" className="absolute right-10 top-12 w-56 h-56 rounded-full object-cover border-4 border-white shadow-2xl" alt="" />
-            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&q=80" className="absolute left-4 top-0 w-24 h-24 rounded-full object-cover border-4 border-white shadow-xl" alt="" />
-            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=80" className="absolute right-0 top-2 w-24 h-24 rounded-full object-cover border-4 border-white shadow-xl" alt="" />
-            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&q=80" className="absolute left-0 bottom-8 w-28 h-28 rounded-full object-cover border-4 border-white shadow-xl" alt="" />
-            <div className="absolute right-8 bottom-4 w-3 h-3 bg-primary rotate-45" />
-            <div className="absolute left-32 top-32 w-2 h-2 bg-primary/50 rotate-45" />
-            <div className="absolute right-32 top-4 w-2 h-2 bg-primary/50 rotate-45" />
-          </div>
-        </div>
-      </section>
-
       <DarkCTA />
       
 
