@@ -215,18 +215,36 @@ function HomePage() {
         <div className="container-x relative pt-24 lg:pt-32 pb-44 lg:pb-56 grid lg:grid-cols-2 gap-10">
           <div className="reveal relative z-[2]">
             <div className="inline-flex items-center gap-3 text-primary text-xs font-semibold uppercase tracking-[0.2em] mb-7">
-              Bem-vindo à WF Digital
+              {banner?.support_text || "Bem-vindo à WF Digital"}
             </div>
-            <h1 className="font-black text-foreground leading-[1.05] tracking-tight text-[44px] sm:text-[60px] lg:text-[76px]">
-              <span className="relative inline-block">
-                O futuro
-                <svg className="absolute left-0 -bottom-1 w-[220px] h-3" viewBox="0 0 180 12" fill="none" preserveAspectRatio="none">
-                  <path d="M2 8 C 40 2, 90 10, 178 4" stroke="#FF6933" strokeWidth="4" strokeLinecap="round" fill="none" />
-                </svg>
-              </span>
-              <br />pertence à<br />tecnologia
-            </h1>
-            <Link to="/about" className="btn-primary mt-10">Saiba mais</Link>
+            {banner?.title ? (
+              <h1 className="font-black text-foreground leading-[1.05] tracking-tight text-[44px] sm:text-[60px] lg:text-[76px]">
+                {banner.title}
+              </h1>
+            ) : (
+              <h1 className="font-black text-foreground leading-[1.05] tracking-tight text-[44px] sm:text-[60px] lg:text-[76px]">
+                <span className="relative inline-block">
+                  O futuro
+                  <svg className="absolute left-0 -bottom-1 w-[220px] h-3" viewBox="0 0 180 12" fill="none" preserveAspectRatio="none">
+                    <path d="M2 8 C 40 2, 90 10, 178 4" stroke="#FF6933" strokeWidth="4" strokeLinecap="round" fill="none" />
+                  </svg>
+                </span>
+                <br />pertence à<br />tecnologia
+              </h1>
+            )}
+            {banner?.subtitle && (
+              <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-[520px] leading-relaxed">{banner.subtitle}</p>
+            )}
+            <div className="flex flex-wrap gap-3 mt-10">
+              <Link to={(banner?.cta_primary_url as any) || "/about"} className="btn-primary">
+                {banner?.cta_primary_label || "Saiba mais"}
+              </Link>
+              {banner?.cta_secondary_label && banner?.cta_secondary_url && (
+                <Link to={banner.cta_secondary_url as any} className="btn-outline">
+                  {banner.cta_secondary_label}
+                </Link>
+              )}
+            </div>
           </div>
 
           {/* slider prev/next controls on right */}
