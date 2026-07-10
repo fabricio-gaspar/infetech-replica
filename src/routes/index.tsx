@@ -95,10 +95,36 @@ const posts = [
 
 function HomePage() {
   usePageSeoInject("/");
+  const { data: cmsHeroCards } = usePublicHeroCards();
+  const { data: cmsPillars } = usePublicPillars();
+  const { data: cmsServices } = usePublicServices();
+  const { data: cmsTestimonials } = usePublicTestimonials();
+  const { data: cmsPosts } = usePublicBlog();
+
+  const heroCardsList = (cmsHeroCards && cmsHeroCards.length ? cmsHeroCards.map((c: any) => ({
+    n: c.number || "", t: c.title, d: c.description || "", icon: getIcon(c.icon_name, Code2),
+  })) : heroCards);
+  const pillarsList = (cmsPillars && cmsPillars.length ? cmsPillars.map((p: any) => ({
+    i: getIcon(p.icon_name, Users), t: p.title, d: p.description || "",
+  })) : pillars);
+  const servicesList = (cmsServices && cmsServices.length ? cmsServices.map((sv: any) => ({
+    t: sv.name || sv.title || "", d: sv.short_description || sv.description || "", icon: getIcon(sv.icon_name, Cpu),
+  })) : services);
+  const testimonialsList: Testimonial[] = (cmsTestimonials && cmsTestimonials.length >= 4 ? cmsTestimonials.slice(0, 4).map((t: any) => ({
+    name: t.author_name, role: t.author_role || "", quote: t.quote, photo: t.avatar_url || "https://i.pravatar.cc/300",
+  })) : testimonials);
+  const postsList = (cmsPosts && cmsPosts.length ? cmsPosts.slice(0, 3).map((p: any) => {
+    const dt = p.published_at ? new Date(p.published_at) : new Date(p.created_at);
+    return {
+      t: p.title, slug: p.slug,
+      d: String(dt.getDate()).padStart(2, "0"),
+      m: dt.toLocaleString("pt-BR", { month: "short" }).replace(".", "").toUpperCase().slice(0, 3),
+      img: p.cover_url || "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80",
+    };
+  }) : posts.map((p) => ({ ...p, slug: undefined as string | undefined })));
+
   const [activeT, setActiveT] = useState(0);
-  const active = testimonials[activeT];
-  const servicesScrollRef = useRef<HTMLDivElement>(null);
-  const servicesPausedRef = useRef(false);
+  const active = testimonialsList[Math.min(activeT, testimonialsList.length - 1)] ?? testimonialsList[0];
   const scrollServices = (dir: 1 | -1) => {
     const el = servicesScrollRef.current;
     if (!el) return;
