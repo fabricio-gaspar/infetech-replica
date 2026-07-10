@@ -101,7 +101,17 @@ function HomePage() {
   const { data: cmsTestimonials } = usePublicTestimonials();
   const { data: cmsPosts } = usePublicBlog();
   const { data: cmsBanners } = useHeroBanners();
-  const banner = cmsBanners?.[0];
+  const banners = cmsBanners ?? [];
+  const [bannerIdx, setBannerIdx] = useState(0);
+  const banner = banners.length ? banners[bannerIdx % banners.length] : undefined;
+  const heroPausedRef = useRef(false);
+  const nextBanner = () => banners.length && setBannerIdx((i) => (i + 1) % banners.length);
+  const prevBanner = () => banners.length && setBannerIdx((i) => (i - 1 + banners.length) % banners.length);
+  useEffect(() => {
+    if (banners.length < 2) return;
+    const id = window.setInterval(() => { if (!document.hidden && !heroPausedRef.current) nextBanner(); }, 6000);
+    return () => window.clearInterval(id);
+  }, [banners.length]);
 
   const heroCardsList = (cmsHeroCards && cmsHeroCards.length ? cmsHeroCards.map((c: any) => ({
     n: c.number || "", t: c.title, d: c.description || "", icon: getIcon(c.icon_name, Code2),
