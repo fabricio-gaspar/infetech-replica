@@ -137,16 +137,17 @@ function ServicesPage() {
 
         {/* Services grid */}
         <div className="container-x">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7 reveal-stagger">
             {list.map((s, i) => (
-              <ServiceCard
-                key={s.id}
-                icon={s.icon}
-                title={s.title}
-                description={s.description}
-                featured={s.featured}
-                index={i + 1}
-              />
+              <div key={s.id} className="reveal">
+                <ServiceCard
+                  icon={s.icon}
+                  title={s.title}
+                  description={s.description}
+                  featured={s.featured}
+                  index={i + 1}
+                />
+              </div>
             ))}
           </div>
         </div>
