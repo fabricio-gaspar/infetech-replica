@@ -199,6 +199,22 @@ function HomePage() {
           }}
         >
           <svg viewBox="0 0 800 560" className="w-full h-full" fill="none" preserveAspectRatio="xMinYMax slice">
+            <defs>
+              {/* soft radial gradient used as the glowing "data packet" head */}
+              <radialGradient id="dataPulse" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#FFD3B8" stopOpacity="1" />
+                <stop offset="40%" stopColor="#FF6933" stopOpacity="0.95" />
+                <stop offset="100%" stopColor="#FF6933" stopOpacity="0" />
+              </radialGradient>
+              {/* named paths reused by animateMotion */}
+              <path id="tr1" d="M0 80 H120 L160 120 H260 L300 80 H420" />
+              <path id="tr2" d="M0 220 H180 L220 260 H360 L400 220 H520" />
+              <path id="tr3" d="M0 380 H100 L140 340 H240 L280 380 H420 L460 420 H600" />
+              <path id="tr4" d="M0 520 H240 L280 480 H460" />
+              <path id="tr5" d="M340 0 V100 L380 140 V240" />
+              <path id="tr6" d="M480 40 V160 L520 200 V300" />
+              <path id="tr7" d="M560 200 V320 L600 360 V460" />
+            </defs>
             <g stroke="#FF6933" strokeWidth="1.2" strokeLinecap="round" opacity="0.55">
               {/* horizontal + right-angle traces */}
               <path d="M0 80 H120 L160 120 H260 L300 80 H420" />
@@ -231,6 +247,33 @@ function HomePage() {
                 [120, 420], [160, 460],
               ].map(([cx, cy], i) => (
                 <circle key={i} cx={cx} cy={cy} r="2.6" />
+              ))}
+            </g>
+            {/* animated "data packets" traveling along selected traces */}
+            <g style={{ mixBlendMode: "screen" }}>
+              {[
+                { href: "#tr1", dur: "4.2s", begin: "0s" },
+                { href: "#tr2", dur: "5.6s", begin: "1.3s" },
+                { href: "#tr3", dur: "6.8s", begin: "0.6s" },
+                { href: "#tr4", dur: "4.8s", begin: "2.1s" },
+                { href: "#tr5", dur: "5.2s", begin: "0.9s" },
+                { href: "#tr6", dur: "6.0s", begin: "2.6s" },
+                { href: "#tr7", dur: "5.4s", begin: "1.7s" },
+              ].map((p, i) => (
+                <g key={i}>
+                  {/* halo */}
+                  <circle r="7" fill="url(#dataPulse)" opacity="0.9">
+                    <animateMotion dur={p.dur} begin={p.begin} repeatCount="indefinite" rotate="auto">
+                      <mpath href={p.href} />
+                    </animateMotion>
+                  </circle>
+                  {/* bright head */}
+                  <circle r="2" fill="#FFF3E9">
+                    <animateMotion dur={p.dur} begin={p.begin} repeatCount="indefinite" rotate="auto">
+                      <mpath href={p.href} />
+                    </animateMotion>
+                  </circle>
+                </g>
               ))}
             </g>
           </svg>
