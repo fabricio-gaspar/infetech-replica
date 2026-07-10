@@ -110,7 +110,13 @@ function ServicesPage() {
   const list: Service[] = (dbServices && dbServices.length > 0)
     ? dbServices.map((s: any) => {
         const IconComp = (s.icon_name && (Icons as any)[s.icon_name]) || Shield;
-        return { id: s.slug || s.id, icon: IconComp, title: s.title, description: s.description || "", featured: s.featured_on_home };
+        return {
+          id: s.slug || s.id,
+          icon: IconComp,
+          title: s.title || s.name || "",
+          description: s.description || s.short_description || s.full_description || "",
+          featured: s.featured_on_home,
+        };
       })
     : services;
   return (
@@ -131,17 +137,16 @@ function ServicesPage() {
 
         {/* Services grid */}
         <div className="container-x">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7 reveal-stagger">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
             {list.map((s, i) => (
-              <div key={s.id} className="reveal">
-                <ServiceCard
-                  icon={s.icon}
-                  title={s.title}
-                  description={s.description}
-                  featured={s.featured}
-                  index={i + 1}
-                />
-              </div>
+              <ServiceCard
+                key={s.id}
+                icon={s.icon}
+                title={s.title}
+                description={s.description}
+                featured={s.featured}
+                index={i + 1}
+              />
             ))}
           </div>
         </div>
