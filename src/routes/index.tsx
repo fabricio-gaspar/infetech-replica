@@ -166,7 +166,7 @@ function HomePage() {
         onMouseLeave={() => { heroPausedRef.current = false; }}
       >
         {/* Full-bleed hero image on the right half */}
-        <div className="absolute inset-y-0 right-0 w-full lg:w-1/2 pointer-events-none">
+        <div className="absolute inset-y-0 right-0 w-full lg:w-[62%] pointer-events-none">
           <img
             key={banner?.id || "fallback"}
             src={banner?.image_desktop_url || "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=70&auto=format"}
@@ -176,9 +176,17 @@ function HomePage() {
             decoding="async"
             className="w-full h-full object-cover grayscale opacity-90 lg:opacity-100 animate-fade-in"
           />
-          {/* elegant multi-stop fade blending the image into the solid bg */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#fff4ee_0%,rgba(255,244,238,0.95)_18%,rgba(255,244,238,0.7)_34%,rgba(255,244,238,0.35)_54%,rgba(255,244,238,0.1)_78%,transparent_100%)] lg:bg-[linear-gradient(to_right,rgba(255,244,238,0.6)_0%,rgba(255,244,238,0.25)_18%,transparent_45%)]" />
-          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-[#fff4ee]" />
+          {/* elegant left-edge dissolve into the cream background */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to right, #fff4ee 0%, #fff4ee 8%, rgba(255,244,238,0.98) 18%, rgba(255,244,238,0.9) 28%, rgba(255,244,238,0.72) 38%, rgba(255,244,238,0.48) 50%, rgba(255,244,238,0.24) 64%, rgba(255,244,238,0.08) 80%, transparent 100%)",
+            }}
+          />
+          {/* soft top and bottom vignette to seat the image in the section */}
+          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#fff4ee] to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#fff4ee] to-transparent" />
         </div>
 
         {/* Circuit board traces decoration on the left */}
