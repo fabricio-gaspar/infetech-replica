@@ -3,6 +3,26 @@ import { supabase } from "@/integrations/supabase/client";
 
 const s = 60_000;
 
+export function usePublicPillars() {
+  return useQuery({
+    queryKey: ["public-pillars"],
+    queryFn: async () => {
+      const { data, error } = await supabase.from("site_pillars").select("*").eq("is_published", true).order("order_index");
+      if (error) throw error; return data ?? [];
+    }, staleTime: s,
+  });
+}
+
+export function usePublicHeroCards() {
+  return useQuery({
+    queryKey: ["public-hero-cards"],
+    queryFn: async () => {
+      const { data, error } = await supabase.from("hero_cards").select("*").eq("is_published", true).order("order_index");
+      if (error) throw error; return data ?? [];
+    }, staleTime: s,
+  });
+}
+
 export function useHeroBanners() {
   return useQuery({
     queryKey: ["public-hero"],

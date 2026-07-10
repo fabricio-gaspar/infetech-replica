@@ -1,11 +1,19 @@
 import { usePageSeoInject } from "@/hooks/usePageSeoInject";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, type ComponentType } from "react";
 import { SiteShell } from "@/components/site/SiteShell";
 import {
   ArrowRight, Cpu, Code2, Sparkles, Globe, Mail, Server, Wifi, ClipboardCheck, Clock,
   Award, Users, Trophy, MessageCircle, User, ChevronLeft, ChevronRight, ArrowUpRight,
+  Shield, Rocket, Zap, HeartHandshake, Star,
 } from "lucide-react";
+import { usePublicHeroCards, usePublicPillars, usePublicServices, usePublicTestimonials, usePublicBlog } from "@/hooks/usePublicContent";
+
+const iconMap: Record<string, ComponentType<{ className?: string; strokeWidth?: number }>> = {
+  Code2, Sparkles, Globe, Mail, Server, Wifi, ClipboardCheck, Clock, Cpu,
+  Users, Award, Trophy, Shield, Rocket, Zap, HeartHandshake, Star,
+};
+const getIcon = (name?: string | null, fallback: ComponentType<any> = Cpu) => (name && iconMap[name]) || fallback;
 
 type Testimonial = {
   name: string;
@@ -87,8 +95,36 @@ const posts = [
 
 function HomePage() {
   usePageSeoInject("/");
+  const { data: cmsHeroCards } = usePublicHeroCards();
+  const { data: cmsPillars } = usePublicPillars();
+  const { data: cmsServices } = usePublicServices();
+  const { data: cmsTestimonials } = usePublicTestimonials();
+  const { data: cmsPosts } = usePublicBlog();
+
+  const heroCardsList = (cmsHeroCards && cmsHeroCards.length ? cmsHeroCards.map((c: any) => ({
+    n: c.number || "", t: c.title, d: c.description || "", icon: getIcon(c.icon_name, Code2),
+  })) : heroCards);
+  const pillarsList = (cmsPillars && cmsPillars.length ? cmsPillars.map((p: any) => ({
+    i: getIcon(p.icon_name, Users), t: p.title, d: p.description || "",
+  })) : pillars);
+  const servicesList = (cmsServices && cmsServices.length ? cmsServices.map((sv: any) => ({
+    t: sv.name || sv.title || "", d: sv.short_description || sv.description || "", icon: getIcon(sv.icon_name, Cpu),
+  })) : services);
+  const testimonialsList: Testimonial[] = (cmsTestimonials && cmsTestimonials.length >= 4 ? cmsTestimonials.slice(0, 4).map((t: any) => ({
+    name: t.author_name, role: t.author_role || "", quote: t.quote, photo: t.avatar_url || "https://i.pravatar.cc/300",
+  })) : testimonials);
+  const postsList = (cmsPosts && cmsPosts.length ? cmsPosts.slice(0, 3).map((p: any) => {
+    const dt = p.published_at ? new Date(p.published_at) : new Date(p.created_at);
+    return {
+      t: p.title, slug: p.slug,
+      d: String(dt.getDate()).padStart(2, "0"),
+      m: dt.toLocaleString("pt-BR", { month: "short" }).replace(".", "").toUpperCase().slice(0, 3),
+      img: p.cover_url || "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80",
+    };
+  }) : posts.map((p) => ({ ...p, slug: undefined as string | undefined })));
+
   const [activeT, setActiveT] = useState(0);
-  const active = testimonials[activeT];
+  const active = testimonialsList[Math.min(activeT, testimonialsList.length - 1)] ?? testimonialsList[0];
   const servicesScrollRef = useRef<HTMLDivElement>(null);
   const servicesPausedRef = useRef(false);
   const scrollServices = (dir: 1 | -1) => {
@@ -212,7 +248,7 @@ function HomePage() {
 
         {/* overlapping cards */}
         <div className="container-x relative -mt-32 lg:-mt-40 pb-24 grid md:grid-cols-3 gap-6 z-10">
-          {heroCards.map((c, i) => (
+          {heroCardsList.map((c, i) => (
             <div
               key={c.t}
               className="card-tech p-8 pb-10 reveal"
@@ -264,7 +300,7 @@ function HomePage() {
             </p>
 
             <div className="mt-4 flex items-center gap-2">
-              {testimonials.map((t, i) => (
+              {testimonialsList.map((t, i) => (
                 <button
                   key={t.name}
                   type="button"
@@ -312,7 +348,7 @@ function HomePage() {
               { i: 2, style: "left-[334px] top-[52px] w-[164px] h-[164px] z-[2] shadow-[0_24px_58px_rgba(224,84,31,0.24)]" },
               { i: 3, style: "left-[374px] top-[286px] w-[72px] h-[72px] z-[5] shadow-[0_14px_30px_rgba(224,84,31,0.24)]" },
             ].map(({ i, style }) => {
-              const t = testimonials[i];
+              const t = testimonialsList[i];
               const isActive = activeT === i;
               return (
                 <button
@@ -345,7 +381,7 @@ function HomePage() {
             onMouseLeave={() => { servicesPausedRef.current = false; }}
             className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden reveal-stagger"
           >
-            {services.map((s, i) => (
+            {servicesList.map((s, i) => (
               <div
                 key={s.t}
                 data-svc-card
@@ -409,7 +445,7 @@ function HomePage() {
           <h2 className="text-3xl md:text-5xl font-black leading-tight"><span className="block ">A agência de soluções e serviços de TI</span><span className="block ">em que você pode confiar</span></h2>
         </div>
         <div className="container-x mt-12 grid md:grid-cols-3 gap-6 reveal-stagger">
-          {pillars.map((p) => (
+          {pillarsList.map((p) => (
             <div key={p.t} className="card-tech p-8 text-center reveal">
               <div className="w-16 h-16 mx-auto rounded-full purple-gradient text-white grid place-items-center mb-5">
                 <p.i className="w-7 h-7" />
@@ -428,7 +464,7 @@ function HomePage() {
           <h2 className="text-3xl md:text-5xl font-black leading-tight">Notícias &amp; Artigos</h2>
         </div>
         <div className="container-x mt-12 grid md:grid-cols-3 gap-7 reveal-stagger">
-          {posts.map((p) => (
+          {postsList.map((p) => (
             <article key={p.t} className="card-tech overflow-hidden reveal">
               <div className="relative overflow-hidden">
                 <img loading="lazy" decoding="async" src={p.img} className="w-full h-56 object-cover transition-transform duration-700 hover:scale-110" alt={p.t} />

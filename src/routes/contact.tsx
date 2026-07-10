@@ -61,9 +61,9 @@ function ContactPage() {
             <h2 className="text-4xl md:text-5xl font-black leading-tight">Sinta-se à vontade<br />para entrar em contato</h2>
             <div className="mt-10 space-y-6">
               {[
-                { i: Phone, l: "Ligue a qualquer hora", v: "+55 (11) 9 9744-1875" },
-                { i: Mail, l: "Envie um e-mail", v: "contato@wfdigital.com.br" },
-                { i: MapPin, l: "Venha nos visitar", v: "Rua Ignes Mendes de Moraes, 10 — Bairro Esplanada Mendes, São Roque - SP" },
+                { i: Phone, l: "Ligue a qualquer hora", v: settings?.phone || "+55 (11) 9 9744-1875" },
+                { i: Mail, l: "Envie um e-mail", v: settings?.email || "contato@wfdigital.com.br" },
+                { i: MapPin, l: "Venha nos visitar", v: settings?.address || "Rua Ignes Mendes de Moraes, 10 — Bairro Esplanada Mendes, São Roque - SP" },
               ].map((c) => (
                 <div key={c.l} className="flex items-center gap-5">
                   <div className="w-14 h-14 rounded-full border-2 border-primary grid place-items-center text-primary"><c.i className="w-5 h-5" /></div>
@@ -122,7 +122,7 @@ function ContactPage() {
           title="mapa"
           className="w-full h-[420px] grayscale"
           loading="lazy"
-          src="https://www.google.com/maps?q=Rua%20Ignes%20Mendes%20de%20Moraes%2C%2010%20-%20Esplanada%20Mendes%2C%20S%C3%A3o%20Roque%20-%20SP&output=embed"
+          src={settings?.map_embed_url || "https://www.google.com/maps?q=Rua%20Ignes%20Mendes%20de%20Moraes%2C%2010%20-%20Esplanada%20Mendes%2C%20S%C3%A3o%20Roque%20-%20SP&output=embed"}
         />
       </section>
     </SiteShell>

@@ -4,8 +4,9 @@ import { SiteShell } from "@/components/site/SiteShell";
 import { InternalHero } from "@/components/site/InternalHero";
 
 import { Counters } from "@/components/site/Counters";
+import { usePublicTeam } from "@/hooks/usePublicContent";
 
-import { Check, Star, Share2, ArrowRight, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Check, Share2, ArrowRight, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   head: () => ({ meta: [
@@ -15,14 +16,16 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
 });
 
-const team = [
-  { name: "Christine Eve", role: "Desenvolvedora", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" },
-  { name: "Mike Hardson", role: "Desenvolvedor", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" },
-  { name: "Jessica Brown", role: "Desenvolvedora", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80" },
+const fallbackTeam = [
+  { name: "Wesley Ferreira", role: "CEO & Fundador", img: "https://i.pravatar.cc/600?img=68" },
+  { name: "Juliana Martins", role: "Head de Operações", img: "https://i.pravatar.cc/600?img=45" },
+  { name: "Diego Santos", role: "Tech Lead", img: "https://i.pravatar.cc/600?img=13" },
 ];
 
 function AboutPage() {
   usePageSeoInject("/about");
+  const { data: cmsTeam } = usePublicTeam();
+  const team = (cmsTeam && cmsTeam.length ? cmsTeam.map((m: any) => ({ name: m.name, role: m.role || "", img: m.photo_url || "https://i.pravatar.cc/600" })) : fallbackTeam);
   return (
     <SiteShell>
       <InternalHero title="Sobre" />
