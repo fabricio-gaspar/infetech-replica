@@ -13,6 +13,7 @@ export function Footer() {
   const { data: columns } = useFooterColumns();
   const socials = (social ?? []).filter((sl) => sl.enabled);
   const siteName = s?.site_name ?? "WF Digital";
+  const isHelp = (t: string) => /ajuda|help/i.test(t ?? "");
   const cols = columns ?? [];
 
   return (
@@ -40,7 +41,7 @@ export function Footer() {
           </div>
         </div>
 
-        {cols.length > 0 ? cols.map((c: any) => (
+        {cols.length > 0 ? cols.filter((c: any) => !isHelp(c.title)).map((c: any) => (
           <div key={c.id}>
             <h4 className="text-white font-bold text-lg mb-6">{c.title}</h4>
             <ul className="space-y-3.5 text-sm text-white/70">
@@ -84,6 +85,18 @@ export function Footer() {
             )}
           </ul>
         </div>
+
+        {cols.filter((c: any) => isHelp(c.title)).map((c: any) => (
+          <div key={c.id}>
+            <h4 className="text-white font-bold text-lg mb-6">{c.title}</h4>
+            <ul className="space-y-3.5 text-sm text-white/70">
+              {(c.links as { label: string; url: string; external?: boolean }[]).map((l, i) => (
+                <li key={i}><a href={l.url} target={l.external ? "_blank" : undefined} rel={l.external ? "noreferrer" : undefined} className="hover:text-primary transition-colors">{l.label}</a></li>
+              ))}
+            </ul>
+          </div>
+        ))}
+
 
         {s?.map_embed_url && (
           <div>
