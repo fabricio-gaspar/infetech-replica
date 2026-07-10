@@ -7,7 +7,7 @@ import {
   Award, Users, Trophy, MessageCircle, User, ChevronLeft, ChevronRight, ArrowUpRight,
   Shield, Rocket, Zap, HeartHandshake, Star,
 } from "lucide-react";
-import { usePublicHeroCards, usePublicPillars, usePublicServices, usePublicTestimonials, usePublicBlog } from "@/hooks/usePublicContent";
+import { usePublicHeroCards, usePublicPillars, usePublicServices, usePublicTestimonials, usePublicBlog, useHeroBanners } from "@/hooks/usePublicContent";
 
 const iconMap: Record<string, ComponentType<{ className?: string; strokeWidth?: number }>> = {
   Code2, Sparkles, Globe, Mail, Server, Wifi, ClipboardCheck, Clock, Cpu,
@@ -100,6 +100,8 @@ function HomePage() {
   const { data: cmsServices } = usePublicServices();
   const { data: cmsTestimonials } = usePublicTestimonials();
   const { data: cmsPosts } = usePublicBlog();
+  const { data: cmsBanners } = useHeroBanners();
+  const banner = cmsBanners?.[0];
 
   const heroCardsList = (cmsHeroCards && cmsHeroCards.length ? cmsHeroCards.map((c: any) => ({
     n: c.number || "", t: c.title, d: c.description || "", icon: getIcon(c.icon_name, Code2),
@@ -152,8 +154,8 @@ function HomePage() {
         {/* Full-bleed hero image on the right half */}
         <div className="absolute inset-y-0 right-0 w-full lg:w-1/2 pointer-events-none">
           <img
-            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=70&auto=format"
-            alt="Profissional de tecnologia"
+            src={banner?.image_desktop_url || "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=70&auto=format"}
+            alt={banner?.title || "Profissional de tecnologia"}
             loading="eager"
             fetchPriority="high"
             decoding="async"
@@ -213,18 +215,36 @@ function HomePage() {
         <div className="container-x relative pt-24 lg:pt-32 pb-44 lg:pb-56 grid lg:grid-cols-2 gap-10">
           <div className="reveal relative z-[2]">
             <div className="inline-flex items-center gap-3 text-primary text-xs font-semibold uppercase tracking-[0.2em] mb-7">
-              Bem-vindo à WF Digital
+              {banner?.support_text || "Bem-vindo à WF Digital"}
             </div>
-            <h1 className="font-black text-foreground leading-[1.05] tracking-tight text-[44px] sm:text-[60px] lg:text-[76px]">
-              <span className="relative inline-block">
-                O futuro
-                <svg className="absolute left-0 -bottom-1 w-[220px] h-3" viewBox="0 0 180 12" fill="none" preserveAspectRatio="none">
-                  <path d="M2 8 C 40 2, 90 10, 178 4" stroke="#FF6933" strokeWidth="4" strokeLinecap="round" fill="none" />
-                </svg>
-              </span>
-              <br />pertence à<br />tecnologia
-            </h1>
-            <Link to="/about" className="btn-primary mt-10">Saiba mais</Link>
+            {banner?.title ? (
+              <h1 className="font-black text-foreground leading-[1.05] tracking-tight text-[44px] sm:text-[60px] lg:text-[76px]">
+                {banner.title}
+              </h1>
+            ) : (
+              <h1 className="font-black text-foreground leading-[1.05] tracking-tight text-[44px] sm:text-[60px] lg:text-[76px]">
+                <span className="relative inline-block">
+                  O futuro
+                  <svg className="absolute left-0 -bottom-1 w-[220px] h-3" viewBox="0 0 180 12" fill="none" preserveAspectRatio="none">
+                    <path d="M2 8 C 40 2, 90 10, 178 4" stroke="#FF6933" strokeWidth="4" strokeLinecap="round" fill="none" />
+                  </svg>
+                </span>
+                <br />pertence à<br />tecnologia
+              </h1>
+            )}
+            {banner?.subtitle && (
+              <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-[520px] leading-relaxed">{banner.subtitle}</p>
+            )}
+            <div className="flex flex-wrap gap-3 mt-10">
+              <Link to={(banner?.cta_primary_url as any) || "/about"} className="btn-primary">
+                {banner?.cta_primary_label || "Saiba mais"}
+              </Link>
+              {banner?.cta_secondary_label && banner?.cta_secondary_url && (
+                <Link to={banner.cta_secondary_url as any} className="btn-secondary">
+                  {banner.cta_secondary_label}
+                </Link>
+              )}
+            </div>
           </div>
 
           {/* slider prev/next controls on right */}
