@@ -263,35 +263,24 @@ function HomePage() {
             </div>
           </div>
 
-          {/* slider prev/next controls on right */}
+          {/* slider prev/next controls on right — minimal outlined circles */}
           {banners.length > 1 && (
-            <div className="hidden lg:flex absolute right-6 top-1/2 -translate-y-1/2 flex-col items-center gap-3 z-10">
+            <div className="hidden lg:flex absolute right-8 top-1/2 -translate-y-1/2 flex-col items-center gap-5 z-10">
               <button
                 type="button"
                 onClick={prevBanner}
                 aria-label="Anterior"
-                className="w-11 h-11 rounded-full border border-foreground/25 text-foreground/60 grid place-items-center transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white hover:-translate-y-0.5"
+                className="w-16 h-16 rounded-full border border-foreground/30 text-foreground/70 grid place-items-center bg-transparent backdrop-blur-[1px] transition-all duration-300 hover:border-primary hover:text-primary hover:-translate-y-0.5"
               >
-                <ChevronLeft className="w-4 h-4" />
+                <ChevronLeft className="w-5 h-5" strokeWidth={1.5} />
               </button>
-              <div className="flex flex-col items-center gap-1.5 py-1">
-                {banners.map((b: any, i: number) => (
-                  <button
-                    key={b.id}
-                    type="button"
-                    onClick={() => setBannerIdx(i)}
-                    aria-label={`Ir para slide ${i + 1}`}
-                    className={`w-1.5 rounded-full transition-all duration-300 ${i === bannerIdx % banners.length ? "h-6 bg-primary" : "h-1.5 bg-foreground/25 hover:bg-foreground/40"}`}
-                  />
-                ))}
-              </div>
               <button
                 type="button"
                 onClick={nextBanner}
                 aria-label="Próximo"
-                className="w-11 h-11 rounded-full border border-foreground/25 text-foreground/60 grid place-items-center transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white hover:-translate-y-0.5"
+                className="w-16 h-16 rounded-full border border-foreground/30 text-foreground/70 grid place-items-center bg-transparent backdrop-blur-[1px] transition-all duration-300 hover:border-primary hover:text-primary hover:-translate-y-0.5"
               >
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-5 h-5" strokeWidth={1.5} />
               </button>
             </div>
           )}
