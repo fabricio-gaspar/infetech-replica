@@ -7,7 +7,7 @@ import {
   Award, Users, Trophy, MessageCircle, User, ChevronLeft, ChevronRight, ArrowUpRight,
   Shield, Rocket, Zap, HeartHandshake, Star,
 } from "lucide-react";
-import { usePublicHeroCards, usePublicPillars, usePublicServices, usePublicTestimonials, usePublicBlog } from "@/hooks/usePublicContent";
+import { usePublicHeroCards, usePublicPillars, usePublicServices, usePublicTestimonials, usePublicBlog, useHeroBanners } from "@/hooks/usePublicContent";
 
 const iconMap: Record<string, ComponentType<{ className?: string; strokeWidth?: number }>> = {
   Code2, Sparkles, Globe, Mail, Server, Wifi, ClipboardCheck, Clock, Cpu,
