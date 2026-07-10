@@ -13,6 +13,7 @@ export function Footer() {
   const { data: columns } = useFooterColumns();
   const socials = (social ?? []).filter((sl) => sl.enabled);
   const siteName = s?.site_name ?? "WF Digital";
+  const isHelp = (t: string) => /ajuda|help/i.test(t ?? "");
   const cols = columns ?? [];
 
   return (
