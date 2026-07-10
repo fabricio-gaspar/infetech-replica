@@ -1,11 +1,19 @@
 import { usePageSeoInject } from "@/hooks/usePageSeoInject";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, type ComponentType } from "react";
 import { SiteShell } from "@/components/site/SiteShell";
 import {
   ArrowRight, Cpu, Code2, Sparkles, Globe, Mail, Server, Wifi, ClipboardCheck, Clock,
   Award, Users, Trophy, MessageCircle, User, ChevronLeft, ChevronRight, ArrowUpRight,
+  Shield, Rocket, Zap, HeartHandshake, Star,
 } from "lucide-react";
+import { usePublicHeroCards, usePublicPillars, usePublicServices, usePublicTestimonials, usePublicBlog } from "@/hooks/usePublicContent";
+
+const iconMap: Record<string, ComponentType<{ className?: string; strokeWidth?: number }>> = {
+  Code2, Sparkles, Globe, Mail, Server, Wifi, ClipboardCheck, Clock, Cpu,
+  Users, Award, Trophy, Shield, Rocket, Zap, HeartHandshake, Star,
+};
+const getIcon = (name?: string | null, fallback: ComponentType<any> = Cpu) => (name && iconMap[name]) || fallback;
 
 type Testimonial = {
   name: string;
