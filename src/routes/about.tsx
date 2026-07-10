@@ -64,7 +64,6 @@ function AboutPage() {
         </div>
       </section>
 
-      <DarkCTA />
       
 
       {/* TEAM */}
