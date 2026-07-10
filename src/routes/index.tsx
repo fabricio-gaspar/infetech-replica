@@ -248,7 +248,7 @@ function HomePage() {
 
         {/* overlapping cards */}
         <div className="container-x relative -mt-32 lg:-mt-40 pb-24 grid md:grid-cols-3 gap-6 z-10">
-          {heroCards.map((c, i) => (
+          {heroCardsList.map((c, i) => (
             <div
               key={c.t}
               className="card-tech p-8 pb-10 reveal"
@@ -300,7 +300,7 @@ function HomePage() {
             </p>
 
             <div className="mt-4 flex items-center gap-2">
-              {testimonials.map((t, i) => (
+              {testimonialsList.map((t, i) => (
                 <button
                   key={t.name}
                   type="button"
@@ -348,7 +348,7 @@ function HomePage() {
               { i: 2, style: "left-[334px] top-[52px] w-[164px] h-[164px] z-[2] shadow-[0_24px_58px_rgba(224,84,31,0.24)]" },
               { i: 3, style: "left-[374px] top-[286px] w-[72px] h-[72px] z-[5] shadow-[0_14px_30px_rgba(224,84,31,0.24)]" },
             ].map(({ i, style }) => {
-              const t = testimonials[i];
+              const t = testimonialsList[i];
               const isActive = activeT === i;
               return (
                 <button
@@ -381,7 +381,7 @@ function HomePage() {
             onMouseLeave={() => { servicesPausedRef.current = false; }}
             className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden reveal-stagger"
           >
-            {services.map((s, i) => (
+            {servicesList.map((s, i) => (
               <div
                 key={s.t}
                 data-svc-card
@@ -445,7 +445,7 @@ function HomePage() {
           <h2 className="text-3xl md:text-5xl font-black leading-tight"><span className="block ">A agência de soluções e serviços de TI</span><span className="block ">em que você pode confiar</span></h2>
         </div>
         <div className="container-x mt-12 grid md:grid-cols-3 gap-6 reveal-stagger">
-          {pillars.map((p) => (
+          {pillarsList.map((p) => (
             <div key={p.t} className="card-tech p-8 text-center reveal">
               <div className="w-16 h-16 mx-auto rounded-full purple-gradient text-white grid place-items-center mb-5">
                 <p.i className="w-7 h-7" />
@@ -464,7 +464,7 @@ function HomePage() {
           <h2 className="text-3xl md:text-5xl font-black leading-tight">Notícias &amp; Artigos</h2>
         </div>
         <div className="container-x mt-12 grid md:grid-cols-3 gap-7 reveal-stagger">
-          {posts.map((p) => (
+          {postsList.map((p) => (
             <article key={p.t} className="card-tech overflow-hidden reveal">
               <div className="relative overflow-hidden">
                 <img loading="lazy" decoding="async" src={p.img} className="w-full h-56 object-cover transition-transform duration-700 hover:scale-110" alt={p.t} />
