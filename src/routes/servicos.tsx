@@ -110,7 +110,13 @@ function ServicesPage() {
   const list: Service[] = (dbServices && dbServices.length > 0)
     ? dbServices.map((s: any) => {
         const IconComp = (s.icon_name && (Icons as any)[s.icon_name]) || Shield;
-        return { id: s.slug || s.id, icon: IconComp, title: s.title, description: s.description || "", featured: s.featured_on_home };
+        return {
+          id: s.slug || s.id,
+          icon: IconComp,
+          title: s.title || s.name || "",
+          description: s.description || s.short_description || s.full_description || "",
+          featured: s.featured_on_home,
+        };
       })
     : services;
   return (
