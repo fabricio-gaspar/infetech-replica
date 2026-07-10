@@ -24,6 +24,8 @@ const fallbackTeam = [
 
 function AboutPage() {
   usePageSeoInject("/about");
+  const { data: cmsTeam } = usePublicTeam();
+  const team = (cmsTeam && cmsTeam.length ? cmsTeam.map((m: any) => ({ name: m.name, role: m.role || "", img: m.photo_url || "https://i.pravatar.cc/600" })) : fallbackTeam);
   return (
     <SiteShell>
       <InternalHero title="Sobre" />
