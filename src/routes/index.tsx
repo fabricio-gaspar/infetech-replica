@@ -240,7 +240,7 @@ function HomePage() {
                 {banner?.cta_primary_label || "Saiba mais"}
               </Link>
               {banner?.cta_secondary_label && banner?.cta_secondary_url && (
-                <Link to={banner.cta_secondary_url as any} className="btn-outline">
+                <Link to={banner.cta_secondary_url as any} className="btn-secondary">
                   {banner.cta_secondary_label}
                 </Link>
               )}
