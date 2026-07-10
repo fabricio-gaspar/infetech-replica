@@ -100,6 +100,8 @@ function HomePage() {
   const { data: cmsServices } = usePublicServices();
   const { data: cmsTestimonials } = usePublicTestimonials();
   const { data: cmsPosts } = usePublicBlog();
+  const { data: cmsBanners } = useHeroBanners();
+  const banner = cmsBanners?.[0];
 
   const heroCardsList = (cmsHeroCards && cmsHeroCards.length ? cmsHeroCards.map((c: any) => ({
     n: c.number || "", t: c.title, d: c.description || "", icon: getIcon(c.icon_name, Code2),
