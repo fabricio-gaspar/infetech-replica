@@ -41,7 +41,7 @@ export function Footer() {
           </div>
         </div>
 
-        {cols.length > 0 ? cols.map((c: any) => (
+        {cols.length > 0 ? cols.filter((c: any) => !isHelp(c.title)).map((c: any) => (
           <div key={c.id}>
             <h4 className="text-white font-bold text-lg mb-6">{c.title}</h4>
             <ul className="space-y-3.5 text-sm text-white/70">
