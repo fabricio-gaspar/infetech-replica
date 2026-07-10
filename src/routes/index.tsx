@@ -154,8 +154,8 @@ function HomePage() {
         {/* Full-bleed hero image on the right half */}
         <div className="absolute inset-y-0 right-0 w-full lg:w-1/2 pointer-events-none">
           <img
-            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=70&auto=format"
-            alt="Profissional de tecnologia"
+            src={banner?.image_desktop_url || "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=70&auto=format"}
+            alt={banner?.title || "Profissional de tecnologia"}
             loading="eager"
             fetchPriority="high"
             decoding="async"
