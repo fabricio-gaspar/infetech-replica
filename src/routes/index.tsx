@@ -125,6 +125,8 @@ function HomePage() {
 
   const [activeT, setActiveT] = useState(0);
   const active = testimonialsList[Math.min(activeT, testimonialsList.length - 1)] ?? testimonialsList[0];
+  const servicesScrollRef = useRef<HTMLDivElement>(null);
+  const servicesPausedRef = useRef(false);
   const scrollServices = (dir: 1 | -1) => {
     const el = servicesScrollRef.current;
     if (!el) return;
