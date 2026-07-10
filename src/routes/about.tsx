@@ -64,8 +64,6 @@ function AboutPage() {
         </div>
       </section>
 
-      <Counters />
-
       <DarkCTA />
       
 
