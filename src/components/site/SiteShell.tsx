@@ -12,11 +12,13 @@ export function SiteShell({ children }: { children: ReactNode }) {
         }
       });
     }, { threshold: 0.15 });
-    // Observe on mount and again on next frame to catch late-mounted children.
     const observe = () => document.querySelectorAll<HTMLElement>(".reveal:not(.in)").forEach((el) => obs.observe(el));
     observe();
     const raf = requestAnimationFrame(observe);
-    return () => { cancelAnimationFrame(raf); obs.disconnect(); };
+    // Re-scan when new content mounts (async data, route transitions).
+    const mo = new MutationObserver(() => observe());
+    mo.observe(document.body, { childList: true, subtree: true });
+    return () => { cancelAnimationFrame(raf); mo.disconnect(); obs.disconnect(); };
   }, []);
   return (
     <div className="min-h-screen flex flex-col bg-background">
