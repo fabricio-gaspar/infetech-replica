@@ -176,8 +176,9 @@ function HomePage() {
             decoding="async"
             className="w-full h-full object-cover grayscale opacity-90 lg:opacity-100 animate-fade-in"
           />
-          {/* fade overlay on the left edge of the image to blend into bg */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#fff4ee] via-[#fff4ee]/40 to-transparent lg:via-transparent" />
+          {/* elegant multi-stop fade blending the image into the solid bg */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#fff4ee_0%,rgba(255,244,238,0.95)_18%,rgba(255,244,238,0.7)_34%,rgba(255,244,238,0.35)_54%,rgba(255,244,238,0.1)_78%,transparent_100%)] lg:bg-[linear-gradient(to_right,rgba(255,244,238,0.6)_0%,rgba(255,244,238,0.25)_18%,transparent_45%)]" />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-[#fff4ee]" />
         </div>
 
         {/* Circuit board traces decoration on the left */}
