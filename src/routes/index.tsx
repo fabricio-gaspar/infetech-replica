@@ -582,3 +582,92 @@ function HomePage() {
     </SiteShell>
   );
 }
+
+// ============= SERVICES SHOWCASE =============
+import { Megaphone, ShieldCheck, PenTool, BarChart3, Boxes } from "lucide-react";
+
+const showcaseServices = [
+  { icon: Megaphone,   title: "Marketing\nDigital",       desc: "Estratégias data-driven para gerar demanda, tráfego qualificado e crescimento previsível para sua empresa." },
+  { icon: ShieldCheck, title: "Sistema de\nsegurança",    desc: "Proteção completa da sua infraestrutura, dados e operações contra ameaças modernas, com monitoramento contínuo." },
+  { icon: PenTool,     title: "Design de\nUI/UX",         desc: "Fornecemos soluções de TI perfeitas para milhões de parceiros em todo o mundo. Nossa experiência abrange todas as principais tecnologias e plataformas, acompanhando as tendências inovadoras em desenvolvimento de software confiável." },
+  { icon: BarChart3,   title: "Análise de\ndados",        desc: "Transformamos dados brutos em decisões estratégicas com dashboards, BI e modelos preditivos sob medida." },
+  { icon: Boxes,       title: "Desenvolvimento\nde produto", desc: "Do MVP ao produto maduro: arquitetura, engenharia e design trabalhando juntos para entregas de alto impacto." },
+];
+
+function ServicesShowcase() {
+  const [active, setActive] = useState(2);
+  const current = showcaseServices[active];
+  return (
+    <section className="relative overflow-hidden bg-white section-y">
+      {/* circuit background */}
+      <div className="pointer-events-none absolute inset-0 opacity-[0.09]" aria-hidden>
+        <svg width="100%" height="100%" viewBox="0 0 1440 720" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <pattern id="ss-grid" width="90" height="90" patternUnits="userSpaceOnUse">
+              <path d="M0 45 H90 M45 0 V90" stroke="#FF6933" strokeWidth="0.6" fill="none" />
+              <circle cx="45" cy="45" r="1.6" fill="#FF6933" />
+            </pattern>
+          </defs>
+          <rect width="1440" height="720" fill="url(#ss-grid)" />
+          <g stroke="#FF6933" strokeWidth="1" fill="none" opacity="0.7">
+            <path d="M0 120 L260 120 L300 160 L640 160" />
+            <path d="M1440 200 L1180 200 L1140 240 L820 240" />
+            <path d="M0 560 L340 560 L380 520 L720 520" />
+            <path d="M1440 600 L1120 600 L1080 640 L720 640" />
+          </g>
+        </svg>
+      </div>
+
+      <div className="container-x relative">
+        <div className="text-center max-w-[900px] mx-auto reveal">
+          <span className="eyebrow justify-center">O que oferecemos aos nossos clientes</span>
+          <h2 className="mt-4 text-[34px] md:text-[46px] leading-[1.15] font-black tracking-tight text-foreground">
+            Negociação em tempo real de<br className="hidden md:block" /> todas as soluções e serviços de TI<br className="hidden md:block" /> profissionais.
+          </h2>
+        </div>
+
+        <div className="mt-14 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 reveal-stagger">
+          {showcaseServices.map((s, i) => {
+            const Icon = s.icon;
+            const isActive = i === active;
+            return (
+              <button
+                key={s.title}
+                onClick={() => setActive(i)}
+                className={`reveal group relative text-center px-4 py-10 transition-all duration-500 ${
+                  isActive
+                    ? "bg-[#1a1327] text-white shadow-[0_30px_60px_-25px_rgba(26,19,39,0.55)] -translate-y-3"
+                    : "bg-white shadow-[0_18px_40px_-24px_rgba(20,16,60,0.18)] hover:-translate-y-1"
+                }`}
+              >
+                {isActive && (
+                  <span aria-hidden className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[10px] border-r-[10px] border-t-[10px] border-l-transparent border-r-transparent border-t-[#1a1327]" />
+                )}
+                <span className={`mx-auto grid place-items-center w-14 h-14 rounded-full transition-colors ${isActive ? "bg-white/10 text-[#FF6933]" : "text-[#FF6933]"}`}>
+                  <Icon className="w-8 h-8" strokeWidth={1.5} />
+                </span>
+                <h3 className={`mt-5 font-bold text-[17px] leading-[1.25] whitespace-pre-line ${isActive ? "text-white" : "text-foreground"}`}>
+                  {s.title}
+                </h3>
+              </button>
+            );
+          })}
+        </div>
+
+        <div key={active} className="mt-14 text-center max-w-[860px] mx-auto animate-[fade-in_.5s_ease]">
+          <h3 className="text-[26px] md:text-[30px] font-black text-foreground whitespace-pre-line">{current.title.replace("\n", " ")}</h3>
+          <div className="mt-4 mx-auto h-[3px] w-16 bg-[#FF6933]" />
+          <p className="mt-6 text-[15px] md:text-[16px] leading-[1.9] text-muted-foreground">
+            {current.desc}
+          </p>
+          <div className="mt-8">
+            <Link to="/servicos" className="btn-primary">
+              Saiba mais <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
