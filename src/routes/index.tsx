@@ -353,6 +353,7 @@ function HomePage() {
         </div>
       </section>
 
+      <ServicesShowcase />
 
       {/* TESTIMONIAL DETAIL — same circular-photo scale/placement as reference */}
       <section className="py-[72px] bg-[#fff4ee] relative overflow-hidden">
