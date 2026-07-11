@@ -41,33 +41,34 @@
 :root {
   --radius: 0rem;
   --background: #ffffff;
-  --foreground: #111111;
+  --foreground: #201B2C;
   --card: #ffffff;
-  --card-foreground: #111111;
+  --card-foreground: #201B2C;
   --popover: #ffffff;
-  --popover-foreground: #111111;
-  /* WF Digital brand orange */
-  --primary: #FF6933;
+  --popover-foreground: #201B2C;
+  /* Infetech purple brand */
+  --primary: #6230EF;
   --primary-foreground: #ffffff;
-  --primary-dark: #E0541F;
-  --secondary: #f5f5f5;
-  --secondary-foreground: #111111;
-  --muted: #f7f7f7;
-  --muted-foreground: #777777;
-  --accent: #ffe7dc;
-  --accent-foreground: #FF6933;
+  --primary-dark: #5123D9;
+  --primary-light: #936AF2;
+  --secondary: #F3F2F7;
+  --secondary-foreground: #201B2C;
+  --muted: #F3F2F7;
+  --muted-foreground: #6F6A78;
+  --accent: #EEE9FF;
+  --accent-foreground: #6230EF;
   --destructive: oklch(0.6 0.22 25);
   --destructive-foreground: #ffffff;
-  --border: #eeeeee;
-  --input: #eeeeee;
-  --ring: #FF6933;
-  --dark: #2a1305;
+  --border: #E7E4ED;
+  --input: #E7E4ED;
+  --ring: #6230EF;
+  --dark: #1C1727;
   --dark-foreground: #ffffff;
-  --section: #f7f7f7;
-  --detail-night: #171321;
-  --detail-purple-light: #a58cff;
-  --detail-purple-mid: #7044d6;
-  --detail-purple-deep: #2d155f;
+  --section: #F3F2F7;
+  --detail-night: #211A30;
+  --detail-purple-light: #936AF2;
+  --detail-purple-mid: #6230EF;
+  --detail-purple-deep: #2D1571;
 }
 
 .dark { --background: oklch(0.16 0.04 275); --foreground: oklch(0.98 0 0); }
