@@ -3,7 +3,7 @@ import { ChevronRight } from "lucide-react";
 
 export function InternalHero({ title, crumb }: { title: string; crumb?: string }) {
   return (
-    <section className="relative h-[300px] md:h-[360px] overflow-hidden bg-[#1C1727]">
+    <section className="relative h-[300px] md:h-[360px] overflow-hidden bg-[#141019]">
       {/* Background photo — dark grayscale */}
       <img
         src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1800&auto=format&fit=crop&q=80"
@@ -28,7 +28,7 @@ export function InternalHero({ title, crumb }: { title: string; crumb?: string }
         style={{
           clipPath: "polygon(70% 0, 100% 0, 100% 100%, 100% 100%)",
           background:
-            "linear-gradient(135deg, #936AF2 0%, #6230EF 45%, #5123D9 100%)",
+            "linear-gradient(135deg, #FF7A4A 0%, #FF6933 45%, #C7431A 100%)",
           opacity: 0.28,
         }}
       />
@@ -40,7 +40,7 @@ export function InternalHero({ title, crumb }: { title: string; crumb?: string }
         preserveAspectRatio="none"
         className="absolute bottom-0 right-0 h-[70%] w-[26%] md:w-[18%] pointer-events-none"
       >
-        <g stroke="rgba(180,160,240,0.6)" strokeWidth="1" fill="none">
+        <g stroke="rgba(255,200,170,0.6)" strokeWidth="1" fill="none">
           <path d="M20 220 L220 20" />
           <path d="M40 220 L240 20" />
           <path d="M60 220 L260 20" />
@@ -57,7 +57,7 @@ export function InternalHero({ title, crumb }: { title: string; crumb?: string }
         <div className="mt-3 flex items-center gap-2 text-[11px] md:text-xs uppercase tracking-[0.28em] text-white/85">
           <Link to="/" className="hover:text-white transition-colors">Início</Link>
           <ChevronRight className="w-3 h-3 opacity-70" />
-          <span className="text-[#C9BEF5]">{crumb ?? title}</span>
+          <span className="text-[#ffd0b8]">{crumb ?? title}</span>
         </div>
       </div>
     </section>

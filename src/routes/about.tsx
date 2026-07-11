@@ -114,7 +114,7 @@ function AboutPage() {
                         key={label}
                         href={href}
                         aria-label={label}
-                        className="w-9 h-9 grid place-items-center bg-white text-primary border border-primary/25 rounded-sm shadow-[0_6px_16px_-8px_rgba(98,48,239,0.5)] hover:bg-primary hover:text-white transition-colors"
+                        className="w-9 h-9 grid place-items-center bg-white text-primary border border-primary/25 rounded-sm shadow-[0_6px_16px_-8px_rgba(255,105,51,0.5)] hover:bg-primary hover:text-white transition-colors"
                       >
                         <Icon className="w-4 h-4" />
                       </a>
