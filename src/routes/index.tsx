@@ -160,7 +160,7 @@ function HomePage() {
     <SiteShell>
       {/* ============ HERO (Infetech style) ============ */}
       <section
-        className="relative overflow-hidden bg-[#1a0f07]"
+        className="relative overflow-hidden bg-[#1C1727]"
         onMouseEnter={() => { heroPausedRef.current = true; }}
         onMouseLeave={() => { heroPausedRef.current = false; }}
       >
@@ -176,8 +176,8 @@ function HomePage() {
             className="w-full h-full object-cover object-center grayscale-[80%] opacity-70 animate-fade-in"
           />
           {/* dark tint overall */}
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(20,10,4,0.9)_0%,rgba(20,10,4,0.55)_40%,rgba(20,10,4,0.35)_70%,rgba(20,10,4,0.75)_100%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(20,10,4,0.35)_0%,transparent_30%,transparent_70%,rgba(20,10,4,0.6)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(28,23,39,0.9)_0%,rgba(28,23,39,0.55)_40%,rgba(28,23,39,0.35)_70%,rgba(28,23,39,0.75)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(28,23,39,0.35)_0%,transparent_30%,transparent_70%,rgba(28,23,39,0.6)_100%)]" />
         </div>
 
         {/* Diagonal orange stripes on the left (Infetech signature bar) */}
@@ -185,7 +185,7 @@ function HomePage() {
           <div
             className="absolute -left-[10%] top-[-20%] w-[52%] h-[160%]"
             style={{
-              background: "linear-gradient(135deg, rgba(255,105,51,0.85) 0%, rgba(255,105,51,0.35) 40%, transparent 100%)",
+              background: "linear-gradient(135deg, rgba(98,48,239,0.85) 0%, rgba(98,48,239,0.35) 40%, transparent 100%)",
               transform: "skewX(-14deg)",
               mixBlendMode: "screen",
             }}
@@ -193,7 +193,7 @@ function HomePage() {
           <div
             className="absolute -left-[20%] top-[-30%] w-[36%] h-[180%]"
             style={{
-              background: "linear-gradient(135deg, rgba(255,105,51,0.55) 0%, transparent 70%)",
+              background: "linear-gradient(135deg, rgba(98,48,239,0.55) 0%, transparent 70%)",
               transform: "skewX(-14deg)",
               mixBlendMode: "screen",
             }}
@@ -259,8 +259,8 @@ function HomePage() {
         <div aria-hidden className="absolute inset-0 pointer-events-none opacity-[0.06]"
           style={{
             backgroundImage:
-              "repeating-linear-gradient(0deg,transparent 0 39px,#FF6933 39px 40px)," +
-              "repeating-linear-gradient(90deg,transparent 0 39px,#FF6933 39px 40px)",
+              "repeating-linear-gradient(0deg,transparent 0 39px,#6230EF 39px 40px)," +
+              "repeating-linear-gradient(90deg,transparent 0 39px,#6230EF 39px 40px)",
             backgroundSize: "40px 40px, 40px 40px",
             maskImage: "radial-gradient(ellipse at center, black 30%, transparent 80%)",
           }}
@@ -282,15 +282,15 @@ function HomePage() {
                   onClick={() => setActiveService(i)}
                   onMouseEnter={() => setActiveService(i)}
                   className={`relative overflow-hidden text-center py-10 px-4 transition-all duration-300 ${isActive
-                    ? "bg-[#171321] text-white shadow-[0_20px_50px_-20px_rgba(23,19,33,0.55)]"
+                    ? "bg-[#1C1727] text-white shadow-[0_20px_50px_-20px_rgba(28,23,39,0.55)]"
                     : "bg-white text-foreground shadow-[0_10px_30px_-15px_rgba(20,16,60,0.15)] hover:-translate-y-1"}`}
                 >
                   {isActive && (
                     <div aria-hidden className="absolute inset-0 opacity-[0.15] pointer-events-none"
                       style={{
                         backgroundImage:
-                          "repeating-linear-gradient(0deg,transparent 0 24px,#FF6933 24px 25px)," +
-                          "repeating-linear-gradient(90deg,transparent 0 24px,#FF6933 24px 25px)",
+                          "repeating-linear-gradient(0deg,transparent 0 24px,#6230EF 24px 25px)," +
+                          "repeating-linear-gradient(90deg,transparent 0 24px,#6230EF 24px 25px)",
                         backgroundSize: "25px 25px, 25px 25px",
                       }}
                     />
@@ -300,7 +300,7 @@ function HomePage() {
                     <div className={`text-sm font-bold leading-tight ${isActive ? "text-white" : "text-foreground"}`}>{s.t}</div>
                   </div>
                   {isActive && (
-                    <div aria-hidden className="absolute left-1/2 -bottom-3 -translate-x-1/2 w-6 h-6 rotate-45 bg-[#171321]" />
+                    <div aria-hidden className="absolute left-1/2 -bottom-3 -translate-x-1/2 w-6 h-6 rotate-45 bg-[#1C1727]" />
                   )}
                 </button>
               );
@@ -316,7 +316,7 @@ function HomePage() {
       </section>
 
       {/* ============ TESTIMONIALS (existing, preserved) ============ */}
-      <section className="py-[72px] bg-[#fff4ee] relative overflow-hidden">
+      <section className="py-[72px] bg-[#EEE9FF] relative overflow-hidden">
         <div className="w-[calc(100%-40px)] max-w-[956px] mx-auto relative grid lg:grid-cols-[390px_526px] gap-10 items-start">
           <div className="reveal max-w-[450px]">
             <div className="inline-flex items-center gap-3 text-primary text-xs font-bold mb-2">
@@ -327,7 +327,7 @@ function HomePage() {
               Veja o que estão<br />falando sobre nós
             </h2>
             <div className="mt-3 flex items-center gap-4">
-              <div className="w-[92px] h-[92px] rounded-full p-[5px] bg-primary shadow-[0_12px_28px_rgba(255,105,51,0.25)]">
+              <div className="w-[92px] h-[92px] rounded-full p-[5px] bg-primary shadow-[0_12px_28px_rgba(98,48,239,0.25)]">
                 <div className="w-full h-full rounded-full overflow-hidden border-[4px] border-white">
                   <img key={active.photo} src={active.photo} alt={active.name} className="w-full h-full object-cover transition-opacity duration-300" />
                 </div>
@@ -359,7 +359,7 @@ function HomePage() {
               const isActive = activeT === i;
               return (
                 <button key={t.name} type="button" onClick={() => setActiveT(i)} onMouseEnter={() => setActiveT(i)} aria-label={`Ver depoimento de ${t.name}`}
-                  className={`absolute ${style} rounded-full overflow-hidden transition-all duration-300 hover:scale-[1.04] focus:outline-none ${isActive ? "ring-[4px] ring-primary ring-offset-2 ring-offset-[#fff4ee]" : "ring-2 ring-white"}`}>
+                  className={`absolute ${style} rounded-full overflow-hidden transition-all duration-300 hover:scale-[1.04] focus:outline-none ${isActive ? "ring-[4px] ring-primary ring-offset-2 ring-offset-[#EEE9FF]" : "ring-2 ring-white"}`}>
                   <img loading="lazy" decoding="async" src={t.photo} alt={t.name} className="w-full h-full object-cover" />
                 </button>
               );
@@ -379,7 +379,7 @@ function HomePage() {
             <article key={p.t} className="group relative overflow-hidden bg-white reveal">
               <div className="relative overflow-hidden">
                 <img loading="lazy" decoding="async" src={p.img} alt={p.t} className="w-full h-[260px] object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#171321]/50 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1C1727]/50 via-transparent to-transparent" />
               </div>
               <div className="p-6 flex items-start justify-between gap-4">
                 <div>
@@ -400,7 +400,7 @@ function HomePage() {
         <div className="container-x grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {counters.map((c) => (
             <div key={c.label} className="reveal">
-              <div className="text-5xl md:text-6xl font-black text-[#171321] leading-none">
+              <div className="text-5xl md:text-6xl font-black text-[#1C1727] leading-none">
                 <Counter end={c.n} /><sup className="text-primary text-3xl md:text-4xl">+</sup>
               </div>
               <div className="mt-4 text-xs md:text-sm tracking-[0.2em] uppercase font-bold text-primary">{c.label}</div>
@@ -410,16 +410,16 @@ function HomePage() {
       </section>
 
       {/* ============ OVERCOME CHALLENGES (dark w/ tile grid) ============ */}
-      <section className="relative overflow-hidden bg-[#171321] text-white">
+      <section className="relative overflow-hidden bg-[#1C1727] text-white">
         <div aria-hidden className="absolute inset-0 opacity-30 pointer-events-none">
           <img src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?w=1600&q=70" alt="" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(23,19,33,0.95)_0%,rgba(23,19,33,0.75)_60%,rgba(23,19,33,0.55)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(28,23,39,0.95)_0%,rgba(28,23,39,0.75)_60%,rgba(28,23,39,0.55)_100%)]" />
         </div>
         {/* diagonal orange accent */}
         <div aria-hidden className="absolute -left-[8%] top-[-20%] w-[26%] h-[160%] pointer-events-none"
-          style={{ background: "linear-gradient(135deg, rgba(255,105,51,0.4), transparent 70%)", transform: "skewX(-14deg)", mixBlendMode: "screen" }} />
+          style={{ background: "linear-gradient(135deg, rgba(98,48,239,0.4), transparent 70%)", transform: "skewX(-14deg)", mixBlendMode: "screen" }} />
         <div aria-hidden className="absolute -right-[8%] top-[-30%] w-[26%] h-[180%] pointer-events-none"
-          style={{ background: "linear-gradient(135deg, rgba(255,105,51,0.25), transparent 70%)", transform: "skewX(-14deg)", mixBlendMode: "screen" }} />
+          style={{ background: "linear-gradient(135deg, rgba(98,48,239,0.25), transparent 70%)", transform: "skewX(-14deg)", mixBlendMode: "screen" }} />
 
         <div className="container-x relative z-10 py-24 grid lg:grid-cols-2 gap-14 items-center">
           <div className="reveal">
@@ -491,13 +491,13 @@ function HomePage() {
         </div>
         {/* overlapping CTA banner */}
         <div className="container-x relative -mt-[220px] md:-mt-[180px] mb-16">
-          <div className="relative overflow-hidden bg-[#171321] text-white px-8 md:px-14 py-10 md:py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 reveal">
+          <div className="relative overflow-hidden bg-[#1C1727] text-white px-8 md:px-14 py-10 md:py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 reveal">
             <div className="absolute inset-0 pointer-events-none opacity-40">
               <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1400&q=70" alt="" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(23,19,33,0.9),rgba(23,19,33,0.6)_60%,rgba(23,19,33,0.85))]" />
+              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(28,23,39,0.9),rgba(28,23,39,0.6)_60%,rgba(28,23,39,0.85))]" />
             </div>
             <div aria-hidden className="absolute -left-[6%] top-[-30%] w-[18%] h-[160%] pointer-events-none"
-              style={{ background: "linear-gradient(135deg, rgba(255,105,51,0.55), transparent 70%)", transform: "skewX(-14deg)", mixBlendMode: "screen" }} />
+              style={{ background: "linear-gradient(135deg, rgba(98,48,239,0.55), transparent 70%)", transform: "skewX(-14deg)", mixBlendMode: "screen" }} />
             <div className="relative">
               <div className="text-primary text-[11px] font-bold uppercase tracking-[0.25em] mb-3">Vamos começar</div>
               <h3 className="text-2xl md:text-[32px] font-black leading-tight max-w-xl">Parceiro de soluções em TI de classe mundial</h3>
