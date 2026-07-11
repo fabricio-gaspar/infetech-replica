@@ -159,169 +159,99 @@ function HomePage() {
   }, []);
   return (
     <SiteShell>
-      {/* HERO */}
+      {/* HERO — dark image + brand diagonal stripe (infetech-style) */}
       <section
-        className="relative bg-[#fff4ee] overflow-hidden"
+        className="relative overflow-hidden bg-[#141019] text-white"
         onMouseEnter={() => { heroPausedRef.current = true; }}
         onMouseLeave={() => { heroPausedRef.current = false; }}
       >
-        {/* Full-bleed hero image on the right half */}
-        <div className="absolute inset-y-0 right-0 w-full lg:w-[62%] pointer-events-none">
+        {/* Background image — full bleed, grayscale */}
+        <div className="absolute inset-0">
           <img
             key={banner?.id || "fallback"}
-            src={banner?.image_desktop_url || "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=70&auto=format"}
-            alt={banner?.title || "Profissional de tecnologia"}
+            src={banner?.image_desktop_url || "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1800&q=80&auto=format"}
+            alt={banner?.title || "Profissionais de tecnologia"}
             loading="eager"
             fetchPriority="high"
             decoding="async"
-            className="w-full h-full object-cover grayscale opacity-90 lg:opacity-100 animate-fade-in"
+            className="w-full h-full object-cover grayscale opacity-70 animate-fade-in"
           />
-          {/* elegant left-edge dissolve into the cream background */}
+          {/* dark wash */}
           <div
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(to right, #fff4ee 0%, #fff4ee 8%, rgba(255,244,238,0.98) 18%, rgba(255,244,238,0.9) 28%, rgba(255,244,238,0.72) 38%, rgba(255,244,238,0.48) 50%, rgba(255,244,238,0.24) 64%, rgba(255,244,238,0.08) 80%, transparent 100%)",
+                "linear-gradient(90deg, rgba(20,16,25,0.92) 0%, rgba(20,16,25,0.78) 45%, rgba(20,16,25,0.55) 100%)",
             }}
           />
-          {/* soft top and bottom vignette to seat the image in the section */}
-          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#fff4ee] to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#fff4ee] to-transparent" />
         </div>
 
-        {/* Circuit board traces decoration on the left */}
+        {/* Big diagonal brand stripe (top-left to bottom) */}
         <div
           aria-hidden
-          className="hidden md:block absolute left-0 bottom-0 w-[55%] h-[70%] pointer-events-none z-[1]"
+          className="absolute inset-0 pointer-events-none"
           style={{
-            maskImage: "linear-gradient(to right, black 55%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(to right, black 55%, transparent 100%)",
+            clipPath: "polygon(0 0, 44% 0, 18% 100%, 0 100%)",
+            background:
+              "linear-gradient(135deg, #FF7A4A 0%, #FF6933 45%, #C7431A 100%)",
+            opacity: 0.85,
+            mixBlendMode: "normal",
           }}
-        >
-          <svg viewBox="0 0 800 560" className="w-full h-full" fill="none" preserveAspectRatio="xMinYMax slice">
-            <defs>
-              {/* soft radial gradient used as the glowing "data packet" head */}
-              <radialGradient id="dataPulse" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#FFD3B8" stopOpacity="1" />
-                <stop offset="40%" stopColor="#FF6933" stopOpacity="0.95" />
-                <stop offset="100%" stopColor="#FF6933" stopOpacity="0" />
-              </radialGradient>
-              {/* named paths reused by animateMotion */}
-              <path id="tr1" d="M0 80 H120 L160 120 H260 L300 80 H420" />
-              <path id="tr2" d="M0 220 H180 L220 260 H360 L400 220 H520" />
-              <path id="tr3" d="M0 380 H100 L140 340 H240 L280 380 H420 L460 420 H600" />
-              <path id="tr4" d="M0 520 H240 L280 480 H460" />
-              <path id="tr5" d="M340 0 V100 L380 140 V240" />
-              <path id="tr6" d="M480 40 V160 L520 200 V300" />
-              <path id="tr7" d="M560 200 V320 L600 360 V460" />
-            </defs>
-            <g stroke="#FF6933" strokeWidth="1.2" strokeLinecap="round" opacity="0.55">
-              {/* horizontal + right-angle traces */}
-              <path d="M0 80 H120 L160 120 H260 L300 80 H420" />
-              <path d="M0 140 H80 L120 180 H240" />
-              <path d="M0 220 H180 L220 260 H360 L400 220 H520" />
-              <path d="M0 300 H140 L180 340 H320" />
-              <path d="M0 380 H100 L140 340 H240 L280 380 H420 L460 420 H600" />
-              <path d="M0 460 H160 L200 500 H340" />
-              <path d="M0 520 H240 L280 480 H460" />
-              <path d="M60 0 V60 L100 100 V180" />
-              <path d="M200 0 V40 L240 80 V160" />
-              <path d="M340 0 V100 L380 140 V240" />
-              <path d="M480 40 V160 L520 200 V300" />
-              <path d="M560 200 V320 L600 360 V460" />
-              <path d="M380 300 V400 L420 440 V560" />
-              <path d="M120 320 V420 L160 460 V560" />
-            </g>
-            {/* node dots */}
-            <g fill="#FF6933" opacity="0.75">
-              {[
-                [120, 80], [160, 120], [260, 120], [300, 80], [420, 80],
-                [80, 140], [120, 180], [240, 180],
-                [180, 220], [220, 260], [360, 260], [400, 220], [520, 220],
-                [140, 300], [180, 340], [320, 340],
-                [100, 380], [140, 340], [280, 380], [420, 380], [460, 420], [600, 420],
-                [160, 460], [200, 500], [340, 500],
-                [240, 520], [280, 480], [460, 480],
-                [60, 60], [100, 100], [200, 40], [240, 80], [340, 100], [380, 140],
-                [480, 160], [520, 200], [560, 320], [600, 360], [380, 400], [420, 440],
-                [120, 420], [160, 460],
-              ].map(([cx, cy], i) => (
-                <circle key={i} cx={cx} cy={cy} r="2.6" />
-              ))}
-            </g>
-            {/* animated "data packets" traveling along selected traces */}
-            <g style={{ mixBlendMode: "screen" }}>
-              {[
-                { href: "#tr1", dur: "4.2s", begin: "0s" },
-                { href: "#tr2", dur: "5.6s", begin: "1.3s" },
-                { href: "#tr3", dur: "6.8s", begin: "0.6s" },
-                { href: "#tr4", dur: "4.8s", begin: "2.1s" },
-                { href: "#tr5", dur: "5.2s", begin: "0.9s" },
-                { href: "#tr6", dur: "6.0s", begin: "2.6s" },
-                { href: "#tr7", dur: "5.4s", begin: "1.7s" },
-              ].map((p, i) => (
-                <g key={i}>
-                  {/* halo */}
-                  <circle r="7" fill="url(#dataPulse)" opacity="0.9">
-                    <animateMotion dur={p.dur} begin={p.begin} repeatCount="indefinite" rotate="auto">
-                      <mpath href={p.href} />
-                    </animateMotion>
-                  </circle>
-                  {/* bright head */}
-                  <circle r="2" fill="#FFF3E9">
-                    <animateMotion dur={p.dur} begin={p.begin} repeatCount="indefinite" rotate="auto">
-                      <mpath href={p.href} />
-                    </animateMotion>
-                  </circle>
-                </g>
-              ))}
-            </g>
-          </svg>
-        </div>
+        />
+        {/* soft edge softener between stripe and image */}
+        <div
+          aria-hidden
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            clipPath: "polygon(44% 0, 52% 0, 26% 100%, 18% 100%)",
+            background:
+              "linear-gradient(135deg, rgba(255,105,51,0.35) 0%, rgba(255,105,51,0) 100%)",
+          }}
+        />
 
-        <div className="container-x relative pt-24 lg:pt-32 pb-44 lg:pb-56 grid lg:grid-cols-2 gap-10">
-          <div className="reveal relative z-[2]">
-            <div className="inline-flex items-center gap-3 text-primary text-xs font-semibold uppercase tracking-[0.2em] mb-7">
-              {banner?.support_text || "Bem-vindo à WF Digital"}
-            </div>
-            {banner?.title ? (
-              <h1 className="font-black text-foreground leading-[1.05] tracking-tight text-[44px] sm:text-[60px] lg:text-[76px]">
-                {banner.title}
-              </h1>
-            ) : (
-              <h1 className="font-black text-foreground leading-[1.05] tracking-tight text-[44px] sm:text-[60px] lg:text-[76px]">
-                <span className="relative inline-block">
-                  O futuro
-                  <svg className="absolute left-0 -bottom-1 w-[220px] h-3" viewBox="0 0 180 12" fill="none" preserveAspectRatio="none">
-                    <path d="M2 8 C 40 2, 90 10, 178 4" stroke="#FF6933" strokeWidth="4" strokeLinecap="round" fill="none" />
-                  </svg>
-                </span>
-                <br />pertence à<br />tecnologia
-              </h1>
+        {/* Content */}
+        <div className="container-x relative pt-40 lg:pt-52 pb-32 lg:pb-40 min-h-[720px] flex flex-col justify-center">
+          <div className="max-w-[900px] reveal">
+            {banner?.support_text && (
+              <div className="inline-flex items-center gap-3 text-primary text-xs font-bold uppercase tracking-[0.24em] mb-6">
+                <span className="w-8 h-[2px] bg-primary" />
+                {banner.support_text}
+              </div>
             )}
-            {banner?.subtitle && (
-              <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-[520px] leading-relaxed">{banner.subtitle}</p>
+            <h1 className="font-black text-white leading-[1.02] tracking-tight text-[46px] sm:text-[64px] lg:text-[84px]">
+              {banner?.title || "Soluções Tecnológicas Inovadoras"}
+            </h1>
+            {(banner?.subtitle || !banner) && (
+              <p className="mt-7 text-base sm:text-lg text-white/75 max-w-[560px] leading-relaxed">
+                {banner?.subtitle || "Oferecemos soluções de TI abrangentes e softwares avançados, proporcionando valor real aos nossos clientes."}
+              </p>
             )}
             <div className="flex flex-wrap gap-3 mt-10">
-              <Link to={(banner?.cta_primary_url as any) || "/about"} className="btn-primary">
-                {banner?.cta_primary_label || "Saiba mais"}
+              <Link
+                to={(banner?.cta_primary_url as any) || "/servicos"}
+                className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white font-bold text-[13px] tracking-[0.14em] uppercase px-8 py-4 shadow-[0_16px_36px_-14px_rgba(255,105,51,0.55)] transition-all hover:-translate-y-0.5"
+              >
+                {banner?.cta_primary_label || "Saber Mais"}
               </Link>
               {banner?.cta_secondary_label && banner?.cta_secondary_url && (
-                <Link to={banner.cta_secondary_url as any} className="btn-secondary">
+                <Link
+                  to={banner.cta_secondary_url as any}
+                  className="inline-flex items-center gap-2 border border-white/40 hover:border-white text-white font-bold text-[13px] tracking-[0.14em] uppercase px-8 py-4 transition-all"
+                >
                   {banner.cta_secondary_label}
                 </Link>
               )}
             </div>
           </div>
 
-          {/* slider prev/next controls on right — minimal outlined circles */}
+          {/* slider prev/next controls on right */}
           {banners.length > 1 && (
-            <div className="hidden lg:flex absolute right-8 top-1/2 -translate-y-1/2 flex-col items-center gap-5 z-10">
+            <div className="hidden lg:flex absolute right-10 top-1/2 -translate-y-1/2 flex-col items-center gap-4 z-10">
               <button
                 type="button"
                 onClick={prevBanner}
                 aria-label="Anterior"
-                className="w-16 h-16 rounded-full border border-foreground/30 text-foreground/70 grid place-items-center bg-transparent backdrop-blur-[1px] transition-all duration-300 hover:border-primary hover:text-primary hover:-translate-y-0.5"
+                className="w-14 h-14 rounded-full border border-white/40 text-white/85 grid place-items-center bg-transparent transition-all duration-300 hover:border-primary hover:text-primary hover:bg-white/5"
               >
                 <ChevronLeft className="w-5 h-5" strokeWidth={1.5} />
               </button>
@@ -329,15 +259,15 @@ function HomePage() {
                 type="button"
                 onClick={nextBanner}
                 aria-label="Próximo"
-                className="w-16 h-16 rounded-full border border-foreground/30 text-foreground/70 grid place-items-center bg-transparent backdrop-blur-[1px] transition-all duration-300 hover:border-primary hover:text-primary hover:-translate-y-0.5"
+                className="w-14 h-14 rounded-full border border-white/40 text-white/85 grid place-items-center bg-transparent transition-all duration-300 hover:border-primary hover:text-primary hover:bg-white/5"
               >
                 <ChevronRight className="w-5 h-5" strokeWidth={1.5} />
               </button>
             </div>
           )}
         </div>
-
       </section>
+
 
       <ServicesShowcase />
 
