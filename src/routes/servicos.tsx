@@ -3,7 +3,7 @@ import { SiteShell } from "@/components/site/SiteShell";
 import { InternalHero } from "@/components/site/InternalHero";
 import { Counters } from "@/components/site/Counters";
 import { ServiceCard } from "@/components/site/ServiceCard";
-import { usePublicServices } from "@/hooks/usePublicContent";
+import { usePublicServices, usePublicHeroCards } from "@/hooks/usePublicContent";
 import { usePageSeoInject } from "@/hooks/usePageSeoInject";
 import * as Icons from "lucide-react";
 import {
@@ -119,9 +119,33 @@ function ServicesPage() {
         };
       })
     : services;
+  const { data: heroCards } = usePublicHeroCards();
+  const heroCardsList = (heroCards && heroCards.length ? heroCards : [
+    { title: "SISTEMAS PERSONALIZADOS", description: "Software sob medida para automatizar processos e organizar sua operação.", number: "01" },
+    { title: "AUTOMAÇÃO COM IA",         description: "Inteligência artificial aplicada ao atendimento, dados e rotinas.",         number: "02" },
+    { title: "SERVIDORES E NUVEM",       description: "Implantação de servidores locais e em nuvem com segurança e backup.",     number: "03" },
+  ]);
   return (
     <SiteShell>
       <InternalHero title="Serviços" crumb="Serviços" />
+
+      {/* Overlapping hero cards */}
+      <section className="bg-white">
+        <div className="container-x -mt-16 md:-mt-20 relative z-10 grid md:grid-cols-3 gap-6 reveal-stagger">
+          {heroCardsList.map((c: any, i: number) => (
+            <div
+              key={c.title}
+              className="card-tech p-8 pb-10 reveal"
+              style={{ transitionDelay: `${i * 100}ms` }}
+            >
+              <span className="absolute right-6 bottom-4 text-[70px] font-black leading-none text-foreground/[0.07] select-none">{c.number}</span>
+              <h3 className="relative text-[18px] font-black uppercase tracking-wide leading-tight">{c.title}</h3>
+              <p className="relative mt-5 text-[13px] text-muted-foreground leading-relaxed max-w-[220px]">{c.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
 
       {/* Intro */}
       <section className="section-y bg-white">

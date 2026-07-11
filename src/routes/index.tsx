@@ -337,20 +337,6 @@ function HomePage() {
           )}
         </div>
 
-        {/* overlapping cards */}
-        <div className="container-x relative -mt-32 lg:-mt-40 pb-24 grid md:grid-cols-3 gap-6 z-10">
-          {heroCardsList.map((c, i) => (
-            <div
-              key={c.t}
-              className="card-tech p-8 pb-10 reveal"
-              style={{ transitionDelay: `${i * 100}ms` }}
-            >
-              <span className="absolute right-6 bottom-4 text-[70px] font-black leading-none text-foreground/[0.07] select-none">{c.n}</span>
-              <h3 className="relative text-[18px] font-black uppercase tracking-wide leading-tight ">{c.t}</h3>
-              <p className="relative mt-5 text-[13px] text-muted-foreground leading-relaxed max-w-[220px]">{c.d}</p>
-            </div>
-          ))}
-        </div>
       </section>
 
       <ServicesShowcase />
